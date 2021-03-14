@@ -136,5 +136,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hittableObjects:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 768
   bulletRb: {fileID: -1695049126273358493}
