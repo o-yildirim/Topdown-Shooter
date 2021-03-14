@@ -8,7 +8,7 @@ public class EnemyStates : MonoBehaviour
     public EnemyState state;
     void Start()
     {
-        state = EnemyState.Idle;
+        state = EnemyState.Patrolling;
     }
 
 }
