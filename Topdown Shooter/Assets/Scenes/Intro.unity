@@ -402,7 +402,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 555062436}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -513,9 +513,10 @@ MonoBehaviour:
   - {fileID: 142833354}
   - {fileID: 1843871119}
   - {fileID: 511519403}
-  offset: 0.05
+  zRotationOffset: 0.05
+  distanceOffset: 0.07
   patrollingSpeed: 4
-  turningSpeed: 75
+  turningSpeed: 150
   waitTime: 1
   patrolState: 0
 --- !u!1 &626451747
