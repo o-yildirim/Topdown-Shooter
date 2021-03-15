@@ -8,13 +8,15 @@ public class EnemyPatrol : MonoBehaviour
     private Rigidbody2D enemyRb;
 
     public Transform[] patrolPoints;
-    public float offset = 0.5f;
+    public float zRotationOffset = 0.05f;
+    public float distanceOffset = 0.1f;
     public float patrollingSpeed = 4f;
     public float turningSpeed = 3f;
     public float waitTime = 1f;
     private int currentPatrolPoint = 0;
-    [SerializeField]
+
     private float currentWaitTime = 0f;
+    private float targetZ;
     public enum PatrolState { Idle, GoingToTarget, Rotating };
 
     public PatrolState patrolState;
@@ -28,7 +30,6 @@ public class EnemyPatrol : MonoBehaviour
 
     private void Update()
     {
-
         if (currentState.state != EnemyStates.EnemyState.Patrolling) return;
 
         if (patrolState == PatrolState.Idle)
@@ -37,7 +38,11 @@ public class EnemyPatrol : MonoBehaviour
         }
         else if (patrolState == PatrolState.Rotating)
         {
-           // rotateToPath();
+            rotateToPath();
+        }
+        else if (patrolState == PatrolState.GoingToTarget)
+        {
+            checkIfReachedPatrolPoint();
         }
 
 
@@ -50,66 +55,50 @@ public class EnemyPatrol : MonoBehaviour
         if (currentWaitTime >= waitTime)
         {
             currentWaitTime = 0f;
+
+            calculateNextRotation();
+
             patrolState = PatrolState.Rotating;
         }
+    }
+
+    private void calculateNextRotation()
+    {
+        Vector2 lookPosition = patrolPoints[currentPatrolPoint].position;
+        Vector2 direction = lookPosition - (Vector2)transform.position;
+        targetZ = (Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg) - 90f;
     }
 
     public void rotateToPath()
     {
         Vector2 lookPosition = patrolPoints[currentPatrolPoint].position;
         Vector2 direction = lookPosition - (Vector2)transform.position;
-        float zRotation = -Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
 
-        float currentZ = transform.eulerAngles.z;
-
-        if (currentZ != zRotation)
+        if (Mathf.Abs(Vector3.Angle(direction, transform.up)) <= zRotationOffset)
         {
-            float nextZrotation = Mathf.MoveTowards(transform.eulerAngles.z, zRotation, turningSpeed * Time.deltaTime);
+            enemyRb.velocity = direction.normalized * patrollingSpeed;
+            patrolState = PatrolState.GoingToTarget;
+        }
+        else
+        {
+            float nextZrotation = Mathf.MoveTowardsAngle(transform.eulerAngles.z, targetZ, turningSpeed * Time.deltaTime);   
             transform.rotation = Quaternion.AngleAxis(nextZrotation, Vector3.forward);
-            if(currentZ == zRotation)
-            {
-                patrolState = PatrolState.GoingToTarget;
-            }
+
         }
-
-
-
     }
-}
 
-  /*  private void FixedUpdate()
+    public void checkIfReachedPatrolPoint()
     {
-        //if (currentState.state != EnemyStates.EnemyState.Patrolling) return;
+        Vector3 enemyPos = enemyRb.position;
+        Vector3 targetPos = patrolPoints[currentPatrolPoint].position;
+        float distance = Vector3.Distance(enemyPos, targetPos);
 
-        /*if (patrolState == PatrolState.Idle)
+        if (distance <= distanceOffset)
         {
-            currentWaitTime += Time.deltaTime;
-            if(currentWaitTime >= waitTime)
-            {
-                Debug.Log("Gecti");
-                currentWaitTime = 0f;
-            }
-        }
-
-     
-
-        Vector2 direction = ((Vector2)patrolPoints[currentPatrolPoint].position - enemyRb.position);
-
-        enemyRb.velocity = direction.normalized * enemySpeed;
-        if (Vector3.Distance(enemyRb.position, patrolPoints[currentPatrolPoint].position) <= offset)
-        {
-            float targetZ = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
             enemyRb.velocity = Vector2.zero;
-            if (enemyRb.transform.eulerAngles.z <= targetZ)
-            {
-                enemyRb.MoveRotation(targetZ);
-            }
-            else
-            {
-                currentPatrolPoint = (currentPatrolPoint + 1) % patrolPoints.Length;
-            }
+            patrolState = PatrolState.Idle;
+            currentPatrolPoint = (currentPatrolPoint + 1) % patrolPoints.Length;
         }
     }
 }
-    
-    */
+

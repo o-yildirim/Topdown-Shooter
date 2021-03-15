@@ -23,6 +23,14 @@ public class EnemySight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //debugAngles();
+        //detectWithTan2();
+
+        detectWithVectorAngle();
+    }
+
+    /*private void debugAngles()
+    {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Vector2 direction2 = player.position - transform.position;
@@ -32,10 +40,7 @@ public class EnemySight : MonoBehaviour
 
             Debug.Log("Atan2= " + ((Mathf.Atan2(direction2.x, direction2.y) * Mathf.Rad2Deg) + transform.eulerAngles.z));
         }
-
-        //detectWithTan2();
-        detectWithVectorAngle();
-    }
+    }*/
 
     /* public void detectWithTan2()
       {
@@ -78,7 +83,7 @@ public class EnemySight : MonoBehaviour
                 if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
                 {
                     spRenderer.color = Color.black;
-                    state.state = EnemyStates.EnemyState.Agressive;
+                    //state.state = EnemyStates.EnemyState.Agressive;
                     // Debug.Log("Player seen");
                 }
             }
@@ -92,7 +97,6 @@ public class EnemySight : MonoBehaviour
             spRenderer.color = Color.white;
         }
     }
-
 
     private void OnDrawGizmos()
     {
