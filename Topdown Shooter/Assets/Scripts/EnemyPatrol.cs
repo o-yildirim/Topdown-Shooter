@@ -7,6 +7,7 @@ public class EnemyPatrol : MonoBehaviour
     private EnemyStates currentState;
     private Rigidbody2D enemyRb;
 
+
     public Transform[] patrolPoints;
     public float zRotationOffset = 0.05f;
     public float distanceOffset = 0.1f;
@@ -25,7 +26,7 @@ public class EnemyPatrol : MonoBehaviour
     {
         currentState = GetComponent<EnemyStates>();
         enemyRb = GetComponent<Rigidbody2D>();
-        patrolState = PatrolState.Idle;
+
     }
 
     private void Update()

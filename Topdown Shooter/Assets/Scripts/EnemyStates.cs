@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class EnemyStates : MonoBehaviour
 {
-    public enum EnemyState{Idle,Patrolling,Agressive};
+    public enum EnemyState{Idle,Patrolling,Agressive,Unconsious,Dead};
     public EnemyState state;
 }

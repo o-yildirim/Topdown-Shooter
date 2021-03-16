@@ -9,7 +9,7 @@ public class EnemySight : MonoBehaviour
     private Transform player;
     private SpriteRenderer spRenderer;
     private EnemyStates state;
-
+    private Color defaultColor;
     [SerializeField]
     private LayerMask detectableLayers;
 
@@ -18,9 +18,9 @@ public class EnemySight : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         spRenderer = GetComponent<SpriteRenderer>();
         state = GetComponent<EnemyStates>();
+        defaultColor = spRenderer.color;
     }
 
-    // Update is called once per frame
     void Update()
     {
         //debugAngles();
@@ -73,8 +73,7 @@ public class EnemySight : MonoBehaviour
     public void detectWithVectorAngle()
     {
         Vector2 direction = player.position - transform.position;
-        float angle = Vector3.Angle(direction, transform.up);
-        //if (angle > -sightAngle / 2f && angle <= sightAngle / 2f)
+        float angle = Vector3.Angle(direction, transform.up);       
         if (Mathf.Abs(angle) <= sightAngle / 2f)
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, maxSightDistance, detectableLayers);
@@ -89,12 +88,12 @@ public class EnemySight : MonoBehaviour
             }
             else
             {
-                spRenderer.color = Color.white;
+                spRenderer.color = defaultColor;
             }
         }
         else
         {
-            spRenderer.color = Color.white;
+            spRenderer.color = defaultColor;
         }
     }
 

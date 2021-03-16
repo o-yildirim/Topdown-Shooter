@@ -10,10 +10,12 @@ public class Shotgun : MonoBehaviour
     public int bulletsToFire;
     public float angleBetweenBullets;
 
+    public float fireRate = 1f; //1 firing per second 
     public float bulletSpeed;
 
     public GameObject shotgunBullet;
     public GameObject shotgunFireEffect;
+
     public Transform firePoint;
 
     void Update()
