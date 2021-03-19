@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShotgunBullet : MonoBehaviour
+public class RicochetBullet : MonoBehaviour
 {
     [SerializeField]
     private LayerMask hittableObjects;
     private Vector2 previousPos;
 
+    public int ricochetCount;
+    private int currentRicochet = 0;
+    public float speedAfterRichochet;
     public Rigidbody2D bulletRb;
     public GameObject explosionEffectPrefab;
     public GameObject bloodEffectPrefab;
@@ -25,20 +28,32 @@ public class ShotgunBullet : MonoBehaviour
             if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
             {
                 Enemy hitEnemy = hit.collider.GetComponent<Enemy>();
-                hitEnemy.die();      
-
+                hitEnemy.die();
+     
                 GameObject bloodEffect = Instantiate(bloodEffectPrefab, hit.transform.position, Quaternion.LookRotation(transform.up));
-                Destroy(bloodEffect,0.8f);
+                Destroy(bloodEffect, 0.8f);
             }
             else
             {
                 GameObject createdExplosionEffect = Instantiate(explosionEffectPrefab, hit.point, Quaternion.LookRotation(hit.normal));
                 Destroy(createdExplosionEffect, 0.8f);
-               
+
+                if(ricochetCount == currentRicochet)
+                {
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    Vector2 comingDirection = hit.point - previousPos;
+                    Vector2 newVelocityVector = Vector2.Reflect(comingDirection,hit.normal);
+                    bulletRb.velocity = newVelocityVector.normalized * speedAfterRichochet;
+                    currentRicochet++;
+                }
+
             }
-            Destroy(gameObject);
-        } 
+
+        }
         previousPos = bulletRb.position;
-        
+
     }
 }
