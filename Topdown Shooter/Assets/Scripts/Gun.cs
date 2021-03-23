@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+
+    public int gunId;
+
     public int bulletCapacity;
 
     public int bulletsToFire;
@@ -25,6 +28,9 @@ public class Gun : MonoBehaviour
         {
             nextFire = Time.time + fireRate;
             fire();
+
+           // GameObject holster = UtilityClass.FindChildGameObjectWithTag(transform.root.gameObject, "GunHolster");
+           // UtilityClass.FindGunWithId<Gun>(transform.root.gameObject, 1);
         }
     }
 

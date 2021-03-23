@@ -231,7 +231,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 768
   ricochetCount: 3
-  speedAfterRichochet: 35
+  speedAfterRichochet: 60
   bulletRb: {fileID: 8979049600207971286}
   explosionEffectPrefab: {fileID: 6159279234797725152, guid: df554c1f3dcd6cc4fb686e523a26b724, type: 3}
   bloodEffectPrefab: {fileID: 6051316680833882325, guid: 30d98a9389ec50c4681cccbcbbb8a544, type: 3}

@@ -82,7 +82,7 @@ public class EnemySight : MonoBehaviour
                 if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
                 {
                     spRenderer.color = Color.black;
-                    //state.state = EnemyStates.EnemyState.Agressive;
+                    state.state = EnemyStates.EnemyState.Agressive;
                     // Debug.Log("Player seen");
                 }
             }
