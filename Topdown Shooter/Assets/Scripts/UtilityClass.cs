@@ -32,9 +32,7 @@ public class UtilityClass
 
     public static Gun FindGunWithId<T>(GameObject parentObject,int id) where T : Component
     {
-
         Transform parentTransform = parentObject.transform;
-
 
         foreach (Transform gunCandidate in parentTransform)
         {
@@ -48,4 +46,42 @@ public class UtilityClass
         return null;
 
     }
+
+
+    public static Gun FindGunWithName<T>(GameObject parentObject, string name) where T : Component
+    {
+        Transform parentTransform = parentObject.transform;
+
+        foreach (Transform gunCandidate in parentTransform)
+        {
+            Debug.Log(gunCandidate.name);
+            Gun gun = gunCandidate.GetComponent<Gun>();
+            if (gun && gun.gunName == name)
+            {
+                return gun;
+            }
+        }
+        return null;
+
+    }
+
+
+
+
+    public static Gun FindActiveGun(GameObject parentObject)
+    {
+        Transform parentTransform = parentObject.transform;
+
+        foreach (Transform gunCandidate in parentTransform)
+        {
+
+            Gun gun = gunCandidate.GetComponent<Gun>();
+            if (gun && gun.gameObject.activeSelf)
+            {
+                return gun;
+            }
+        }
+        return null;
+    }
+
 }

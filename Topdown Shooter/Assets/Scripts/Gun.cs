@@ -5,7 +5,17 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
 
+    public enum GunState {Idle,Firing,Cooling,Reloading};
+
+    public GunState gunState = GunState.Idle;
     public int gunId;
+    public string gunName;
+   
+    public float recoilRate;
+    public float cooldownRate = 0.5f;
+    public float recoilLimit;
+  
+    private float currentRecoil = 0f;
 
     public int bulletCapacity;
 
@@ -24,19 +34,46 @@ public class Gun : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && Time.time > nextFire)
+        if (Input.GetMouseButton(0) && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
             fire();
+            gunState = GunState.Firing;
+            if (currentRecoil < recoilLimit)
+            {
+                currentRecoil += recoilRate;
+            }
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            gunState = GunState.Cooling;          
+        }
 
-           // GameObject holster = UtilityClass.FindChildGameObjectWithTag(transform.root.gameObject, "GunHolster");
-           // UtilityClass.FindGunWithId<Gun>(transform.root.gameObject, 1);
+
+
+        if(gunState == GunState.Cooling)
+        {
+            cooldown();          
+        }
+       
+    }
+
+    public void cooldown()
+    {
+        if (currentRecoil > 0f)
+        {
+            currentRecoil = Mathf.MoveTowards(currentRecoil,0,cooldownRate * Time.deltaTime);
+        }
+        else
+        {
+            gunState = GunState.Idle;
         }
     }
 
     public void fire()
     {
-        float zRotation = firePoint.transform.eulerAngles.z - ((bulletsToFire-1)/2 * angleBetweenBullets);
+        float randomRecoil = Random.Range(-currentRecoil, currentRecoil);
+        float zRotation = firePoint.transform.eulerAngles.z - ((bulletsToFire-1)/2 * angleBetweenBullets) + randomRecoil;
 
         for (int i = 0; i < bulletsToFire; i++)
         {

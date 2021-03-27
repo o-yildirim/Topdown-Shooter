@@ -20,6 +20,11 @@ public class GunManagement : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void Start()
+    {
+        currentActiveGunId = UtilityClass.FindActiveGun(holster).gunId;
+    }
     public void switchGun(int activateId)
     {
         Gun currentActive = UtilityClass.FindGunWithId<Gun>(holster, currentActiveGunId);
