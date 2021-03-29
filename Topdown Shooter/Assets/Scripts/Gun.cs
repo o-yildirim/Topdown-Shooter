@@ -34,6 +34,9 @@ public class Gun : MonoBehaviour
 
     void Update()
     {
+
+        if (GameController.instance.isGamePaused) return;
+
         if (Input.GetMouseButton(0) && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;

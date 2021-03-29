@@ -21,7 +21,8 @@ public class ConsoleManager : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+
+        if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             if (!consoleOpen)
             {
@@ -37,8 +38,8 @@ public class ConsoleManager : MonoBehaviour
     public void openConsole()
     {
         if (!consoleCanvas.activeSelf)
-        {      
-            Time.timeScale = 0f;
+        {
+            GameController.instance.pause();
             consoleCanvas.SetActive(true);
             consoleInput.Select();
             consoleOpen = true;
@@ -51,7 +52,7 @@ public class ConsoleManager : MonoBehaviour
         {
             consoleCanvas.SetActive(false);
             consoleOpen = false;
-            Time.timeScale = 1f;
+            GameController.instance.resume();
         }
     }
 
