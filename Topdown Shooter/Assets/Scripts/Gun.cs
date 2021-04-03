@@ -30,8 +30,15 @@ public class Gun : MonoBehaviour
     public GameObject bulletPrefab;
     public GameObject bullletFireEffectPrefab;
 
+    public Sprite weaponSprite;
+    //private Rigidbody2D playerRb;
+
     public Transform firePoint;
 
+    private void Start()
+    {
+        //playerRb = transform.root.GetComponent<Rigidbody2D>();
+    }
     void Update()
     {
 
@@ -78,9 +85,10 @@ public class Gun : MonoBehaviour
         float randomRecoil = Random.Range(-currentRecoil, currentRecoil);
         float zRotation = firePoint.transform.eulerAngles.z - ((bulletsToFire-1)/2 * angleBetweenBullets) + randomRecoil;
 
+        //playerRb.velocity = Vector2.zero;
         for (int i = 0; i < bulletsToFire; i++)
         {
-            GameObject bulletCreated = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);    
+            GameObject bulletCreated = Instantiate(bulletPrefab,firePoint.position, firePoint.rotation);    
             Rigidbody2D bulletRigidbody = bulletCreated.GetComponent<Rigidbody2D>();
             bulletCreated.transform.rotation = Quaternion.AngleAxis(zRotation, Vector3.forward);   
             bulletRigidbody.velocity = bulletCreated.transform.up * bulletSpeed;
@@ -88,7 +96,7 @@ public class Gun : MonoBehaviour
         
         }
 
-        GameObject effect = Instantiate(bullletFireEffectPrefab, firePoint.position, firePoint.rotation);      
+        GameObject effect = Instantiate(bullletFireEffectPrefab,firePoint.position, firePoint.rotation);      
         effect.transform.SetParent(gameObject.transform);
         effect.transform.localScale = Vector3.one;
         Destroy(effect, 0.8f);

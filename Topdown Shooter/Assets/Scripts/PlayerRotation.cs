@@ -16,7 +16,12 @@ public class PlayerRotation : MonoBehaviour
         if (GameController.instance.isGamePaused) return;
 
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        /*Vector3 direction = (Vector2)mousePos - playerRb.position;
+        float zAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(zAngle -90f, Vector3.forward);
+    */
     }
+
 
     private void FixedUpdate()
     {
