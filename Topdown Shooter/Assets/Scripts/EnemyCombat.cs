@@ -31,9 +31,10 @@ public class EnemyCombat : MonoBehaviour
         enemyRb = GetComponent<Rigidbody2D>();
     }
 
+    
     void Update()
     {
-        if (currentState.state != EnemyStates.EnemyState.Agressive) return;
+       if (currentState.state != EnemyStates.EnemyState.Agressive) return;
 
 
         Vector3 lookDirection = targetPlayer.position - transform.position;
@@ -47,6 +48,7 @@ public class EnemyCombat : MonoBehaviour
             transform.up = nextLookDirection;
         }
     }
+    
 
     public void shoot()
     {

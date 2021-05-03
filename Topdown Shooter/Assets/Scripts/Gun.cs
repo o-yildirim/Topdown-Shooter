@@ -31,14 +31,11 @@ public class Gun : MonoBehaviour
     public GameObject bullletFireEffectPrefab;
 
     public Sprite weaponSprite;
-    //private Rigidbody2D playerRb;
+
 
     public Transform firePoint;
 
-    private void Start()
-    {
-        //playerRb = transform.root.GetComponent<Rigidbody2D>();
-    }
+
     void Update()
     {
 
@@ -99,6 +96,6 @@ public class Gun : MonoBehaviour
         GameObject effect = Instantiate(bullletFireEffectPrefab,firePoint.position, firePoint.rotation);      
         effect.transform.SetParent(gameObject.transform);
         effect.transform.localScale = Vector3.one;
-        Destroy(effect, 0.8f);
+        Destroy(effect, 0.2f);
     }
 }

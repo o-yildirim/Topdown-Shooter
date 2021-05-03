@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2020630073395685642}
   - component: {fileID: 2020630073395685641}
   - component: {fileID: 2020630073395685640}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2020630073901638279}
   - component: {fileID: 2020630073901638272}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,7 +250,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2020630074979916457}
   - component: {fileID: 2020630074979916458}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -24,9 +24,9 @@ public class Enemy : MonoBehaviour
             }
         }
 
-        Destroy(gameObject); //Şimdilik kalsın buraya sprite falan girerse
-        enemyRb.velocity = Vector2.zero;
-        currentState.state = EnemyStates.EnemyState.Dead;
+        Destroy(transform.parent.gameObject); //Şimdilik kalsın buraya sprite falan girerse
+       // enemyRb.velocity = Vector2.zero;
+       // currentState.state = EnemyStates.EnemyState.Dead;
     }
 
    
