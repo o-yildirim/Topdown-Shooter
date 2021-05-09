@@ -22,70 +22,37 @@ public class EnemyPatrol : MonoBehaviour
 
     public PatrolState patrolState;
 
+
+    private EnemyPathfinding pathfinding;
+
     void Start()
     {
         currentState = GetComponent<EnemyStates>();
         enemyRb = GetComponent<Rigidbody2D>();
 
+
+        pathfinding = GetComponent<EnemyPathfinding>();
+       // if(currentState.state == EnemyStates.EnemyState.Patrolling)
+       // {
+       //     pathfinding.changePath(patrolPoints[currentPatrolPoint]);
+       // }
     }
 
     private void Update()
     {
+
         if (currentState.state != EnemyStates.EnemyState.Patrolling) return;
 
         if (patrolState == PatrolState.Idle)
         {
-            wait();
-        }
-        else if (patrolState == PatrolState.Rotating)
-        {
-            rotateToPath();
+            pathfinding.changePath(patrolPoints[currentPatrolPoint]);
+            patrolState = PatrolState.GoingToTarget;
         }
         else if (patrolState == PatrolState.GoingToTarget)
         {
             checkIfReachedPatrolPoint();
         }
 
-
-    }
-
-
-    public void wait()
-    {
-        currentWaitTime += Time.deltaTime;
-        if (currentWaitTime >= waitTime)
-        {
-            currentWaitTime = 0f;
-
-            calculateNextRotation();
-
-            patrolState = PatrolState.Rotating;
-        }
-    }
-
-    private void calculateNextRotation()
-    {
-        Vector2 lookPosition = patrolPoints[currentPatrolPoint].position;
-        Vector2 direction = lookPosition - (Vector2)transform.position;
-        targetZ = (Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg) - 90f;
-    }
-
-    public void rotateToPath()
-    {
-        Vector2 lookPosition = patrolPoints[currentPatrolPoint].position;
-        Vector2 direction = lookPosition - (Vector2)transform.position;
-
-        if (Mathf.Abs(Vector3.Angle(direction, transform.up)) <= zRotationOffset)
-        {
-            enemyRb.velocity = direction.normalized * patrollingSpeed;
-            patrolState = PatrolState.GoingToTarget;
-        }
-        else
-        {
-            float nextZrotation = Mathf.MoveTowardsAngle(transform.eulerAngles.z, targetZ, turningSpeed * Time.deltaTime);   
-            transform.rotation = Quaternion.AngleAxis(nextZrotation, Vector3.forward);
-
-        }
     }
 
     public void checkIfReachedPatrolPoint()
@@ -97,9 +64,83 @@ public class EnemyPatrol : MonoBehaviour
         if (distance <= distanceOffset)
         {
             enemyRb.velocity = Vector2.zero;
-            patrolState = PatrolState.Idle;
+            
             currentPatrolPoint = (currentPatrolPoint + 1) % patrolPoints.Length;
+            patrolState = PatrolState.Idle;
         }
     }
+
+    /*
+    if (currentState.state != EnemyStates.EnemyState.Patrolling) return;
+
+    if (patrolState == PatrolState.Idle)
+    {
+        wait();
+    }
+    else if (patrolState == PatrolState.Rotating)
+    {
+        rotateToPath();
+    }
+    else if (patrolState == PatrolState.GoingToTarget)
+    {
+        checkIfReachedPatrolPoint();
+    }
+
+
 }
+
+
+public void wait()
+{
+    currentWaitTime += Time.deltaTime;
+    if (currentWaitTime >= waitTime)
+    {
+        currentWaitTime = 0f;
+
+        calculateNextRotation();
+
+        patrolState = PatrolState.Rotating;
+    }
+}
+
+private void calculateNextRotation()
+{
+    Vector2 lookPosition = patrolPoints[currentPatrolPoint].position;
+    Vector2 direction = lookPosition - (Vector2)transform.position;
+    targetZ = (Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg) - 90f;
+}
+
+public void rotateToPath()
+{
+    Vector2 lookPosition = patrolPoints[currentPatrolPoint].position;
+    Vector2 direction = lookPosition - (Vector2)transform.position;
+
+    if (Mathf.Abs(Vector3.Angle(direction, transform.up)) <= zRotationOffset)
+    {
+        enemyRb.velocity = direction.normalized * patrollingSpeed;
+        patrolState = PatrolState.GoingToTarget;
+    }
+    else
+    {
+        float nextZrotation = Mathf.MoveTowardsAngle(transform.eulerAngles.z, targetZ, turningSpeed * Time.deltaTime);   
+        transform.rotation = Quaternion.AngleAxis(nextZrotation, Vector3.forward);
+
+    }
+}
+
+public void checkIfReachedPatrolPoint()
+{
+    Vector3 enemyPos = enemyRb.position;
+    Vector3 targetPos = patrolPoints[currentPatrolPoint].position;
+    float distance = Vector3.Distance(enemyPos, targetPos);
+
+    if (distance <= distanceOffset)
+    {
+        enemyRb.velocity = Vector2.zero;
+        patrolState = PatrolState.Idle;
+        currentPatrolPoint = (currentPatrolPoint + 1) % patrolPoints.Length;
+    }
+}*/
+}
+
 

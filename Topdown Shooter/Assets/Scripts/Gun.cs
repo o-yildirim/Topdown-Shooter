@@ -41,6 +41,8 @@ public class Gun : MonoBehaviour
 
         if (GameController.instance.isGamePaused) return;
 
+        
+        /*
         if (Input.GetMouseButton(0) && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
@@ -55,10 +57,16 @@ public class Gun : MonoBehaviour
         {
             gunState = GunState.Cooling;          
         }
-
-
-
-        if(gunState == GunState.Cooling)
+        */
+        if(gunState == GunState.Firing)
+        {
+            //nextFire = Time.time + fireRate;
+            if (currentRecoil < recoilLimit)
+            {
+                currentRecoil += recoilRate;
+            }
+        }
+        else if(gunState == GunState.Cooling)
         {
             cooldown();          
         }
@@ -79,6 +87,11 @@ public class Gun : MonoBehaviour
 
     public void fire()
     {
+        if (Time.time < nextFire) return;
+        nextFire = Time.time + fireRate;
+
+        gunState = GunState.Firing;
+
         float randomRecoil = Random.Range(-currentRecoil, currentRecoil);
         float zRotation = firePoint.transform.eulerAngles.z - ((bulletsToFire-1)/2 * angleBetweenBullets) + randomRecoil;
 
@@ -97,5 +110,10 @@ public class Gun : MonoBehaviour
         effect.transform.SetParent(gameObject.transform);
         effect.transform.localScale = Vector3.one;
         Destroy(effect, 0.2f);
+    }
+
+    public void stopFire()
+    {
+        gunState = GunState.Cooling;
     }
 }

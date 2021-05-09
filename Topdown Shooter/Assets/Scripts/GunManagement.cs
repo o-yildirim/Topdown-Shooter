@@ -7,6 +7,7 @@ public class GunManagement : MonoBehaviour
     public int currentActiveGunId;
     public GameObject holster;
     public SpriteRenderer playerRenderer;
+    public PlayerShooting playerShootingScript;
 
     public static GunManagement instance;
 
@@ -37,5 +38,7 @@ public class GunManagement : MonoBehaviour
         playerRenderer.sprite = toActivate.weaponSprite;
 
         currentActiveGunId = activateId;
+        playerShootingScript.currentActiveGun = toActivate;
+
     }
 }

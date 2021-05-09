@@ -30,6 +30,14 @@ public class ShotgunBullet : MonoBehaviour
                 GameObject bloodEffect = Instantiate(bloodEffectPrefab, hit.transform.position, Quaternion.LookRotation(transform.up));
                 Destroy(bloodEffect,0.8f);
             }
+            else if(hit.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
+            {
+                Player hitPlayer = hit.collider.GetComponent<Player>();
+                hitPlayer.die();
+
+                GameObject bloodEffect = Instantiate(bloodEffectPrefab, hit.transform.position, Quaternion.LookRotation(transform.up));
+                Destroy(bloodEffect, 0.8f);
+            }
             else
             {
                 GameObject createdExplosionEffect = Instantiate(explosionEffectPrefab, hit.point, Quaternion.LookRotation(hit.normal));

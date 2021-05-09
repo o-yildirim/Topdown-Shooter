@@ -6,12 +6,15 @@ public class EnemySight : MonoBehaviour
 {
     public float sightAngle = 30f;
     public float maxSightDistance = 5f;
+
     private Transform player;
     private SpriteRenderer spRenderer;
     private EnemyStates state;
     private Color defaultColor;
     [SerializeField]
     private LayerMask detectableLayers;
+    private EnemyPathfinding pathfinding;
+   
 
     void Start()
     {
@@ -19,6 +22,7 @@ public class EnemySight : MonoBehaviour
         spRenderer = GetComponent<SpriteRenderer>();
         state = GetComponent<EnemyStates>();
         defaultColor = spRenderer.color;
+        pathfinding = GetComponent<EnemyPathfinding>();
     }
 
     void Update()
@@ -72,28 +76,33 @@ public class EnemySight : MonoBehaviour
 
     public void detectWithVectorAngle()
     {
-        Vector2 direction = player.position - transform.position;
-        float angle = Vector3.Angle(direction, transform.up);       
-        if (Mathf.Abs(angle) <= sightAngle / 2f)
+        if (player)
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, maxSightDistance, detectableLayers);
-            if (hit)
+            Vector2 direction = player.position - transform.position;
+            float angle = Vector3.Angle(direction, transform.up);
+            if (Mathf.Abs(angle) <= sightAngle / 2f)
             {
-                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, maxSightDistance, detectableLayers);
+                if (hit)
                 {
-                    spRenderer.color = Color.black;
-                    state.state = EnemyStates.EnemyState.Agressive;
-                    // Debug.Log("Player seen");
+                    if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
+                    {
+                        spRenderer.color = Color.black;
+                        state.state = EnemyStates.EnemyState.Agressive;
+                        pathfinding.changePath(player);
+                        pathfinding.moveSpeed = pathfinding.chaseMoveSpeed;
+                        // Debug.Log("Player seen");
+                    }
+                }
+                else
+                {
+                    spRenderer.color = defaultColor;
                 }
             }
             else
             {
                 spRenderer.color = defaultColor;
             }
-        }
-        else
-        {
-            spRenderer.color = defaultColor;
         }
     }
 

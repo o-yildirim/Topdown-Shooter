@@ -136,7 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hittableObjects:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 1792
   bulletRb: {fileID: -1695049126273358493}
   explosionEffectPrefab: {fileID: 6159279234797725152, guid: df554c1f3dcd6cc4fb686e523a26b724, type: 3}
   bloodEffectPrefab: {fileID: 6051316680833882325, guid: 30d98a9389ec50c4681cccbcbbb8a544, type: 3}

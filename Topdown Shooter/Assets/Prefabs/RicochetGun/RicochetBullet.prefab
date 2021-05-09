@@ -229,7 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hittableObjects:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 1792
   ricochetCount: 3
   speedAfterRichochet: 60
   bulletRb: {fileID: 8979049600207971286}

@@ -15,6 +15,9 @@ public class CameraMovement : MonoBehaviour
 
     void Update()
     {
-        transform.position = player.position + offset;
+        if (player)
+        {
+            transform.position = player.position + offset;
+        }
     }
 }
