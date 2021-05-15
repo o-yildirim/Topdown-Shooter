@@ -7,14 +7,16 @@ public class EnemySight : MonoBehaviour
     public float sightAngle = 30f;
     public float maxSightDistance = 5f;
 
+
     private Transform player;
     private SpriteRenderer spRenderer;
     private EnemyStates state;
+    private EnemyPatrol patrol;
     private Color defaultColor;
     [SerializeField]
     private LayerMask detectableLayers;
     private EnemyPathfinding pathfinding;
-   
+    public bool canSeePlayer = false;
 
     void Start()
     {
@@ -23,14 +25,21 @@ public class EnemySight : MonoBehaviour
         state = GetComponent<EnemyStates>();
         defaultColor = spRenderer.color;
         pathfinding = GetComponent<EnemyPathfinding>();
+        patrol = GetComponent<EnemyPatrol>();
     }
 
     void Update()
     {
         //debugAngles();
         //detectWithTan2();
-
-        detectWithVectorAngle();
+        if (!canSeePlayer)
+        {
+            detectWithVectorAngle();
+        }
+        else
+        {
+            isPlayerLost();
+        }
     }
 
     /*private void debugAngles()
@@ -74,8 +83,82 @@ public class EnemySight : MonoBehaviour
           }
       }*/
 
+    public void isPlayerLost()
+    {
+        if (player)
+        {
+            Vector2 direction = player.position - transform.position;
+            float angle = Vector3.Angle(direction, transform.up);
+            if (Mathf.Abs(angle) <= sightAngle / 2f)
+            {
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, maxSightDistance, detectableLayers);
+
+                if (!hit) return;
+
+                else if (hit.collider.gameObject.layer != LayerMask.NameToLayer("Player"))
+                {
+                    if (state.state == EnemyStates.EnemyState.Agressive)
+                    {
+                        state.state = EnemyStates.EnemyState.Chasing;
+                        pathfinding.changePath(player);
+                    }
+                    else
+                    {
+                        state.state = EnemyStates.EnemyState.Patrolling;
+                        pathfinding.moveSpeed = patrol.patrollingSpeed;
+                        patrol.leadToNextPatrolPoint();
+                    }
+                    pathfinding.isStopped = false;
+      
+                    spRenderer.color = defaultColor;
+                    canSeePlayer = false;
+                }
+            }
+        }
+
+
+    }
     public void detectWithVectorAngle()
     {
+        /*if (player)
+        {
+            Vector2 direction = player.position - transform.position;
+            float angle = Vector3.Angle(direction, transform.up);
+            if (Mathf.Abs(angle) <= sightAngle / 2f)
+            {
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, maxSightDistance, detectableLayers);
+                if (hit)
+                {
+                    if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
+                    {
+                        spRenderer.color = Color.black;
+                        state.state = EnemyStates.EnemyState.Agressive;
+                        pathfinding.changePath(player);
+                        pathfinding.moveSpeed = pathfinding.chaseMoveSpeed;
+                        canSeePlayer = true;
+                    }
+                }
+                else
+                {
+                    state.state = EnemyStates.EnemyState.Patrolling;
+                    pathfinding.isStopped = false;
+                    patrol.leadToNextPatrolPoint();
+                    spRenderer.color = defaultColor;
+                    canSeePlayer = false;
+                }
+
+            }
+            else
+            {
+                state.state = EnemyStates.EnemyState.Patrolling;
+                pathfinding.isStopped = false;
+                canSeePlayer = false;
+                patrol.leadToNextPatrolPoint();
+                spRenderer.color = defaultColor;
+            }
+        }*/
+
+
         if (player)
         {
             Vector2 direction = player.position - transform.position;
@@ -91,19 +174,13 @@ public class EnemySight : MonoBehaviour
                         state.state = EnemyStates.EnemyState.Agressive;
                         pathfinding.changePath(player);
                         pathfinding.moveSpeed = pathfinding.chaseMoveSpeed;
-                        // Debug.Log("Player seen");
+                        canSeePlayer = true;
                     }
                 }
-                else
-                {
-                    spRenderer.color = defaultColor;
-                }
-            }
-            else
-            {
-                spRenderer.color = defaultColor;
             }
         }
+
+
     }
 
     private void OnDrawGizmos()

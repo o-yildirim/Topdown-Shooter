@@ -31,7 +31,7 @@ public class Gun : MonoBehaviour
     public GameObject bullletFireEffectPrefab;
 
     public Sprite weaponSprite;
-
+    public GameObject droppedOnFloorGun;
 
     public Transform firePoint;
 
@@ -42,25 +42,9 @@ public class Gun : MonoBehaviour
         if (GameController.instance.isGamePaused) return;
 
         
-        /*
-        if (Input.GetMouseButton(0) && Time.time > nextFire)
-        {
-            nextFire = Time.time + fireRate;
-            fire();
-            gunState = GunState.Firing;
-            if (currentRecoil < recoilLimit)
-            {
-                currentRecoil += recoilRate;
-            }
-        }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            gunState = GunState.Cooling;          
-        }
-        */
+     
         if(gunState == GunState.Firing)
         {
-            //nextFire = Time.time + fireRate;
             if (currentRecoil < recoilLimit)
             {
                 currentRecoil += recoilRate;
@@ -95,7 +79,6 @@ public class Gun : MonoBehaviour
         float randomRecoil = Random.Range(-currentRecoil, currentRecoil);
         float zRotation = firePoint.transform.eulerAngles.z - ((bulletsToFire-1)/2 * angleBetweenBullets) + randomRecoil;
 
-        //playerRb.velocity = Vector2.zero;
         for (int i = 0; i < bulletsToFire; i++)
         {
             GameObject bulletCreated = Instantiate(bulletPrefab,firePoint.position, firePoint.rotation);    
@@ -115,5 +98,10 @@ public class Gun : MonoBehaviour
     public void stopFire()
     {
         gunState = GunState.Cooling;
+    }
+
+    public void drop(Vector3 dropPosition,float rotation)
+    {
+        Instantiate(droppedOnFloorGun, dropPosition, Quaternion.Euler(0f, 0f, rotation));
     }
 }

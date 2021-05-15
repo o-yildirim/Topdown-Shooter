@@ -45,8 +45,7 @@ public class EnemyPatrol : MonoBehaviour
 
         if (patrolState == PatrolState.Idle)
         {
-            pathfinding.changePath(patrolPoints[currentPatrolPoint]);
-            patrolState = PatrolState.GoingToTarget;
+            leadToNextPatrolPoint();
         }
         else if (patrolState == PatrolState.GoingToTarget)
         {
@@ -68,6 +67,12 @@ public class EnemyPatrol : MonoBehaviour
             currentPatrolPoint = (currentPatrolPoint + 1) % patrolPoints.Length;
             patrolState = PatrolState.Idle;
         }
+    }
+
+    public void leadToNextPatrolPoint()
+    {
+        pathfinding.changePath(patrolPoints[currentPatrolPoint]);
+        patrolState = PatrolState.GoingToTarget;
     }
 
     /*

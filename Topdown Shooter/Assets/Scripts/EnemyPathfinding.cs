@@ -11,13 +11,14 @@ public class EnemyPathfinding : MonoBehaviour
     public float nextWaypointDistance = 3f;
 
     private EnemyStates states;
+    private EnemySight sight;
     public float rotationSpeed = 3f;
 
     private Path path;
     private int currentWaypoint = 0;
     private bool reachedEndOfPath = false;
 
-    private bool isStopped = false;
+    public bool isStopped = false;
 
     private Seeker seeker;
     private Rigidbody2D enemyRigidbody;
@@ -28,18 +29,17 @@ public class EnemyPathfinding : MonoBehaviour
         enemyRigidbody = GetComponent<Rigidbody2D>();
         seeker = GetComponent<Seeker>();
         states = GetComponent<EnemyStates>();
-
         InvokeRepeating("updatePath", 0f, invokeRate);       
     }
 
     void FixedUpdate()
     {
-        if (isStopped)
+      /*  if (isStopped)
         {
             enemyRigidbody.velocity = Vector2.zero;
             return;
         }
-
+        */
         if (path == null) return;
 
         if (currentWaypoint >= path.vectorPath.Count)
@@ -52,12 +52,28 @@ public class EnemyPathfinding : MonoBehaviour
             reachedEndOfPath = false;
         }
 
-        //if(states.state != EnemyStates.EnemyState.Agressive)
-        //{
-            Vector2 velocity = enemyRigidbody.velocity; 
-            Vector3 nextLookDirection = Vector3.MoveTowards(transform.up, velocity, rotationSpeed * Time.deltaTime);
-            transform.up = nextLookDirection;
-        //}
+        Vector3 nextLookDirection = transform.up;
+        if (states.state != EnemyStates.EnemyState.Agressive)
+        {
+            Vector2 velocity = enemyRigidbody.velocity;
+            nextLookDirection = Vector3.MoveTowards(transform.up, velocity, rotationSpeed * Time.deltaTime);
+
+        }
+        else
+        {
+            if (target)
+            {
+                Vector2 directionVectorToPlayer = (Vector2)target.position - enemyRigidbody.position;
+                nextLookDirection = Vector3.MoveTowards(transform.up, directionVectorToPlayer, rotationSpeed * Time.deltaTime);
+            }
+        }
+        transform.up = nextLookDirection;
+
+        if (isStopped)
+        {
+            enemyRigidbody.velocity = Vector2.zero;
+            return;
+        }
 
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - enemyRigidbody.position).normalized;
         Vector2 moveVector = direction * moveSpeed * Time.deltaTime;

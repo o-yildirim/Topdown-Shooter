@@ -7,6 +7,7 @@ public class EnemyCombat : MonoBehaviour
     private EnemyStates currentState;
     public Transform targetPlayer;
 
+    private EnemySight sight;
     private Gun enemyGun;
     //private MeleeWeapon melee; BURALAR EKLENECEK SONRA
 
@@ -21,7 +22,7 @@ public class EnemyCombat : MonoBehaviour
     public float shootingRange = 15f;
 
 
-    public Transform weapon;
+    //public Transform weapon;
 
     private EnemyPathfinding pathfinding;
 
@@ -29,49 +30,44 @@ public class EnemyCombat : MonoBehaviour
     {
         if(enemyType == FightingType.Gun)
         {
-            weapon = UtilityClass.FindChildGameObjectWithTag<Transform>(gameObject, "Gun");  //SHOTGUNUN FIRE POINTINI OTO CEKIYOR
-            enemyGun = weapon.GetComponent<Gun>();
+            enemyGun = UtilityClass.FindActiveGun(gameObject);  //SHOTGUNUN FIRE POINTINI OTO CEKIYOR
+            //Debug.Log(weapon.name);
+            //enemyGun = weapon.GetComponent<Gun>();
         }
         else if(enemyType == FightingType.Melee)
         {
-            weapon = UtilityClass.FindChildGameObjectWithTag<Transform>(gameObject, "Melee"); //HENUZ YOK
+           // weapon = UtilityClass.FindChildGameObjectWithTag<Transform>(gameObject, "Melee"); //HENUZ YOK
         }
         
 
         currentState = GetComponent<EnemyStates>();
         enemyRb = GetComponent<Rigidbody2D>();
         pathfinding = GetComponent<EnemyPathfinding>();
-        
+        sight = GetComponent<EnemySight>();
     }
 
 
     void Update()
     {
-        if (currentState.state != EnemyStates.EnemyState.Agressive) return;
+        if (currentState.state != EnemyStates.EnemyState.Agressive && currentState.state != EnemyStates.EnemyState.Chasing) return;
 
 
         if (targetPlayer)
         {
 
             float distanceToPlayer = Vector3.Distance(transform.position, targetPlayer.position);
-
             Vector3 lookDirection = targetPlayer.position - transform.position;
-            Debug.Log(distanceToPlayer);
-            //Mathf.Abs(Vector3.Angle(transform.up, lookDirection)) <= rotationOffset && 
-
-            
-
+         
             if (Mathf.Abs(Vector3.Angle(transform.up, lookDirection)) <= shootPlayerAngle && distanceToPlayer <= shootingRange)
             {
-                pathfinding.stop();
-                shoot();
+                if (sight.canSeePlayer)
+                {
+                    pathfinding.stop();
+                    shoot();
+                }
+               
             }
-            else
-            {
-                // Vector3 nextLookDirection = Vector3.MoveTowards(transform.up, lookDirection, turningSpeed * Time.deltaTime);
-                // transform.up = nextLookDirection;
-
-            }
+          
         }
     }
     
@@ -82,7 +78,10 @@ public class EnemyCombat : MonoBehaviour
         enemyGun.fire();
     }
 
-   
+   public Gun getGun()
+    {
+        return enemyGun;
+    }
     
 
     
