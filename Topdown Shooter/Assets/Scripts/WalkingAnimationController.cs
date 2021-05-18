@@ -25,11 +25,13 @@ public class WalkingAnimationController : MonoBehaviour
         else if (playerRb.velocity.normalized.y > 0f)
         {
             animator.SetBool("walkingForward", true);
+         
         }
         else if (playerRb.velocity.normalized.y < 0f)
         {
             animator.SetBool("walkingBackwards", true);
         }
+
     }
 
     public void resetAnimatorParameters()

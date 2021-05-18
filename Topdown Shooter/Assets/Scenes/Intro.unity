@@ -536,7 +536,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &92000709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -592,7 +592,7 @@ GameObject:
   - component: {fileID: 97682010}
   - component: {fileID: 97682011}
   m_Layer: 10
-  m_Name: Feet
+  m_Name: LowerBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3072,7 +3072,6 @@ GameObject:
   - component: {fileID: 782935539}
   - component: {fileID: 782935541}
   - component: {fileID: 782935543}
-  - component: {fileID: 782935542}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -3125,18 +3124,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   consoleCanvas: {fileID: 1448579962}
---- !u!114 &782935542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 782935538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da0bd182d0f754c46924ab8cfef36e1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &782935543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6686,7 +6673,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1829462745
 Transform:
   m_ObjectHideFlags: 0
@@ -6779,7 +6766,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 3677460594921755697, guid: 1dd6f453a2a3e454f94a720760a6da23, type: 3}
   bullletFireEffectPrefab: {fileID: 3530131015262698056, guid: 5cbfbf724f47a404da18c1fd20d402b8, type: 3}
   weaponSprite: {fileID: 0}
-  droppedOnFloorGun: {fileID: 5134611069930838298, guid: c1d71687f27107a4eabcf908cc68665a, type: 3}
+  droppedOnFloorGun: {fileID: 1948926712685913082, guid: 013c84ec29d84f6458026dc336faa57a, type: 3}
   firePoint: {fileID: 835608729}
 --- !u!1 &1843871118
 GameObject:
