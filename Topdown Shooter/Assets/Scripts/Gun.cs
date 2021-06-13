@@ -69,7 +69,7 @@ public class Gun : MonoBehaviour
         }
     }
 
-    public void fire()
+    public virtual void fire()
     {
         if (Time.time < nextFire) return;
         nextFire = Time.time + fireRate;
@@ -95,7 +95,7 @@ public class Gun : MonoBehaviour
         Destroy(effect, 0.2f);
     }
 
-    public void stopFire()
+    public virtual void stopFire()
     {
         gunState = GunState.Cooling;
     }

@@ -28,7 +28,7 @@ public class ShotgunBullet : MonoBehaviour
                 hitEnemy.die();      
 
                 GameObject bloodEffect = Instantiate(bloodEffectPrefab, hit.transform.position, Quaternion.LookRotation(transform.up));
-                Destroy(bloodEffect,0.8f);
+                //Destroy(bloodEffect,0.8f);
             }
             else if(hit.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
             {
@@ -36,7 +36,7 @@ public class ShotgunBullet : MonoBehaviour
                 hitPlayer.die();
 
                 GameObject bloodEffect = Instantiate(bloodEffectPrefab, hit.transform.position, Quaternion.LookRotation(transform.up));
-                Destroy(bloodEffect, 0.8f);
+                //Destroy(bloodEffect, 0.8f);
             }
             else
             {

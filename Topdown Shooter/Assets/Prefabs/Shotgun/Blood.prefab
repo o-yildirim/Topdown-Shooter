@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6051316680833882326}
   - component: {fileID: 6051316680833882327}
   - component: {fileID: 6051316680833882324}
+  - component: {fileID: 8735100207354982752}
   m_Layer: 0
   m_Name: Blood
   m_TagString: Untagged
@@ -114,8 +115,8 @@ ParticleSystem:
     enabled: 1
     startLifetime:
       serializedVersion: 2
-      minMaxState: 3
-      scalar: 0.5
+      minMaxState: 0
+      scalar: Infinity
       minScalar: 0.1
       maxCurve:
         serializedVersion: 2
@@ -2076,7 +2077,7 @@ ParticleSystem:
     speedModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: -1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4870,3 +4871,15 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &8735100207354982752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6051316680833882325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd651bdb76bd26d44806696b0360fb21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
