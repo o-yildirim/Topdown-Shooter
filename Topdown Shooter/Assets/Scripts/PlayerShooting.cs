@@ -9,14 +9,16 @@ public class PlayerShooting : MonoBehaviour
     void Start()
     {
         currentActiveGun = UtilityClass.FindActiveGun(gunHolster.gameObject);
-        if (currentActiveGun is Flamethrower)
-        {
-            Debug.Log("Flamethrower");
-        }
-        else if(currentActiveGun is Gun)
-        {
-            Debug.Log("Gun");
-        }
+        //Aşağı blok ileride silinecek
+                GetComponent<SpriteRenderer>().sprite = currentActiveGun.weaponSprite;
+                if (currentActiveGun is Flamethrower)
+                {
+                    Debug.Log("Flamethrower");
+                }
+                else if(currentActiveGun is Gun)
+                {
+                    Debug.Log("Gun");
+                }
     }
 
     // Update is called once per frame

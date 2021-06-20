@@ -294,10 +294,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf86c9a064c283b4392e35b2059f472e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minRotation: 0
-  maxRotation: 360
-  minDistanceToBody: -1
-  maxDistanceToBody: 1
 --- !u!114 &57931994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1995,10 +1991,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf86c9a064c283b4392e35b2059f472e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minRotation: 0
-  maxRotation: 360
-  minDistanceToBody: 0.5
-  maxDistanceToBody: 3
 --- !u!114 &462505078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2584,10 +2576,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf86c9a064c283b4392e35b2059f472e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minRotation: 0
-  maxRotation: 360
-  minDistanceToBody: 0.5
-  maxDistanceToBody: 3
 --- !u!114 &555062445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2671,7 +2659,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 747369c8526c2194cae3a9f1e2011a46, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 00bdcb6ef42d920478f3704b305da176, type: 3}
   m_Color: {r: 0.6603774, g: 0.6391987, b: 0.43921328, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3104,7 +3092,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &771549925
 Transform:
   m_ObjectHideFlags: 0
@@ -3141,12 +3129,12 @@ MonoBehaviour:
   bulletCapacity: 0
   bulletsToFire: 0
   angleBetweenBullets: 0
-  fireRate: 0
+  fireRate: 0.05
   bulletSpeed: 0
   bulletPrefab: {fileID: 0}
   bullletFireEffectPrefab: {fileID: 0}
-  weaponSprite: {fileID: 0}
-  droppedOnFloorGun: {fileID: 0}
+  weaponSprite: {fileID: 21300000, guid: 00bdcb6ef42d920478f3704b305da176, type: 3}
+  droppedOnFloorGun: {fileID: 9068936485925812484, guid: 0847b1e1159d2854f984ea9efab959fb, type: 3}
   firePoint: {fileID: 0}
 --- !u!1 &782935538
 GameObject:
@@ -3183,6 +3171,10 @@ MonoBehaviour:
   holster: {fileID: 453082303}
   playerRenderer: {fileID: 626451748}
   playerShootingScript: {fileID: 626451756}
+  minRotation: 0
+  maxRotation: 360
+  minDistanceToBody: 0.5
+  maxDistanceToBody: 2
 --- !u!4 &782935540
 Transform:
   m_ObjectHideFlags: 0
@@ -3436,10 +3428,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf86c9a064c283b4392e35b2059f472e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minRotation: 0
-  maxRotation: 360
-  minDistanceToBody: 0.5
-  maxDistanceToBody: 3
 --- !u!114 &868597380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5890,13 +5878,13 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1512288905}
   serializedVersion: 6
-  lengthInSec: 0.15
+  lengthInSec: 0.05
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 0
   useUnscaledTime: 0
@@ -6018,7 +6006,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 9
+      scalar: 15
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -6071,8 +6059,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 1, g: 0.64149487, b: 0.1273585, a: 1}
-      maxColor: {r: 1, g: 0.33490568, b: 0.33490568, a: 1}
+      minColor: {r: 1, g: 0.38431373, b: 0, a: 0.65882355}
+      maxColor: {r: 1, g: 0, b: 0, a: 0.7882353}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -6134,8 +6122,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1.2
-      minScalar: 1
+      scalar: 0.6
+      minScalar: 0.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -6450,7 +6438,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 1000
+    maxNumParticles: 2000
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -6825,7 +6813,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 100
+        scalar: 150
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -10662,7 +10650,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1512288905}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 771549925}
@@ -12039,7 +12027,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1987659601
 Transform:
   m_ObjectHideFlags: 0
@@ -12132,7 +12120,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 3677460594921755697, guid: 1dd6f453a2a3e454f94a720760a6da23, type: 3}
   bullletFireEffectPrefab: {fileID: 3530131015262698056, guid: 5cbfbf724f47a404da18c1fd20d402b8, type: 3}
   weaponSprite: {fileID: 21300000, guid: 747369c8526c2194cae3a9f1e2011a46, type: 3}
-  droppedOnFloorGun: {fileID: 0}
+  droppedOnFloorGun: {fileID: 1948926712685913082, guid: 013c84ec29d84f6458026dc336faa57a, type: 3}
   firePoint: {fileID: 979169652}
 --- !u!1 &1990627155
 GameObject:

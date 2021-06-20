@@ -7,11 +7,7 @@ public class Enemy : MonoBehaviour
     private EnemyStates currentState;
     private Rigidbody2D enemyRb;
 
-    public float minRotation = 0f;
-    public float maxRotation = 360f;
-
-    public float minDistanceToBody = 0.5f;
-    public float maxDistanceToBody = 3f;
+    
 
     void Start()
     {
@@ -22,12 +18,8 @@ public class Enemy : MonoBehaviour
     public void die()
     {
         Gun activeGun = GetComponent<EnemyCombat>().getGun();
-        float xLocation = transform.position.x + Random.Range(minDistanceToBody, maxDistanceToBody);
-        float yLocation = transform.position.y + Random.Range(minDistanceToBody, maxDistanceToBody);
-        Vector3 dropPosition = new Vector3(xLocation, yLocation, transform.position.z);
 
-        float gunRotation = Random.Range(minRotation, maxRotation);
-        activeGun.drop(dropPosition, gunRotation);
+        GunManagement.instance.dropGun(activeGun,transform.position);
         
 
         var scripts = GetComponents<MonoBehaviour>();

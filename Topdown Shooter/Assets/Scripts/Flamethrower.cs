@@ -5,6 +5,7 @@ using UnityEngine;
 public class Flamethrower : Gun
 {
     private ParticleSystem ps;
+    private float nextFire;
     void Start()
     {
         ps = transform.GetComponentInChildren<ParticleSystem>();
@@ -13,7 +14,10 @@ public class Flamethrower : Gun
 
     public override void fire()
     {
-        if(!ps.isPlaying) ps.Play();   
+        if (Time.time < nextFire) return;
+
+        nextFire = Time.time + fireRate;
+        ps.Play();   
     }
 
     public override void stopFire()

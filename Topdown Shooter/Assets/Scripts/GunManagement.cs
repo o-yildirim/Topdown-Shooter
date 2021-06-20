@@ -9,6 +9,12 @@ public class GunManagement : MonoBehaviour
     public SpriteRenderer playerRenderer;
     public PlayerShooting playerShootingScript;
 
+    public float minRotation = 0f;
+    public float maxRotation = 360f;
+
+    public float minDistanceToBody = 0.5f;
+    public float maxDistanceToBody = 3f;
+
     public static GunManagement instance;
 
     private void Awake()
@@ -33,6 +39,9 @@ public class GunManagement : MonoBehaviour
         Gun toActivate = UtilityClass.FindGunWithId<Gun>(holster, activateId);
 
         currentActive.gameObject.SetActive(false);
+
+        dropGun(currentActive,playerShootingScript.transform.position);
+
         toActivate.gameObject.SetActive(true);
 
         playerRenderer.sprite = toActivate.weaponSprite;
@@ -40,5 +49,16 @@ public class GunManagement : MonoBehaviour
         currentActiveGunId = activateId;
         playerShootingScript.currentActiveGun = toActivate;
 
+    }
+
+    public void dropGun(Gun activeGun,Vector3 position)
+    {
+        float xLocation = position.x + Random.Range(minDistanceToBody, maxDistanceToBody);
+        float yLocation = position.y + Random.Range(minDistanceToBody, maxDistanceToBody);
+        Vector3 dropPosition = new Vector3(xLocation, yLocation, position.z);
+
+        float gunRotation = Random.Range(minRotation, maxRotation);
+
+        activeGun.drop(dropPosition, gunRotation);
     }
 }
