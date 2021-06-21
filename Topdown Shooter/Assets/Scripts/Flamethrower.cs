@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Flamethrower : Gun
 {
-    private ParticleSystem ps;
+    public ParticleSystem ps;
     private float nextFire;
+    public GameObject fireEffectPrefab;
     void Start()
     {
         ps = transform.GetComponentInChildren<ParticleSystem>();
@@ -17,11 +18,29 @@ public class Flamethrower : Gun
         if (Time.time < nextFire) return;
 
         nextFire = Time.time + fireRate;
-        ps.Play();   
+        ps.Play();
     }
 
     public override void stopFire()
     {
         ps.Stop();
+    }
+
+
+    private void OnParticleCollision(GameObject other)
+    {
+   
+        List<ParticleCollisionEvent> collisionEvents = new List<ParticleCollisionEvent>();
+
+        int numCollisionEvents = ps.GetCollisionEvents(other, collisionEvents);
+        Debug.Log(numCollisionEvents);
+
+        int i = 0;
+        while (i < numCollisionEvents)
+        {
+
+            Instantiate(fireEffectPrefab, collisionEvents[i].intersection, fireEffectPrefab.transform.rotation);
+        }
+
     }
 }
