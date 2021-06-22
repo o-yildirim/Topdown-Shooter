@@ -579,7 +579,7 @@ MonoBehaviour:
   recoilRate: 0.2
   cooldownRate: 1
   recoilLimit: 3
-  bulletCapacity: 6
+  bullets: 0
   bulletsToFire: 1
   angleBetweenBullets: 0
   fireRate: 0.14
@@ -587,7 +587,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 6003512048502655394, guid: ad304b1afe7240f4c82bba795cce7c2a, type: 3}
   bullletFireEffectPrefab: {fileID: 3530131015262698056, guid: 5cbfbf724f47a404da18c1fd20d402b8, type: 3}
   weaponSprite: {fileID: 21300000, guid: a1945120239c78844b3cb9eb80dde63a, type: 3}
-  droppedOnFloorGun: {fileID: 5134611069930838298, guid: c1d71687f27107a4eabcf908cc68665a, type: 3}
+  droppedOnFloorGun: {fileID: 2131859778967051415, guid: c1d71687f27107a4eabcf908cc68665a, type: 3}
   firePoint: {fileID: 1497280799}
 --- !u!4 &92000710
 Transform:
@@ -2207,6 +2207,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2258,7 +2259,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 15
   field of view: 60
   orthographic: 1
   orthographic size: 8.5
@@ -2322,6 +2323,20 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad54967125ef94f4db691694190215e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickUpDistance: 3
+  player: {fileID: 626451749}
 --- !u!1 &542026300
 GameObject:
   m_ObjectHideFlags: 0
@@ -3127,7 +3142,7 @@ MonoBehaviour:
   recoilRate: 0
   cooldownRate: 0
   recoilLimit: 0
-  bulletCapacity: 0
+  bullets: 500
   bulletsToFire: 0
   angleBetweenBullets: 0
   fireRate: 0.05
@@ -3135,7 +3150,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 0}
   bullletFireEffectPrefab: {fileID: 0}
   weaponSprite: {fileID: 21300000, guid: 00bdcb6ef42d920478f3704b305da176, type: 3}
-  droppedOnFloorGun: {fileID: 9068936485925812484, guid: 0847b1e1159d2854f984ea9efab959fb, type: 3}
+  droppedOnFloorGun: {fileID: 1538964431085396335, guid: 0847b1e1159d2854f984ea9efab959fb, type: 3}
   firePoint: {fileID: 0}
   ps: {fileID: 0}
   fireEffectPrefab: {fileID: 6288912700103150802, guid: 6d0a01de1d4616845a714f722222b90a, type: 3}
@@ -4354,7 +4369,7 @@ MonoBehaviour:
   recoilRate: 0
   cooldownRate: 0
   recoilLimit: 0
-  bulletCapacity: 6
+  bullets: 0
   bulletsToFire: 7
   angleBetweenBullets: 1.5
   fireRate: 2
@@ -5377,7 +5392,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1423984116}
   - component: {fileID: 1423984115}
-  - component: {fileID: 1423984117}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -5450,25 +5464,6 @@ Transform:
   m_Father: {fileID: 366709065}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1423984117
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1423984114}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0a116c628858e0f479591c1b2cf2122b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1424722765
 GameObject:
   m_ObjectHideFlags: 0
@@ -11306,7 +11301,7 @@ MonoBehaviour:
   recoilRate: 0
   cooldownRate: 0
   recoilLimit: 0
-  bulletCapacity: 6
+  bullets: 0
   bulletsToFire: 1
   angleBetweenBullets: 0
   fireRate: 2
@@ -11645,7 +11640,7 @@ MonoBehaviour:
   recoilRate: 0
   cooldownRate: 0
   recoilLimit: 0
-  bulletCapacity: 6
+  bullets: 0
   bulletsToFire: 3
   angleBetweenBullets: 1.5
   fireRate: 0.5
@@ -11653,7 +11648,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 3677460594921755697, guid: 1dd6f453a2a3e454f94a720760a6da23, type: 3}
   bullletFireEffectPrefab: {fileID: 3530131015262698056, guid: 5cbfbf724f47a404da18c1fd20d402b8, type: 3}
   weaponSprite: {fileID: 0}
-  droppedOnFloorGun: {fileID: 1948926712685913082, guid: 013c84ec29d84f6458026dc336faa57a, type: 3}
+  droppedOnFloorGun: {fileID: 2191567340171748443, guid: 013c84ec29d84f6458026dc336faa57a, type: 3}
   firePoint: {fileID: 835608729}
 --- !u!1 &1843871118
 GameObject:
@@ -11735,7 +11730,7 @@ MonoBehaviour:
   recoilRate: 0.2
   cooldownRate: 1
   recoilLimit: 3
-  bulletCapacity: 6
+  bullets: 30
   bulletsToFire: 1
   angleBetweenBullets: 0
   fireRate: 0.14
@@ -11743,7 +11738,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 6003512048502655394, guid: ad304b1afe7240f4c82bba795cce7c2a, type: 3}
   bullletFireEffectPrefab: {fileID: 3530131015262698056, guid: 5cbfbf724f47a404da18c1fd20d402b8, type: 3}
   weaponSprite: {fileID: 21300000, guid: 5edb313757d8c47499806ca069b4fbf0, type: 3}
-  droppedOnFloorGun: {fileID: 5134611069930838298, guid: c1d71687f27107a4eabcf908cc68665a, type: 3}
+  droppedOnFloorGun: {fileID: 2131859778967051415, guid: c1d71687f27107a4eabcf908cc68665a, type: 3}
   firePoint: {fileID: 1985586690}
 --- !u!1 &1909562059
 GameObject:
@@ -12115,7 +12110,7 @@ MonoBehaviour:
   recoilRate: 0
   cooldownRate: 0
   recoilLimit: 0
-  bulletCapacity: 6
+  bullets: 8
   bulletsToFire: 3
   angleBetweenBullets: 1.5
   fireRate: 0.5
@@ -12123,7 +12118,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 3677460594921755697, guid: 1dd6f453a2a3e454f94a720760a6da23, type: 3}
   bullletFireEffectPrefab: {fileID: 3530131015262698056, guid: 5cbfbf724f47a404da18c1fd20d402b8, type: 3}
   weaponSprite: {fileID: 21300000, guid: 747369c8526c2194cae3a9f1e2011a46, type: 3}
-  droppedOnFloorGun: {fileID: 1948926712685913082, guid: 013c84ec29d84f6458026dc336faa57a, type: 3}
+  droppedOnFloorGun: {fileID: 2191567340171748443, guid: 013c84ec29d84f6458026dc336faa57a, type: 3}
   firePoint: {fileID: 979169652}
 --- !u!1 &1990627155
 GameObject:
@@ -12257,7 +12252,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2028570438
 Transform:
   m_ObjectHideFlags: 0

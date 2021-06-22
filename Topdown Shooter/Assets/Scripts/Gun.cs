@@ -17,13 +17,13 @@ public class Gun : MonoBehaviour
   
     private float currentRecoil = 0f;
 
-    public int bulletCapacity;
+    public int bullets;
 
     public int bulletsToFire;
     public float angleBetweenBullets;
 
     public float fireRate = 1f; //1 firing per second 
-    private float nextFire = 0.0f;
+    protected float nextFire = 0.0f;
 
     public float bulletSpeed;
 
@@ -71,6 +71,8 @@ public class Gun : MonoBehaviour
 
     public virtual void fire()
     {
+        if (bullets <= 0) return;
+
         if (Time.time < nextFire) return;
         nextFire = Time.time + fireRate;
 
@@ -88,6 +90,7 @@ public class Gun : MonoBehaviour
             zRotation += angleBetweenBullets;
         
         }
+        bullets--;
 
         GameObject effect = Instantiate(bullletFireEffectPrefab,firePoint.position, firePoint.rotation);      
         effect.transform.SetParent(gameObject.transform);
@@ -102,6 +105,10 @@ public class Gun : MonoBehaviour
 
     public void drop(Vector3 dropPosition,float rotation)
     {
-        Instantiate(droppedOnFloorGun, dropPosition, Quaternion.Euler(0f, 0f, rotation));
+        GameObject droppedGunPrefab = Instantiate(droppedOnFloorGun, dropPosition, Quaternion.identity);
+        GameObject droppedGun = droppedGunPrefab.transform.GetChild(0).gameObject;
+        droppedGun.transform.rotation = Quaternion.Euler(0f, 0f, rotation);
+        PickableGun droppedGunScript = droppedGun.GetComponent<PickableGun>();
+        droppedGunScript.ammo = bullets;
     }
 }

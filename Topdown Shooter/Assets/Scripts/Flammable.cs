@@ -47,8 +47,6 @@ public class Flammable : MonoBehaviour
 
     public IEnumerator burn(GameObject fireEffect, Vector3 position)
     {
-
-
         GameObject createdFireEffect = Instantiate(fireEffect, position, fireEffect.transform.rotation);
         ParticleSystem ps = createdFireEffect.GetComponent<ParticleSystem>();
         ParticleSystem.ShapeModule shape = ps.shape;
@@ -90,6 +88,5 @@ public class Flammable : MonoBehaviour
             yield return null;
         }      
     }
-
 
 }

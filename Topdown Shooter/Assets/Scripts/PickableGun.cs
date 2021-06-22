@@ -1,17 +1,36 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class PickableGun : MonoBehaviour
 {
     public int gunId;
+    public string gunName;
+    public int ammo;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public GameObject displayCanvas;
+    private Text gunInfoText;
+
+    private void Start()
     {
-        if(collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+        gunInfoText = displayCanvas.GetComponentInChildren<Text>();
+       
+    }
+    public void display()
+    {
+        if (displayCanvas)
         {
-            GunManagement.instance.switchGun(gunId);
-            Destroy(gameObject);
+            gunInfoText.text = gunName + "\n";
+            gunInfoText.text += "Bullets: " + ammo;
+            displayCanvas.SetActive(true);
+        }
+    }
+
+    public void hide()
+    {
+        if (displayCanvas)
+        {
+            displayCanvas.SetActive(false);
         }
     }
 

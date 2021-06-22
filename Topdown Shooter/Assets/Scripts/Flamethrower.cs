@@ -5,7 +5,6 @@ using UnityEngine;
 public class Flamethrower : Gun
 {
     public ParticleSystem ps;
-    private float nextFire;
     public GameObject fireEffectPrefab;
     void Start()
     {
@@ -19,6 +18,7 @@ public class Flamethrower : Gun
 
         nextFire = Time.time + fireRate;
         ps.Play();
+        bullets--;
     }
 
     public override void stopFire()
