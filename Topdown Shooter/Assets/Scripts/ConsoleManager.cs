@@ -22,7 +22,7 @@ public class ConsoleManager : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        if (Input.GetKeyDown(KeyCode.B))
         {
             if (!consoleOpen)
             {

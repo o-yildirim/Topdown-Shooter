@@ -19,6 +19,7 @@ public class Flamethrower : Gun
         nextFire = Time.time + fireRate;
         ps.Play();
         bullets--;
+        GunManagement.instance.bulletTextUI.text = bullets.ToString();
     }
 
     public override void stopFire()

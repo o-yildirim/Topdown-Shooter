@@ -10,7 +10,7 @@ public class PlayerShooting : MonoBehaviour
     {
         currentActiveGun = UtilityClass.FindActiveGun(gunHolster.gameObject);
         //Aşağı blok ileride silinecek
-                GetComponent<SpriteRenderer>().sprite = currentActiveGun.weaponSprite;
+              //  GetComponent<SpriteRenderer>().sprite = currentActiveGun.weaponSprite;
                 /*if (currentActiveGun is Flamethrower)
                 {
                     Debug.Log("Flamethrower");

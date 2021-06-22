@@ -32,7 +32,7 @@ public class CameraRaycast : MonoBehaviour
                         gunOnTheFloor.display();
                         if (Input.GetMouseButtonDown(1))
                         {
-                            GunManagement.instance.switchGun(gunOnTheFloor.gunId);
+                            GunManagement.instance.switchGun(gunOnTheFloor);
                             Destroy(gunOnTheFloor.transform.root.gameObject);
                             gunOnTheFloor = null;
                         }
