@@ -36,7 +36,7 @@ public class UtilityClass
 
         foreach (Transform gunCandidate in parentTransform)
         {
-            Debug.Log(gunCandidate.name);
+            //Debug.Log(gunCandidate.name);
             Gun gun = gunCandidate.GetComponent<Gun>();
             if (gun && gun.gunId == id)
             {

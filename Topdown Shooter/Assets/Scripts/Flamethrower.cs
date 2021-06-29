@@ -27,7 +27,7 @@ public class Flamethrower : Gun
         ps.Stop();
     }
 
-
+    /*
     private void OnParticleCollision(GameObject other)
     {
    
@@ -44,4 +44,5 @@ public class Flamethrower : Gun
         }
 
     }
+    */
 }
