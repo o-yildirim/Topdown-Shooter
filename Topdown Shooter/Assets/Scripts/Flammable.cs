@@ -131,7 +131,52 @@ public class Flammable : MonoBehaviour
 
         float oneFullyBurningFireEmission = fullyBurningParticle.emission.rateOverTime.constant;
 
+        //DENEME BURADAN AŞAĞISI DİĞER COMMENTE KADAR
+        float[] particleEmissions = new float[transform.childCount];
 
+
+
+        for (int i = transform.childCount - 1; i >= 0; i--)
+        {
+
+            GameObject currentChild = transform.GetChild(i).gameObject;
+            if (currentChild != fullyBurningFireEffect)
+            {
+                float emissionOfCurrentChild = currentChild.GetComponentInChildren<ParticleSystem>().emission.rateOverTime.constant;
+                particleEmissions[i] = emissionOfCurrentChild;
+
+                fullyBurningParticle.maxParticles += (int)(emissionOfCurrentChild * fullyBurningParticle.duration);
+                fullyBurningParticle.emissionRate += emissionOfCurrentChild;
+                Destroy(currentChild);
+            }
+
+            yield return new WaitForSeconds(destroyChildSeconds);
+        }
+
+
+        Debug.Log(oneFullyBurningFireEmission);
+
+        for(int i = 0; i < particleEmissions.Length; i++)
+        {
+            //fullyBurningParticle.emissionRate -= particleReductionPerIteration;
+            //fullyBurningParticle.maxParticles -= (int)(particleReductionPerIteration * fullyBurningParticle.duration);
+
+            fullyBurningParticle.emissionRate -= particleEmissions[i];
+            fullyBurningParticle.maxParticles -= (int)(particleEmissions[i] * fullyBurningParticle.duration);
+
+            yield return new WaitForSeconds(reduceParticleRatio);
+        }
+
+        fullyBurningParticle.emissionRate = oneFullyBurningFireEmission;
+
+        states = BurningStates.Optimized;
+        //
+
+
+
+
+
+        /* AŞAĞISI ORJINAL
         for (int i = transform.childCount-1; i >= 0; i--)
         {
 
@@ -164,7 +209,7 @@ public class Flammable : MonoBehaviour
         fullyBurningParticle.emissionRate = oneFullyBurningFireEmission;
 
         states = BurningStates.Optimized;
-
+        */
     }
 
 }
