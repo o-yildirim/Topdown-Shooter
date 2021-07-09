@@ -2685,7 +2685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3bdba7a2f7e044e9ead6ff103fac12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smoothTime: 0.1
+  smoothTime: 0.18
   cameraPosRatioBetweenMouseAndPlayer: 4
 --- !u!20 &519420031
 Camera:

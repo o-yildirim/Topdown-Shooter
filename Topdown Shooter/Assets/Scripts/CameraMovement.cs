@@ -18,15 +18,17 @@ public class CameraMovement : MonoBehaviour
 
     void Update()
     {
+
+        if (GameController.instance.isGamePaused)
+        {
+            transform.position = Vector3.SmoothDamp(transform.position, player.position + offset, ref speedVector, smoothTime);
+            return;
+        }
+
         if (player)
         {
-
-            //transform.position = player.position;
-
-
-            Vector3 newPos = player.position + ((player.position  + Camera.main.ScreenToWorldPoint(Input.mousePosition)) /cameraPosRatioBetweenMouseAndPlayer) ;
+            Vector3 newPos = player.position + ((player.position + Camera.main.ScreenToWorldPoint(Input.mousePosition)) / cameraPosRatioBetweenMouseAndPlayer);
             newPos += offset;
-            //transform.position = newPos + offset;
             transform.position = Vector3.SmoothDamp(transform.position, newPos, ref speedVector, smoothTime);
             Debug.Log(transform.position);
         }
