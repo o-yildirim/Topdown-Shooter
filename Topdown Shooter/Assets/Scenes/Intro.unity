@@ -3950,6 +3950,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGamePaused: 0
   pauseMenu: {fileID: 1929920202}
+  otherMenuCanvasses:
+  - {fileID: 1448579962}
+  - {fileID: 1535668246}
 --- !u!1 &808332068
 GameObject:
   m_ObjectHideFlags: 0
@@ -6789,7 +6792,7 @@ GameObject:
   - component: {fileID: 1448579963}
   m_Layer: 5
   m_Name: ConsoleCanvas
-  m_TagString: Untagged
+  m_TagString: ConsoleCanvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11871,11 +11874,11 @@ GameObject:
   - component: {fileID: 1535668251}
   m_Layer: 5
   m_Name: DialogueCanvasScuffed
-  m_TagString: Untagged
+  m_TagString: DialogueCanvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1535668247
 RectTransform:
   m_ObjectHideFlags: 0

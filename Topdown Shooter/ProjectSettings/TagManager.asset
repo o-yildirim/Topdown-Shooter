@@ -8,6 +8,8 @@ TagManager:
   - Gun
   - GunHolster
   - Flame
+  - DialogueCanvas
+  - ConsoleCanvas
   layers:
   - Default
   - TransparentFX

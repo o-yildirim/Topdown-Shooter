@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class ConsoleManager : MonoBehaviour
 {
+
+    public static ConsoleManager instance;
     public GameObject consoleCanvas;
     private ConsoleCommands commands;
     private InputField consoleInput;
@@ -11,6 +13,17 @@ public class ConsoleManager : MonoBehaviour
 
     private bool consoleOpen = false;
 
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else if(instance != this)
+        {
+            Destroy(this);
+        }
+    }
     private void Start()
     {
         commands = consoleCanvas.GetComponentInChildren<ConsoleCommands>();
@@ -22,7 +35,7 @@ public class ConsoleManager : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.BackQuote))
         {
             if (!consoleOpen)
             {

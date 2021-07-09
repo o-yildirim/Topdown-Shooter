@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
     public static GameController instance;
     public bool isGamePaused = false;
     public GameObject pauseMenu;
+    public GameObject[] otherMenuCanvasses; 
     private void Awake()
     {
         if (instance == null)
@@ -23,6 +24,28 @@ public class GameController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            bool anyCanvasOpen = false;
+            foreach (GameObject canvas in otherMenuCanvasses)
+            {
+                if (canvas.activeSelf)
+                {
+                    if (canvas.transform.CompareTag("DialogueCanvas"))
+                    {              
+                        DialogueManager.instance.StopAllCoroutines();
+                        StartCoroutine(DialogueManager.instance.endDialogue());                     
+                    }
+                    else if (canvas.transform.CompareTag("ConsoleCanvas"))
+                    {
+                        ConsoleManager.instance.closeConsole();
+                    }
+                    anyCanvasOpen = true;
+                }
+            }
+
+
+            if (anyCanvasOpen) return;
+
+
             if (!isGamePaused)
             {
                 pause();
@@ -64,5 +87,13 @@ public class GameController : MonoBehaviour
         //Load scene 0
         Debug.Log("Returning to menu");
     }
+
+    /*
+    void OnGUI()
+    {
+        Event e = Event.current;
+        if (e.isKey)
+            Debug.Log("e.keyCode: " + e.keyCode);
+    }*/
 
 }

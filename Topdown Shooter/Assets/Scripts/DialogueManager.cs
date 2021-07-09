@@ -90,19 +90,18 @@ public class DialogueManager : MonoBehaviour
             }
             yield return null;
         }
-   
+          
+        StartCoroutine(endDialogue());    
+    }
+
+    public IEnumerator endDialogue()
+    {
+
         dialogueCanvasAnimator.SetBool("isOpen", false);
         while (dialogueCanvasAnimator.GetCurrentAnimatorStateInfo(0).IsName("DialogueCanvasOpening"))
         {
             yield return null;
         }
-        endDialogue();
-     
-
-    }
-
-    public void endDialogue()
-    {
         dialogueCanvas.SetActive(false);
         isInDialogue = false;
         GameController.instance.isGamePaused = false;
