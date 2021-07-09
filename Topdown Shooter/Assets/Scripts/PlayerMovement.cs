@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+ 
         float xMovement = Input.GetAxisRaw("Horizontal");
         float yMovement = Input.GetAxisRaw("Vertical");
 
@@ -23,6 +24,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+
+        if (GameController.instance.isGamePaused)
+        {
+            playerRb.velocity = Vector2.zero;
+            return;
+
+        }
+
         playerRb.velocity = movementVector.normalized * moveSpeed;
     }
 }
