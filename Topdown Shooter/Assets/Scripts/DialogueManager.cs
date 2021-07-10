@@ -16,6 +16,7 @@ public class DialogueManager : MonoBehaviour
     private Dictionary<string, string> dialogues;
     private int dialogueIndex;
     private int selectedButtonIndex;
+    private Dialogue currentDialogue;
 
     private bool isInDialogue = false;
     private bool answerGiven = false;
@@ -52,15 +53,33 @@ public class DialogueManager : MonoBehaviour
 
         dialogues.Clear();
 
-        foreach (string sentence in dialogue.sentences)
+        currentDialogue = dialogue;
+        if (currentDialogue.isMainDialogueDone)
         {
-            string keyOfTheSentence = "";
+            foreach (string sentence in currentDialogue.repeatingEndDialogue)
+            {
+                string keyOfTheSentence = "";
 
-            int spaceCharIndex = sentence.IndexOf(' ');
-            keyOfTheSentence = sentence.Substring(0, spaceCharIndex);
-            string sentenceIntoDictionary = sentence.Substring(spaceCharIndex, sentence.Length - spaceCharIndex);
-            dialogues.Add(keyOfTheSentence, sentenceIntoDictionary);
+                int spaceCharIndex = sentence.IndexOf(' ');
+                keyOfTheSentence = sentence.Substring(0, spaceCharIndex);
+                string sentenceIntoDictionary = sentence.Substring(spaceCharIndex, sentence.Length - spaceCharIndex);
+                dialogues.Add(keyOfTheSentence, sentenceIntoDictionary);
+            }
+
         }
+        else
+        {
+            foreach (string sentence in currentDialogue.sentences)
+            {
+                string keyOfTheSentence = "";
+
+                int spaceCharIndex = sentence.IndexOf(' ');
+                keyOfTheSentence = sentence.Substring(0, spaceCharIndex);
+                string sentenceIntoDictionary = sentence.Substring(spaceCharIndex, sentence.Length - spaceCharIndex);
+                dialogues.Add(keyOfTheSentence, sentenceIntoDictionary);
+            }
+        }
+    
 
         StopAllCoroutines();
         StartCoroutine(displaySentences());
@@ -80,7 +99,7 @@ public class DialogueManager : MonoBehaviour
         dialogueIndex = 0;
 
         string sentence;
-        while (dialogues.TryGetValue("/D" + dialogueIndex,out sentence))
+        while (dialogues.TryGetValue("/D" + dialogueIndex, out sentence))
         {
             dialogueDisplayText.text = "";
 
@@ -111,7 +130,7 @@ public class DialogueManager : MonoBehaviour
                 {
                     choiceButtons[i].transform.GetComponentInChildren<Text>().text = possibleSentences[i];
                     choiceButtons[i].gameObject.SetActive(true);
-                  
+
                 }
                 while (!answerGiven)
                 {
@@ -141,7 +160,7 @@ public class DialogueManager : MonoBehaviour
                         yield return null;
                     }
                 }
-     
+
             }
 
             yield return null;
@@ -153,7 +172,7 @@ public class DialogueManager : MonoBehaviour
 
     public IEnumerator endDialogue()
     {
-
+        currentDialogue.isMainDialogueDone = true;
         dialogueCanvasAnimator.SetBool("isOpen", false);
         while (dialogueCanvasAnimator.GetCurrentAnimatorStateInfo(0).IsName("DialogueCanvasOpening"))
         {
@@ -191,7 +210,7 @@ public class DialogueManager : MonoBehaviour
 
         string counterAnswerKey = "/C" + dialogueIndex.ToString() + selectedButtonIndex;
 
-        if (dialogues.TryGetValue(counterAnswerKey,out counterAnswer))
+        if (dialogues.TryGetValue(counterAnswerKey, out counterAnswer))
         {
             flag = true;
         }

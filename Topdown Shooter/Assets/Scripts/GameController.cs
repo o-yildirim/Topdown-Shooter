@@ -29,15 +29,17 @@ public class GameController : MonoBehaviour
             {
                 if (canvas.activeSelf)
                 {
-                    if (canvas.transform.CompareTag("DialogueCanvas"))
-                    {              
-                        DialogueManager.instance.StopAllCoroutines();
-                        StartCoroutine(DialogueManager.instance.endDialogue());                     
-                    }
-                    else if (canvas.transform.CompareTag("ConsoleCanvas"))
+                    if (canvas.transform.CompareTag("ConsoleCanvas"))
                     {
                         ConsoleManager.instance.closeConsole();
                     }
+                    /*
+                    else if (canvas.transform.CompareTag("DialogueCanvas"))
+                    {              
+                        DialogueManager.instance.StopAllCoroutines();
+                        StartCoroutine(DialogueManager.instance.endDialogue());                     
+                    }*/
+                    
                     anyCanvasOpen = true;
                 }
             }
