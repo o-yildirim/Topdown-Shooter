@@ -11,10 +11,15 @@ public class DialogueManager : MonoBehaviour
     public Image npcSpriteImage;
     public Text npcNameText;
     public Animator dialogueCanvasAnimator;
+    public Button[] choiceButtons;
 
-    private Queue<string> sentences;
+    private Dictionary<string, string> dialogues;
+    private int dialogueIndex;
+    private int selectedButtonIndex;
+
     private bool isInDialogue = false;
-    
+    private bool answerGiven = false;
+
     void Awake()
     {
         if (instance == null)
@@ -29,7 +34,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
-        sentences = new Queue<string>();
+        dialogues = new Dictionary<string, string>();
     }
 
     public void startDialogue(Dialogue dialogue)
@@ -39,25 +44,30 @@ public class DialogueManager : MonoBehaviour
         isInDialogue = true;
         GameController.instance.isGamePaused = true;
 
-      
+
         npcNameText.text = dialogue.npcName;
         npcSpriteImage.sprite = dialogue.npcSprite;
         dialogueCanvas.SetActive(true);
         dialogueCanvasAnimator.SetBool("isOpen", true);
 
-
-        sentences.Clear();
+        dialogues.Clear();
 
         foreach (string sentence in dialogue.sentences)
         {
-            sentences.Enqueue(sentence);
+            string keyOfTheSentence = "";
+
+            int spaceCharIndex = sentence.IndexOf(' ');
+            keyOfTheSentence = sentence.Substring(0, spaceCharIndex);
+            string sentenceIntoDictionary = sentence.Substring(spaceCharIndex, sentence.Length - spaceCharIndex);
+            dialogues.Add(keyOfTheSentence, sentenceIntoDictionary);
         }
 
         StopAllCoroutines();
         StartCoroutine(displaySentences());
+
     }
 
-  
+
 
     public IEnumerator displaySentences()
     {
@@ -67,14 +77,16 @@ public class DialogueManager : MonoBehaviour
             yield return null;
         }
 
-        while (sentences.Count != 0)
+        dialogueIndex = 0;
+
+        string sentence;
+        while (dialogues.TryGetValue("/D" + dialogueIndex,out sentence))
         {
             dialogueDisplayText.text = "";
 
-            string sentence = sentences.Dequeue();
             foreach (char letter in sentence.ToCharArray())
             {
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0) && !answerGiven)
                 {
                     dialogueDisplayText.text = sentence;
                     yield return null;
@@ -83,16 +95,61 @@ public class DialogueManager : MonoBehaviour
                 dialogueDisplayText.text += letter;
                 yield return null;
             }
-
-            while (!Input.GetMouseButtonDown(0))
+            string[] possibleSentences = new string[choiceButtons.Length];
+            if (!answerableDialogue(possibleSentences))
             {
-                yield return null;
+                while (!Input.GetMouseButtonDown(0))
+                {
+                    yield return null;
+                }
             }
+            else
+            {
+                answerGiven = false;
+                //Buton basılana kadar bekleyecek;
+                for (int i = 0; i < choiceButtons.Length; i++)
+                {
+                    choiceButtons[i].transform.GetComponentInChildren<Text>().text = possibleSentences[i];
+                    choiceButtons[i].gameObject.SetActive(true);
+                  
+                }
+                while (!answerGiven)
+                {
+                    yield return null;
+                }
+
+                disableAnswerButtons();
+
+                string counterAnswer = "";
+                if (counterAnswerAvailable(ref counterAnswer))
+                {
+                    dialogueDisplayText.text = "";
+                    foreach (char letter in counterAnswer.ToCharArray())
+                    {
+                        if (Input.GetMouseButtonDown(0))
+                        {
+                            dialogueDisplayText.text = counterAnswer;
+                            yield return null;
+                            break;
+                        }
+                        dialogueDisplayText.text += letter;
+                        yield return null;
+                    }
+
+                    while (!Input.GetMouseButtonDown(0))
+                    {
+                        yield return null;
+                    }
+                }
+     
+            }
+
             yield return null;
+            dialogueIndex++;
         }
-          
-        StartCoroutine(endDialogue());    
+        StartCoroutine(endDialogue());
     }
+
 
     public IEnumerator endDialogue()
     {
@@ -107,215 +164,46 @@ public class DialogueManager : MonoBehaviour
         GameController.instance.isGamePaused = false;
     }
 
-    /*
-
-    public void startDialogue(Dialogue dialogue)
+    public bool answerableDialogue(string[] possibleSentences)
     {
-        if (isInDialogue) return;
+        bool flag = false;
 
-        isInDialogue = true;
-
-        GameController.instance.isGamePaused = true;
-
-        dialogueCanvas.SetActive(true);
-
-        sentences.Clear();
-
-        foreach (string sentence in dialogue.sentences)
+        for (int i = 0; i < choiceButtons.Length; i++)
         {
-            sentences.Enqueue(sentence);
-        }
-
-        displayNextSentence(); //BUNU KORUTINE DONUSTURUP HEPSINI GOSTER O ZAMAN OLUR GIBI
-    }
-
-    public void displayNextSentence()
-    {
-        if (sentences.Count == 0)
-        {
-            endDialogue();
-            return;
-        }
-
-        string sentenceToDisplay = sentences.Dequeue();
-        StopAllCoroutines();
-        StartCoroutine(displaySentence(sentenceToDisplay));
-
-    }
-
-    public IEnumerator displaySentence(string sentence)
-    {
-        dialogueDisplayText.text = "";
-        foreach (char letter in sentence.ToCharArray())
-        {
-            if (Input.GetMouseButtonDown(0))
+            string keyToSearch = "/A" + dialogueIndex.ToString() + i.ToString();
+            if (dialogues.TryGetValue(keyToSearch, out possibleSentences[i]))
             {
-                dialogueDisplayText.text = sentence;
-                yield return null;
-                break;
-            }
-            dialogueDisplayText.text += letter;
-            yield return null;
-        }
-
-        while (!Input.GetMouseButtonDown(0))
-        {
-            yield return null;
-        }
-
-        displayNextSentence();
-
-    }
-
-    public void endDialogue()
-    {
-        dialogueCanvas.SetActive(false);
-        isInDialogue = false;
-        GameController.instance.isGamePaused = false;
-    }
-
-
-    */
-
-
-
-
-
-
-
-
-
-
-    /*
-
-
-
-    public void initDialogue(Queue<string> sentences, float letterDelay, float delayBetweenSentences)
-    {
-        if (isInDialogue) return;
-       // dialogueCoroutine = StartCoroutine(displayAllDialogue(sentences, letterDelay, delayBetweenSentences));
-    }
-
-    private void Update()
-    {
-        if (isInDialogue)
-        {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                disableSpeechCanvas();
-                StopCoroutine(dialogueCoroutine);
-                GameController.instance.isGamePaused = false;
-                isInDialogue = false;
-
+                flag = true;
             }
         }
+        return flag;
     }
-    /*
-      public IEnumerator displayAllDialogue(Queue<string> sentences, float letterDelay, float delayBetweenSentences)
-      {
-          GameController.instance.isGamePaused = true;
-          isInDialogue = true;
-          enableSpeechCanvas();
-          for (int i = 0; i < sentences.Count; i++)
-          {
-              dialogueDisplayText.text = "";
-              for (int j = 0; j < sentences[i].Length; j++)
-              {
-                  if (Input.GetMouseButtonDown(0))
-                  {
-                      dialogueDisplayText.text = sentences[i];
-                      continue;
-                  }
-                  else
-                  {
-                      dialogueDisplayText.text += sentences[i][j];
-                      if (sentences[i][j] == '.')
-                      {
-                          yield return new WaitForSeconds(delayBetweenSentences);
-                      }
-                      else
-                      {
-                          yield return new WaitForSeconds(letterDelay);
-                      }
-                  }
-                  yield return null;
-              }
-              while (!Input.GetMouseButtonDown(0))
-              {
-                  yield return null;
-              }
 
-              yield return null;
-          }
-          dialogueDisplayText.text = "";
-          disableSpeechCanvas();
-          isInDialogue = false;
-          GameController.instance.isGamePaused = false; ;
-
-      }
-      
-      
-    public IEnumerator displayAllDialogue(List<string> sentences, float letterDelay, float delayBetweenSentences)
+    public void choiceMade(AnswerButton buttonSelected)
     {
-        GameController.instance.isGamePaused = true;
-        isInDialogue = true;
-        enableSpeechCanvas();
+        selectedButtonIndex = buttonSelected.answerIndex;
+        answerGiven = true;
+    }
 
-        while (sentences.Count > 0)
+    public bool counterAnswerAvailable(ref string counterAnswer)
+    {
+        bool flag = false;
+
+        string counterAnswerKey = "/C" + dialogueIndex.ToString() + selectedButtonIndex;
+
+        if (dialogues.TryGetValue(counterAnswerKey,out counterAnswer))
         {
-            dialogueDisplayText.text = "";
-            int j = 0;
-            while (j < sentences[0].Length)
-            {
-                if (Input.GetMouseButtonDown(0))
-                {
-                    dialogueDisplayText.text = sentences[0];
-                    sentences.RemoveAt(0);
-                    continue;
-                }
-                else
-                {
-                    dialogueDisplayText.text += sentences[0][j];
-                    if (sentences[0][j] == '.')
-                    {
-                        yield return new WaitForSeconds(delayBetweenSentences);
-                    }
-                    else
-                    {
-                        yield return new WaitForSeconds(letterDelay);
-                    }
-                    j++;
-                }
-
-      
-                yield return null;
-            }
-            sentences.RemoveAt(0);
-            while (!Input.GetMouseButtonDown(0))
-            {
-                yield return null;
-            }
-
-            yield return null;
+            flag = true;
         }
-        dialogueDisplayText.text = "";
-        disableSpeechCanvas();
-        isInDialogue = false;
-        GameController.instance.isGamePaused = false; 
-
+        return flag;
     }
 
-    
-    public void enableSpeechCanvas()
+    public void disableAnswerButtons()
     {
-        dialogueCanvas.SetActive(true);
-
+        for (int i = 0; i < choiceButtons.Length; i++)
+        {
+            choiceButtons[i].gameObject.SetActive(false);
+        }
     }
 
-    public void disableSpeechCanvas()
-    {
-        dialogueCanvas.SetActive(false);
-    }
-    */
 }
-
