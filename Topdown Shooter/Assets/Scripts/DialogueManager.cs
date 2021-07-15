@@ -126,11 +126,14 @@ public class DialogueManager : MonoBehaviour
             {
                 answerGiven = false;
                 //Buton basılana kadar bekleyecek;
-                for (int i = 0; i < choiceButtons.Length; i++)
+            
+                for (int i = 0; i < possibleSentences.Length; i++)
                 {
-                    choiceButtons[i].transform.GetComponentInChildren<Text>().text = possibleSentences[i];
-                    choiceButtons[i].gameObject.SetActive(true);
-
+                    if (!string.IsNullOrWhiteSpace(possibleSentences[i]))
+                    {
+                        choiceButtons[i].transform.GetComponentInChildren<Text>().text = possibleSentences[i];
+                        choiceButtons[i].gameObject.SetActive(true);
+                    }
                 }
                 while (!answerGiven)
                 {
@@ -178,6 +181,7 @@ public class DialogueManager : MonoBehaviour
         {
             yield return null;
         }
+        yield return new WaitForSeconds(0.25f);
         dialogueCanvas.SetActive(false);
         isInDialogue = false;
         GameController.instance.isGamePaused = false;
