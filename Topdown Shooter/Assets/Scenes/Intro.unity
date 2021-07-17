@@ -740,17 +740,21 @@ MonoBehaviour:
   - /D1 You survived through all those happened down there.
   - /A10 Who are you?
   - /A11 I am going to kill you.
-  - /C10 Name is Prof. Y and I am a scientist who "used to" work in that lab before
+  - /C10 Name is Prof. Y and I am a scientist who used to work in that lab before
     everything happened.
   - /C11 Well... I guess you would have already if you wanted to.
-  - /D2 Since I am still alive, that means we can get along right?
+  - /D2 Since I am still alive, that means we are getting along right?
   - /A20 Who are those mummified corpses?
-  - /A21
-  - /A22
+  - /A21 What happened ?
+  - /C20 They are... subjects.
+  - /C21 I don't know. I heard all the gunshots and hid somewhere where I felt safe
+    for a bit. After everywhere went silent I checked outside and saw what you have
+    just seen.
+  - /D3 Why don't you check other part of the laboratory. There might be other survivors.
   npcSprite: {fileID: 21300000, guid: 2d9f405db5de73941b5c58a78a80f246, type: 3}
   repeatingEndDialogue:
-  - "/D0 Neyse bombo\u015F bir adams\u0131n bana vakit harcatma."
-  - /D1 Hadi yallah.
+  - /D0 There might be other survivors somewhere.
+  - /D1 I am not brave enough to check it out.
 --- !u!114 &83259285
 MonoBehaviour:
   m_ObjectHideFlags: 0
