@@ -229,4 +229,9 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    public bool isAnyDialogueActive()
+    {
+        return isInDialogue;
+    }
+
 }

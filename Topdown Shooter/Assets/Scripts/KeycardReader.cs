@@ -43,11 +43,16 @@ public class KeycardReader : MouseInteractableObject
     {
         if (!isKeyCardAcquired) return; //keycard bul falan diye uyarı verilebilir
 
+        openDoor();
+
+    }
+
+    public void openDoor()
+    {
         GetComponent<SpriteRenderer>().sprite = unlockedSprite;
-        lockInfoLight.color = Color.green; //Işıkta sıkıntı var
+        lockInfoLight.color = Color.green;
         doorToOpen.open();
         Destroy(infoCanvas);
-
     }
 
     public void acquireKeycard()

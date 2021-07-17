@@ -12,7 +12,8 @@ public class Level0 : MonoBehaviour
 
     public Transform player;
 
-
+    public Transform mainDoor;
+    public KeycardReader mainDoorKeycardReader;
 
 
 
@@ -43,11 +44,22 @@ public class Level0 : MonoBehaviour
 
         //Getting closer to the scientist
         while (Vector3.Distance(scientist.position, player.position) >= 5f) yield return null;
-        //Camera.main.GetComponent<CameraMovement>().targ
         scientistDialogue = scientist.GetComponent<Dialogue>();
-
         DialogueManager.instance.startDialogue(scientistDialogue);
 
-        yield return null;
+        
+        //Event happens when player gets close to the exit door.
+        while (Vector3.Distance(player.position, mainDoor.position) >= 4f) yield return null;
+
+        scientistDialogue.isMainDialogueDone = false;
+        string[] nextSentence = new string[] { "/D1 Here... you... go!" };
+        string[] nextRepeating = new string[] { "/D1 Door is open.", "/D2 Good luck." };
+        scientistDialogue.setName("Prof. Y.");
+        scientistDialogue.setDialogues(nextSentence);
+        DialogueManager.instance.startDialogue(scientistDialogue);
+        while (DialogueManager.instance.isAnyDialogueActive()) yield return null;
+        yield return new WaitForSeconds(2f);
+        mainDoorKeycardReader.openDoor();
+
     }
 }
