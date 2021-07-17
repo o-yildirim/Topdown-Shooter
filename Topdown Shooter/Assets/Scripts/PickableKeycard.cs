@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PickableKeycard : MouseInteractableObject
 {
-    public KeycardDoor linkedDoor;
+    public KeycardReader keycardReader;
     public GameObject infoCanvas;
 
     public override void onRightClick()
     {
-        linkedDoor.unlock();
+        keycardReader.acquireKeycard();
         Destroy(gameObject);
     }
 

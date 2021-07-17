@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class KeycardDoor : MonoBehaviour
 {
-    public bool isLocked = true;
-
-    public void unlock()
-    {
-        isLocked = false;
-    }
-
+    public Animator doorAnimator;
     public void open()
     {
-        //animator vs
+        doorAnimator.SetTrigger("open");
     }
 }
