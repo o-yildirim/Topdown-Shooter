@@ -14,7 +14,7 @@ public class KeycardReader : MouseInteractableObject
 
     public GameObject infoCanvas;
 
-    public bool isKeyCardAcquired = false;
+    private bool isKeyCardAcquired = false;
     public override void displayInfo()
     {
         if (infoCanvas)
