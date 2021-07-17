@@ -62,7 +62,7 @@ public class DialogueManager : MonoBehaviour
 
                 int spaceCharIndex = sentence.IndexOf(' ');
                 keyOfTheSentence = sentence.Substring(0, spaceCharIndex);
-                string sentenceIntoDictionary = sentence.Substring(spaceCharIndex, sentence.Length - spaceCharIndex);
+                string sentenceIntoDictionary = sentence.Substring(spaceCharIndex+1, sentence.Length - spaceCharIndex-1);
                 dialogues.Add(keyOfTheSentence, sentenceIntoDictionary);
             }
 
@@ -75,7 +75,7 @@ public class DialogueManager : MonoBehaviour
 
                 int spaceCharIndex = sentence.IndexOf(' ');
                 keyOfTheSentence = sentence.Substring(0, spaceCharIndex);
-                string sentenceIntoDictionary = sentence.Substring(spaceCharIndex, sentence.Length - spaceCharIndex);
+                string sentenceIntoDictionary = sentence.Substring(spaceCharIndex+1, sentence.Length-spaceCharIndex-1);
                 dialogues.Add(keyOfTheSentence, sentenceIntoDictionary);
             }
         }
