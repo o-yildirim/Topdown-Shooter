@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class PickableGun : PickableObject
+public class PickableGun : MouseInteractableObject
 {
     public int gunId;
     public string gunName;
@@ -34,7 +34,7 @@ public class PickableGun : PickableObject
         }
     }
 
-    public override void onPickup()
+    public override void onRightClick()
     {
         GunManagement.instance.switchGun(gunId);
         Destroy(transform.root.gameObject);

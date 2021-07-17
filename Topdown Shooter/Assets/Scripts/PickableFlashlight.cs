@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickableFlashlight : PickableObject
+public class PickableFlashlight : MouseInteractableObject
 {
 
     public GameObject displayCanvas;
@@ -24,7 +24,7 @@ public class PickableFlashlight : PickableObject
         }
     }
 
-    public override void onPickup()
+    public override void onRightClick()
     {
         playerFlashlight.SetActive(true);
         Destroy(gameObject);

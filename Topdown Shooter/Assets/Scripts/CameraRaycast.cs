@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraRaycast : MonoBehaviour
 {
-    private PickableObject pickableObjectOnTheFloor;
+    private MouseInteractableObject pickableObjectOnTheFloor;
     private Camera cam;
     public float pickUpDistance = 3f;
     public Transform player;
@@ -21,17 +21,17 @@ public class CameraRaycast : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {          
-            if (hit.transform.gameObject.layer == LayerMask.NameToLayer("PickableObject"))
+            if (hit.transform.gameObject.layer == LayerMask.NameToLayer("MouseInteractableObject"))
             {
                 if (Vector3.Distance(player.transform.position, hit.transform.position) <= 3f)
                 {
-                    pickableObjectOnTheFloor = hit.collider.gameObject.GetComponent<PickableObject>();
+                    pickableObjectOnTheFloor = hit.collider.gameObject.GetComponent<MouseInteractableObject>();
                     if (pickableObjectOnTheFloor)
                     {
                         pickableObjectOnTheFloor.displayInfo();
                         if (Input.GetMouseButtonDown(1))
                         {
-                            pickableObjectOnTheFloor.onPickup();
+                            pickableObjectOnTheFloor.onRightClick();
                             pickableObjectOnTheFloor = null;
                         }
                     }

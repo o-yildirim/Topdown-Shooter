@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickableKeycard : PickableObject
+public class PickableKeycard : MouseInteractableObject
 {
     public KeycardDoor linkedDoor;
     public GameObject infoCanvas;
 
-    public override void onPickup()
+    public override void onRightClick()
     {
         linkedDoor.unlock();
         Destroy(gameObject);

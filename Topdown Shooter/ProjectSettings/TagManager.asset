@@ -25,7 +25,7 @@ TagManager:
   - Door
   - PickableGun
   - Fire
-  - PickableObject
+  - MouseInteractableObject
   - 
   - 
   - 
