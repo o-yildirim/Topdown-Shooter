@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class PickableGun : MonoBehaviour
+public class PickableGun : PickableObject
 {
     public int gunId;
     public string gunName;
@@ -16,7 +16,7 @@ public class PickableGun : MonoBehaviour
         gunInfoText = displayCanvas.GetComponentInChildren<Text>();
        
     }
-    public void display()
+    public override void displayInfo()
     {
         if (displayCanvas)
         {
@@ -26,13 +26,21 @@ public class PickableGun : MonoBehaviour
         }
     }
 
-    public void hide()
+    public override void hideInfo()
     {
         if (displayCanvas)
         {
             displayCanvas.SetActive(false);
         }
     }
+
+    public override void onPickup()
+    {
+        GunManagement.instance.switchGun(gunId);
+        Destroy(transform.root.gameObject);
+    }
+
+
 
 
 }

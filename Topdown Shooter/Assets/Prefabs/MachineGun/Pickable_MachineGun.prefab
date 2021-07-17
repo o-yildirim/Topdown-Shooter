@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1480944150029417147}
   - component: {fileID: 4957527825788476697}
   - component: {fileID: 2392647675710479439}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 1181860967845480879}
   - component: {fileID: 8706944923383463526}
   - component: {fileID: 2370597316803221603}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2131859778967051432}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Pickable_Machinegun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 4510893636406445231}
   - component: {fileID: 4510893636406445230}
   - component: {fileID: 5815473682794003064}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 2808996521584625719}
   - component: {fileID: 6625087587364392957}
   - component: {fileID: 271324635437573372}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

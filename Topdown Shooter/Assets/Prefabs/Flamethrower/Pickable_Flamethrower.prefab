@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2036684796691367747}
   - component: {fileID: 5476994630383100129}
   - component: {fileID: 3025003542448136631}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1538964431085396304}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Pickable_Flamethrower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 1776754278696498263}
   - component: {fileID: 8078284094336730014}
   - component: {fileID: 2893722604588541339}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 3915727109801900375}
   - component: {fileID: 3915727109801900374}
   - component: {fileID: 6375454759525664640}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 3329589110390420943}
   - component: {fileID: 5998679103308050949}
   - component: {fileID: 796412014893848836}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

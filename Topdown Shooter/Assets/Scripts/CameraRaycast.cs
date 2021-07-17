@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraRaycast : MonoBehaviour
 {
-    private PickableGun gunOnTheFloor;
+    private PickableObject pickableObjectOnTheFloor;
     private Camera cam;
     public float pickUpDistance = 3f;
     public Transform player;
@@ -20,43 +20,40 @@ public class CameraRaycast : MonoBehaviour
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
-        {
-            Debug.Log(hit.transform.gameObject.name);
-            if (hit.transform.gameObject.layer == LayerMask.NameToLayer("PickableGun"))
+        {          
+            if (hit.transform.gameObject.layer == LayerMask.NameToLayer("PickableObject"))
             {
                 if (Vector3.Distance(player.transform.position, hit.transform.position) <= 3f)
                 {
-                    gunOnTheFloor = hit.collider.gameObject.GetComponent<PickableGun>();
-                    if (gunOnTheFloor)
+                    pickableObjectOnTheFloor = hit.collider.gameObject.GetComponent<PickableObject>();
+                    if (pickableObjectOnTheFloor)
                     {
-                        gunOnTheFloor.display();
+                        pickableObjectOnTheFloor.displayInfo();
                         if (Input.GetMouseButtonDown(1))
                         {
-                            GunManagement.instance.switchGun(gunOnTheFloor);
-                            Destroy(gunOnTheFloor.transform.root.gameObject);
-                            gunOnTheFloor = null;
+                            pickableObjectOnTheFloor.onPickup();
+                            pickableObjectOnTheFloor = null;
                         }
                     }
                 }
             }
             else
             {
-                if (gunOnTheFloor)
+                if (pickableObjectOnTheFloor)
                 {
-                    gunOnTheFloor.hide();
+                    pickableObjectOnTheFloor.hideInfo();
                 }
             }
         }
         else
         {
-            //Debug.Log("Bosluk");
-            if (gunOnTheFloor)
+            if (pickableObjectOnTheFloor)
             {
-                gunOnTheFloor.hide();
+                pickableObjectOnTheFloor.hideInfo();
             }
             else
             {
-                gunOnTheFloor = null;
+                pickableObjectOnTheFloor = null;
             }
         }
 

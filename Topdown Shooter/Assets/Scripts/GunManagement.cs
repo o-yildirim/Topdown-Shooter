@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class GunManagement : MonoBehaviour
 {
-    public int currentActiveGunId;
+    
+    public int currentActiveGunId = -1; //UNARMED
     public GameObject holster;
     public SpriteRenderer playerRenderer;
     public PlayerShooting playerShootingScript;
@@ -33,25 +34,33 @@ public class GunManagement : MonoBehaviour
         }
     }
 
+    /*
     private void Start()
     {
-        currentActiveGunId = UtilityClass.FindActiveGun(holster).gunId;
+        Gun currentActiveGun = UtilityClass.FindActiveGun(holster);
 
-        Gun currentActiveGun = UtilityClass.FindGunWithId<Gun>(holster, currentActiveGunId);
-        playerShootingScript.gameObject.GetComponent<SpriteRenderer>().sprite = currentActiveGun.weaponSprite;
-        gunImageUI.sprite = currentActiveGun.droppedOnFloorGun.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite;
-        bulletTextUI.text = currentActiveGun.bullets.ToString();
 
+        if (currentActiveGunId)
+        {
+            currentActiveGunId = UtilityClass.FindActiveGun(holster).gunId;
+            Gun currentActiveGun = UtilityClass.FindGunWithId<Gun>(holster, currentActiveGunId);
+            playerShootingScript.gameObject.GetComponent<SpriteRenderer>().sprite = currentActiveGun.weaponSprite;
+            gunImageUI.sprite = currentActiveGun.droppedOnFloorGun.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite;
+            bulletTextUI.text = currentActiveGun.bullets.ToString();
+        }
     }
+    */
+
     public void switchGun(PickableGun gunToActivate)
     {
         Gun currentActive = UtilityClass.FindGunWithId<Gun>(holster, currentActiveGunId);
         Gun toActivate = UtilityClass.FindGunWithId<Gun>(holster, gunToActivate.gunId);
 
-        currentActive.gameObject.SetActive(false);
-
-        dropGun(currentActive,playerShootingScript.transform.position);
-
+        if (currentActive)
+        {
+            currentActive.gameObject.SetActive(false);
+            dropGun(currentActive, playerShootingScript.transform.position);
+        }
 
         toActivate.bullets = gunToActivate.ammo;
         toActivate.gameObject.SetActive(true);
@@ -67,15 +76,15 @@ public class GunManagement : MonoBehaviour
     }
 
     public void switchGun(int activateId)
-    { 
+    {
         Gun currentActive = UtilityClass.FindGunWithId<Gun>(holster, currentActiveGunId);
         Gun toActivate = UtilityClass.FindGunWithId<Gun>(holster, activateId);
 
-
-        currentActive.gameObject.SetActive(false);
-
-        dropGun(currentActive, playerShootingScript.transform.position);
-
+        if (currentActive)
+        {
+            currentActive.gameObject.SetActive(false);
+            dropGun(currentActive, playerShootingScript.transform.position);
+        }
 
         toActivate.gameObject.SetActive(true);
 
@@ -90,14 +99,17 @@ public class GunManagement : MonoBehaviour
 
     }
 
-    public void dropGun(Gun activeGun,Vector3 position)
+    public void dropGun(Gun activeGun, Vector3 position)
     {
-        float xLocation = position.x + Random.Range(minDistanceToBody, maxDistanceToBody);
-        float yLocation = position.y + Random.Range(minDistanceToBody, maxDistanceToBody);
-        Vector3 dropPosition = new Vector3(xLocation, yLocation, position.z);
+        if (activeGun)
+        {
+            float xLocation = position.x + Random.Range(minDistanceToBody, maxDistanceToBody);
+            float yLocation = position.y + Random.Range(minDistanceToBody, maxDistanceToBody);
+            Vector3 dropPosition = new Vector3(xLocation, yLocation, position.z);
 
-        float gunRotation = Random.Range(minRotation, maxRotation);
+            float gunRotation = Random.Range(minRotation, maxRotation);
 
-        activeGun.drop(dropPosition, gunRotation);
+            activeGun.drop(dropPosition, gunRotation);
+        }
     }
 }

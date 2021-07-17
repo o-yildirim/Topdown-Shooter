@@ -7,7 +7,7 @@ public class CameraMovement : MonoBehaviour
     private Transform player;
     private Vector3 offset;
     public float smoothTime = 0.3f;
-    public float cameraPosRatioBetweenMouseAndPlayer = 2f;
+    public float maxCamDistanceToPlayer = 4f;
     private Vector3 speedVector = Vector3.zero;
 
     void Start()
@@ -27,7 +27,11 @@ public class CameraMovement : MonoBehaviour
 
         if (player)
         {
-            Vector3 newPos = player.position + ((player.position + Camera.main.ScreenToWorldPoint(Input.mousePosition)) / cameraPosRatioBetweenMouseAndPlayer);
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 direction = mousePos - player.position;
+
+            //Vector3 newPos = Vector3.ClampMagnitude(player.position + (player.position + mousePos),maxCamDistanceToPlayer);
+            Vector3 newPos = player.position + (direction.normalized * maxCamDistanceToPlayer);
             newPos += offset;
             transform.position = Vector3.SmoothDamp(transform.position, newPos, ref speedVector, smoothTime);
             //Debug.Log(transform.position);

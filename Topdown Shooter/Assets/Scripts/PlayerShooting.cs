@@ -25,6 +25,7 @@ public class PlayerShooting : MonoBehaviour
     void Update()
     {
         if (GameController.instance.isGamePaused) return;
+        if (!currentActiveGun) return;
 
         if (Input.GetMouseButton(0))
         {
