@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class KeycardDoorCloseTrigger : MonoBehaviour
 {
-    public KeycardDoor targetDoor;
+    public KeycardReader targetDoorReader;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Player"))
         {
-            targetDoor.close();
+            targetDoorReader.lockDoor();
         }
     }
 }

@@ -431,7 +431,6 @@ MonoBehaviour:
   lockInfoLight: {fileID: 4804518840369074319}
   doorToOpen: {fileID: 4804518840462868081}
   infoCanvas: {fileID: 4804518840504537693}
-  isKeyCardAcquired: 0
 --- !u!1 &4804518841752334196
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,7 +580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05bd7bba1ce0aa44b82f29097c7a6b67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetDoor: {fileID: 4804518840462868081}
+  targetDoorReader: {fileID: 4804518840612193324}
 --- !u!1 &4804518841865566675
 GameObject:
   m_ObjectHideFlags: 0

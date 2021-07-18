@@ -55,6 +55,14 @@ public class KeycardReader : MouseInteractableObject
         Destroy(infoCanvas);
     }
 
+    public void lockDoor()
+    {
+        doorToOpen.close();
+        GetComponent<SpriteRenderer>().sprite = lockedSprite;
+        lockInfoLight.color = Color.red;
+        
+    }
+
     public void acquireKeycard()
     {
         isKeyCardAcquired = true;

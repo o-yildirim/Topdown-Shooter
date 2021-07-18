@@ -54,32 +54,26 @@ public class DialogueManager : MonoBehaviour
         dialogues.Clear();
 
         currentDialogue = dialogue;
+        string[] sentences;
         if (currentDialogue.isMainDialogueDone)
         {
-            foreach (string sentence in currentDialogue.repeatingEndDialogue)
-            {
-                string keyOfTheSentence = "";
-
-                int spaceCharIndex = sentence.IndexOf(' ');
-                keyOfTheSentence = sentence.Substring(0, spaceCharIndex);
-                string sentenceIntoDictionary = sentence.Substring(spaceCharIndex+1, sentence.Length - spaceCharIndex-1);
-                dialogues.Add(keyOfTheSentence, sentenceIntoDictionary);
-            }
-
+            sentences = currentDialogue.repeatingEndDialogue;
         }
         else
         {
-            foreach (string sentence in currentDialogue.sentences)
-            {
-                string keyOfTheSentence = "";
-
-                int spaceCharIndex = sentence.IndexOf(' ');
-                keyOfTheSentence = sentence.Substring(0, spaceCharIndex);
-                string sentenceIntoDictionary = sentence.Substring(spaceCharIndex+1, sentence.Length-spaceCharIndex-1);
-                dialogues.Add(keyOfTheSentence, sentenceIntoDictionary);
-            }
+            sentences = currentDialogue.sentences;         
         }
-    
+
+
+        foreach (string sentence in sentences)
+        {
+            string keyOfTheSentence = "";
+
+            int spaceCharIndex = sentence.IndexOf(' ');
+            keyOfTheSentence = sentence.Substring(0, spaceCharIndex);
+            string sentenceIntoDictionary = sentence.Substring(spaceCharIndex + 1, sentence.Length - spaceCharIndex - 1);
+            dialogues.Add(keyOfTheSentence, sentenceIntoDictionary);
+        }
 
         StopAllCoroutines();
         StartCoroutine(displaySentences());

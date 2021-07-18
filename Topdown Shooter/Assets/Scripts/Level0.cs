@@ -52,9 +52,9 @@ public class Level0 : MonoBehaviour
         while (Vector3.Distance(player.position, mainDoor.position) >= 4f) yield return null;
 
         scientistDialogue.isMainDialogueDone = false;
-        string[] nextSentence = new string[] { "/D1 Here... you... go!" };
-        string[] nextRepeating = new string[] { "/D1 Door is open.", "/D2 Good luck." };
-        scientistDialogue.setName("Prof. Y.");
+        string[] nextSentence = new string[] { "/D0 Here... you... go!" };
+        string[] nextRepeating = new string[] { "/D0 Door is open.", "/D1 Good luck." };
+        scientistDialogue.setName("Mr. Y.");
         scientistDialogue.setDialogues(nextSentence);
         DialogueManager.instance.startDialogue(scientistDialogue);
         while (DialogueManager.instance.isAnyDialogueActive()) yield return null;
