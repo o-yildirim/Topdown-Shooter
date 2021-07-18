@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 public class Level0 : MonoBehaviour
 {
-    public Light2D labLight;
+    public GameObject labLight;
+
     public Animator firstDoorAnimator;
 
     public Transform scientist;
@@ -12,8 +13,10 @@ public class Level0 : MonoBehaviour
 
     public Transform player;
 
-    public Transform mainDoor;
-    public KeycardReader mainDoorKeycardReader;
+    public Transform elevatorDoor;
+    public KeycardReader elevatorDoorKeycardReader;
+    public Animator elevatorDoorAnimator;
+    public GameObject elevatorLight;
 
 
 
@@ -28,7 +31,7 @@ public class Level0 : MonoBehaviour
         //Door opened and player is in lab
         while (!firstDoorAnimator.GetCurrentAnimatorStateInfo(0).IsName("DoorOpening")) yield return null;
         yield return new WaitForSeconds(0.15f);
-        labLight.gameObject.SetActive(true);
+        labLight.SetActive(true);
 
         while (!firstDoorAnimator.GetCurrentAnimatorStateInfo(0).IsName("DoorClosed")) yield return null;
 
@@ -49,17 +52,30 @@ public class Level0 : MonoBehaviour
 
         
         //Event happens when player gets close to the exit door.
-        while (Vector3.Distance(player.position, mainDoor.position) >= 4f) yield return null;
+        while (Vector3.Distance(player.position, elevatorDoor.position) >= 4f) yield return null;
 
         scientistDialogue.isMainDialogueDone = false;
         string[] nextSentence = new string[] { "/D0 Here... you... go!" };
-        string[] nextRepeating = new string[] { "/D0 Door is open.", "/D1 Good luck." };
-        scientistDialogue.setName("Mr. Y.");
+        string[] nextRepeating = new string[] { "/D0 I don't know if there are any survivors left and if so, I am not sure they would be friendly.", "/D1 Good luck." };
         scientistDialogue.setDialogues(nextSentence);
+        scientistDialogue.setRepeatingEndDialogue(nextRepeating);
         DialogueManager.instance.startDialogue(scientistDialogue);
         while (DialogueManager.instance.isAnyDialogueActive()) yield return null;
         yield return new WaitForSeconds(2f);
-        mainDoorKeycardReader.openDoor();
+        elevatorDoorKeycardReader.openDoor();
+
+        while (elevatorDoorAnimator.GetCurrentAnimatorStateInfo(0).IsName("DoorClosed")) yield return null;
+        elevatorLight.SetActive(true);
+
+        while (elevatorDoorAnimator.GetCurrentAnimatorStateInfo(0).IsName("DoorOpening")) yield return null;
+        labLight.SetActive(false);
+
+        yield return new WaitForSeconds(1f);
+        elevatorDoorKeycardReader.gameObject.SetActive(false);
+
+        //load new scene
+
+       
 
     }
 }

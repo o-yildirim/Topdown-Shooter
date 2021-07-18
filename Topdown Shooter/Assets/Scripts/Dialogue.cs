@@ -23,14 +23,14 @@ public class Dialogue : MonoBehaviour
         this.sentences = sentences;
     }
 
-    public void setRepeatingEndDialogue(string[] repeatingSentences)
+    public void setRepeatingEndDialogue(string[] repeatingEndDialogue)
     {
-        this.repeatingEndDialogue = repeatingSentences;
+        this.repeatingEndDialogue = repeatingEndDialogue;
     }
 
-    public void setName(string name)
+    public void setName(string npcName)
     {
-        this.name = name;
+        this.npcName = name;
     }
 
     public void setSprite(Sprite npcSprite)
