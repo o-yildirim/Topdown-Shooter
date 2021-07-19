@@ -68,12 +68,17 @@ public class Level0 : MonoBehaviour
         elevatorLight.SetActive(true);
 
         while (elevatorDoorAnimator.GetCurrentAnimatorStateInfo(0).IsName("DoorOpening")) yield return null;
-        labLight.SetActive(false);
-
         yield return new WaitForSeconds(1f);
+        labLight.SetActive(false);
         elevatorDoorKeycardReader.gameObject.SetActive(false);
 
-        //load new scene
+
+        FadeManager.instance.fadeOut();
+        float fadeDuration = FadeManager.instance.getAnimationLength();
+        yield return new WaitForSeconds(fadeDuration);
+
+        GameController.instance.isGamePaused = true;
+
         SceneLoader.instance.loadNextLevel();
        
 
