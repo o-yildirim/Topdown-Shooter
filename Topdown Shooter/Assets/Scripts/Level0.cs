@@ -61,7 +61,7 @@ public class Level0 : MonoBehaviour
         scientistDialogue.setRepeatingEndDialogue(nextRepeating);
         DialogueManager.instance.startDialogue(scientistDialogue);
         while (DialogueManager.instance.isAnyDialogueActive()) yield return null;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.8f);
         elevatorDoorKeycardReader.openDoor();
 
         while (elevatorDoorAnimator.GetCurrentAnimatorStateInfo(0).IsName("DoorClosed")) yield return null;
@@ -74,7 +74,7 @@ public class Level0 : MonoBehaviour
         elevatorDoorKeycardReader.gameObject.SetActive(false);
 
         //load new scene
-
+        SceneLoader.instance.loadNextLevel();
        
 
     }

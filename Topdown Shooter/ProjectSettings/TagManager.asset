@@ -10,6 +10,7 @@ TagManager:
   - Flame
   - DialogueCanvas
   - ConsoleCanvas
+  - LevelManager
   layers:
   - Default
   - TransparentFX
