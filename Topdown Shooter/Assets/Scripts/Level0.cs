@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
-public class Level0 : MonoBehaviour
+public class Level0 : MonoBehaviour, LevelController
 {
     public GameObject labLight;
 
@@ -23,9 +23,13 @@ public class Level0 : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(startLevel());
+        onLevelLoad(); //TITLE EKRANI GELINCE BU START KALKACAK DIREKT
     }
 
+    public void onLevelLoad()
+    {
+        StartCoroutine(startLevel());
+    }
     public IEnumerator startLevel()
     {
         //Door opened and player is in lab
@@ -72,15 +76,18 @@ public class Level0 : MonoBehaviour
         labLight.SetActive(false);
         elevatorDoorKeycardReader.gameObject.SetActive(false);
 
-
         FadeManager.instance.fadeOut();
         float fadeDuration = FadeManager.instance.getAnimationLength();
         yield return new WaitForSeconds(fadeDuration);
 
-        GameController.instance.isGamePaused = true;
-
-        SceneLoader.instance.loadNextLevel();
-       
-
+        endLevel();
     }
+
+    public void endLevel()
+    {   
+        GameController.instance.isGamePaused = true;
+        SceneLoader.instance.loadNextLevel();
+    }
+ 
+
 }

@@ -12,7 +12,7 @@ public class EnemySight : MonoBehaviour
     private SpriteRenderer spRenderer;
     private EnemyStates state;
     private EnemyPatrol patrol;
-    private Color defaultColor;
+    //private Color defaultColor;
     [SerializeField]
     private LayerMask detectableLayers;
     private EnemyPathfinding pathfinding;
@@ -23,7 +23,7 @@ public class EnemySight : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         spRenderer = GetComponent<SpriteRenderer>();
         state = GetComponent<EnemyStates>();
-        defaultColor = spRenderer.color;
+        //defaultColor = spRenderer.color;
         pathfinding = GetComponent<EnemyPathfinding>();
         patrol = GetComponent<EnemyPatrol>();
     }
@@ -110,7 +110,7 @@ public class EnemySight : MonoBehaviour
                     }
                     pathfinding.isStopped = false;
       
-                    spRenderer.color = defaultColor;
+                    //spRenderer.color = defaultColor;
                     canSeePlayer = false;
                 }
             }
@@ -170,7 +170,7 @@ public class EnemySight : MonoBehaviour
                 {
                     if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
                     {
-                        spRenderer.color = Color.black;
+                        //spRenderer.color = Color.black;
                         state.state = EnemyStates.EnemyState.Agressive;
                         pathfinding.changePath(player);
                         pathfinding.moveSpeed = pathfinding.chaseMoveSpeed;

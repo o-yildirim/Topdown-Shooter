@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyCombat : MonoBehaviour
 {
     private EnemyStates currentState;
-    public Transform targetPlayer;
+    private Transform targetPlayer;
 
     private EnemySight sight;
     private Gun enemyGun;
@@ -38,7 +38,9 @@ public class EnemyCombat : MonoBehaviour
         {
            // weapon = UtilityClass.FindChildGameObjectWithTag<Transform>(gameObject, "Melee"); //HENUZ YOK
         }
-        
+
+
+        targetPlayer = GameObject.FindGameObjectWithTag("Player").transform;
 
         currentState = GetComponent<EnemyStates>();
         enemyRb = GetComponent<Rigidbody2D>();
