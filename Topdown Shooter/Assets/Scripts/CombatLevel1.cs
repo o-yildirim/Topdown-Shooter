@@ -30,5 +30,4 @@ public class CombatLevel1 : MonoBehaviour, LevelController
     }
 
 
-
 }

@@ -628,6 +628,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf86c9a064c283b4392e35b2059f472e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lowerBody: {fileID: 3550520294817639233}
+  facedownSprite: {fileID: 21300000, guid: 03579bc5a3ae11f45834231c83b39f07, type: 3}
+  lyingOnBackSprite: {fileID: 21300000, guid: 9164d48b51f3c7648955618cb8ad1906, type: 3}
 --- !u!114 &3550520296370659474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -640,7 +643,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc9d06c2f4a76884ba80e46fb5cb3aa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPlayer: {fileID: 0}
   turningSpeed: 5
   rotationOffset: 0.1
   shootPlayerAngle: 7

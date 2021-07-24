@@ -19,6 +19,9 @@ public class ConsoleCommands : MonoBehaviour
             case "give_gun":
                 result = giveGun(parts);
                 break;
+            case "loadlevel":
+                result = loadLevel(parts);
+                break;
 
         }
 
@@ -30,6 +33,21 @@ public class ConsoleCommands : MonoBehaviour
     public string helpCommands()
     {
         return "give_gun itemId  ---- Gives the player the gun which has that itemId.\n";
+    }
+
+    public string loadLevel(string[] parts)
+    {
+        int levelIndex;
+        if(int.TryParse(parts[1], out levelIndex))
+        {
+            SceneLoader.instance.loadSceneCall(levelIndex);
+        }
+        else
+        {
+            return "Invalid arguments";
+        }
+
+        return "Level " + levelIndex + " is succesfully loaded.";
     }
 
     public string giveGun(string[] commandParts)

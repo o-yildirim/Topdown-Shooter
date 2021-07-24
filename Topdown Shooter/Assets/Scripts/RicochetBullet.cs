@@ -28,7 +28,7 @@ public class RicochetBullet : MonoBehaviour
             if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
             {
                 Enemy hitEnemy = hit.collider.GetComponent<Enemy>();
-                hitEnemy.die();
+                hitEnemy.die(hit.point);
      
                 GameObject bloodEffect = Instantiate(bloodEffectPrefab, hit.transform.position, Quaternion.LookRotation(transform.up));
                 Destroy(bloodEffect, 0.8f);

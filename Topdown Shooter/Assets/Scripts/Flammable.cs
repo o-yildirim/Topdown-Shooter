@@ -37,7 +37,7 @@ public class Flammable : MonoBehaviour
             Enemy enemy = GetComponent<Enemy>();
             if (enemy)
             {
-                enemy.die();
+                enemy.die(enemy.transform.position); //Enemy will be in burning state
             }
             else
             {

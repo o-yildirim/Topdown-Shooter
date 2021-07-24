@@ -33,6 +33,7 @@ public class CameraMovement : MonoBehaviour
             //Vector3 newPos = Vector3.ClampMagnitude(player.position + (player.position + mousePos),maxCamDistanceToPlayer);
             Vector3 newPos = player.position + (direction.normalized * maxCamDistanceToPlayer);
             newPos += offset;
+            newPos.z = offset.z;
             transform.position = Vector3.SmoothDamp(transform.position, newPos, ref speedVector, smoothTime);
             //Debug.Log(transform.position);
         }

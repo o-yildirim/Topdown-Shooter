@@ -6,11 +6,11 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D playerRb;
     private Vector2 movementVector;
-
     public float moveSpeed = 2f;
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
+
     }
 
     void Update()
@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
         float yMovement = Input.GetAxisRaw("Vertical");
 
         movementVector = new Vector2(xMovement, yMovement);
+
+   
     }
 
     private void FixedUpdate()

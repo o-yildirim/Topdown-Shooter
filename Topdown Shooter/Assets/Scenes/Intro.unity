@@ -3723,6 +3723,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf86c9a064c283b4392e35b2059f472e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lowerBody: {fileID: 0}
+  facedownSprite: {fileID: 0}
+  lyingOnBackSprite: {fileID: 0}
 --- !u!114 &462505078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4442,7 +4445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoothTime: 0.18
-  maxCamDistanceToPlayer: 4
+  maxCamDistanceToPlayer: 6.5
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -5085,6 +5088,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf86c9a064c283b4392e35b2059f472e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lowerBody: {fileID: 0}
+  facedownSprite: {fileID: 0}
+  lyingOnBackSprite: {fileID: 0}
 --- !u!114 &555062445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7681,6 +7687,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf86c9a064c283b4392e35b2059f472e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lowerBody: {fileID: 0}
+  facedownSprite: {fileID: 0}
+  lyingOnBackSprite: {fileID: 0}
 --- !u!114 &868597380
 MonoBehaviour:
   m_ObjectHideFlags: 0
