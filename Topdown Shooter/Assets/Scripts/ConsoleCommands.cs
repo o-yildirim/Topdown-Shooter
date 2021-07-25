@@ -44,10 +44,10 @@ public class ConsoleCommands : MonoBehaviour
         }
         else
         {
-            return "Invalid arguments";
+            return "Invalid arguments\n";
         }
 
-        return "Level " + levelIndex + " is succesfully loaded.";
+        return "Level " + levelIndex + " is succesfully loaded.\n";
     }
 
     public string giveGun(string[] commandParts)
@@ -55,7 +55,7 @@ public class ConsoleCommands : MonoBehaviour
 
         if (commandParts.Length != 2)
         {
-            return "Invalid number of arguments";
+            return "Invalid number of arguments\n";
         }
 
         GameObject weaponHolster = GunManagement.instance.holster;
@@ -73,15 +73,15 @@ public class ConsoleCommands : MonoBehaviour
 
         if (selectedGun == null)
         {
-            return "Invalid item id";
+            return "Invalid item id\n";
         }
         else
         {
-            GunManagement.instance.switchGun(selectedGun.gunId);
+            GunManagement.instance.switchGun(selectedGun.gunId,9999);
         }
 
 
-        return "Item " + commandParts[1] + " is successfully added.";
+        return "Item " + commandParts[1] + " is successfully added.\n";
 
     }
 

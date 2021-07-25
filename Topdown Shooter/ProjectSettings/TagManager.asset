@@ -11,6 +11,8 @@ TagManager:
   - DialogueCanvas
   - ConsoleCanvas
   - LevelManager
+  - PauseCanvas
+  - GunInfoCanvas
   layers:
   - Default
   - TransparentFX

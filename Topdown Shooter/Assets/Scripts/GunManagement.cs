@@ -19,6 +19,7 @@ public class GunManagement : MonoBehaviour
 
     public Image gunImageUI;
     public Text bulletTextUI;
+    public GameObject gunInfoCanvas;
 
     public static GunManagement instance;
 
@@ -62,8 +63,12 @@ public class GunManagement : MonoBehaviour
             dropGun(currentActive, playerShootingScript.transform.position);
         }
 
+
+
         toActivate.bullets = gunToActivate.ammo;
         toActivate.gameObject.SetActive(true);
+
+
 
         playerRenderer.sprite = toActivate.weaponSprite;
 
@@ -73,9 +78,12 @@ public class GunManagement : MonoBehaviour
         currentActiveGunId = gunToActivate.gunId;
         playerShootingScript.currentActiveGun = toActivate;
 
-    }
+        gunInfoCanvas.SetActive(true);
 
-    public void switchGun(int activateId)
+
+    }
+    
+    public void switchGun(int activateId,int ammo)
     {
         Gun currentActive = UtilityClass.FindGunWithId<Gun>(holster, currentActiveGunId);
         Gun toActivate = UtilityClass.FindGunWithId<Gun>(holster, activateId);
@@ -86,8 +94,9 @@ public class GunManagement : MonoBehaviour
             dropGun(currentActive, playerShootingScript.transform.position);
         }
 
-        toActivate.gameObject.SetActive(true);
 
+        toActivate.bullets = ammo;
+        toActivate.gameObject.SetActive(true);
         playerRenderer.sprite = toActivate.weaponSprite;
 
         currentActiveGunId = activateId;
@@ -97,8 +106,10 @@ public class GunManagement : MonoBehaviour
         currentActiveGunId = activateId;
         playerShootingScript.currentActiveGun = toActivate;
 
-    }
+        gunInfoCanvas.SetActive(true);
 
+    }
+    
     public void dropGun(Gun activeGun, Vector3 position)
     {
         if (activeGun)

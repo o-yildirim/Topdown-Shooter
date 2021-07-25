@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour
     public static GameController instance;
     public bool isGamePaused = false;
     public GameObject pauseMenu;
-    public GameObject[] otherMenuCanvasses; 
+    public GameObject deathScreen;
     private void Awake()
     {
         if (instance == null)
@@ -24,29 +24,11 @@ public class GameController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            bool anyCanvasOpen = false;
-            foreach (GameObject canvas in otherMenuCanvasses)
+            if (ConsoleManager.instance.consoleCanvas.activeSelf)
             {
-                if (canvas.activeSelf)
-                {
-                    if (canvas.transform.CompareTag("ConsoleCanvas"))
-                    {
-                        ConsoleManager.instance.closeConsole();
-                    }
-                    /*
-                    else if (canvas.transform.CompareTag("DialogueCanvas"))
-                    {              
-                        DialogueManager.instance.StopAllCoroutines();
-                        StartCoroutine(DialogueManager.instance.endDialogue());                     
-                    }*/
-                    
-                    anyCanvasOpen = true;
-                }
+                ConsoleManager.instance.closeConsole();
+                return;
             }
-
-
-            if (anyCanvasOpen) return;
-
 
             if (!isGamePaused)
             {
@@ -64,6 +46,7 @@ public class GameController : MonoBehaviour
 
     public void pause()
     {
+
         isGamePaused = true;
         Time.timeScale = 0f;
     }
@@ -90,12 +73,15 @@ public class GameController : MonoBehaviour
         Debug.Log("Returning to menu");
     }
 
-    /*
-    void OnGUI()
+   public void displayDeathScreen()
     {
-        Event e = Event.current;
-        if (e.isKey)
-            Debug.Log("e.keyCode: " + e.keyCode);
-    }*/
+        isGamePaused = true;
+        deathScreen.SetActive(true);
+    }
+
+    public void restartLevel()
+    {
+
+    }
 
 }

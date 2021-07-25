@@ -36,7 +36,7 @@ public class PickableGun : MouseInteractableObject
 
     public override void onRightClick()
     {
-        GunManagement.instance.switchGun(gunId);
+        GunManagement.instance.switchGun(gunId,ammo);
         Destroy(transform.root.gameObject);
     }
 
