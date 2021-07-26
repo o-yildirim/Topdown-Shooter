@@ -79,9 +79,5 @@ public class GameController : MonoBehaviour
         deathScreen.SetActive(true);
     }
 
-    public void restartLevel()
-    {
-
-    }
 
 }

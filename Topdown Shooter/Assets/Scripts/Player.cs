@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public void die()
     {    
         GameController.instance.displayDeathScreen();
-        Destroy(gameObject);
+        //Destroy(gameObject);
+       // gameObject.SetActive(false);
     }
 }

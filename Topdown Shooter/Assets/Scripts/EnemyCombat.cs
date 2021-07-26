@@ -51,6 +51,7 @@ public class EnemyCombat : MonoBehaviour
 
     void Update()
     {
+       // if (GameController.instance.isGamePaused) return;
         if (currentState.state != EnemyStates.EnemyState.Agressive && currentState.state != EnemyStates.EnemyState.Chasing) return;
 
 

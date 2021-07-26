@@ -17,7 +17,7 @@ public class CombatLevel1 : MonoBehaviour, LevelController
         StartCoroutine(startLevel());
     }
 
-    public  void endLevel()
+    public void endLevel()
     {
 
     }
@@ -28,6 +28,4 @@ public class CombatLevel1 : MonoBehaviour, LevelController
         elevatorDoor.transform.root.GetComponentInChildren<Light2D>().enabled = false;
         globalLight.enabled = true;
     }
-
-
 }

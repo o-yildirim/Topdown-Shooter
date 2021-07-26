@@ -9,7 +9,7 @@ public class DeathScreen : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            GameController.instance.restartLevel();
+            SceneLoader.instance.restartLevel();
         }
     }
 }

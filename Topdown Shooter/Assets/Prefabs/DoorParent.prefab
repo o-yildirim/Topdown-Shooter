@@ -441,6 +441,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   infoCanvas: {fileID: 3075815474983896270}
   doorAnimator: {fileID: 1476027923367141694}
+  doorId: 0
 --- !u!65 &1012594299140821248
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -546,7 +547,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1095925412552092543}
   - component: {fileID: 100647462324906428}
-  m_Layer: 14
+  m_Layer: 8
   m_Name: Collider2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}

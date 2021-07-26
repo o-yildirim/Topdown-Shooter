@@ -15,8 +15,6 @@ public class EnemyPatrol : MonoBehaviour
     public float turningSpeed = 3f;
     public float waitTime = 1f;
     private int currentPatrolPoint = 0;
-
-    private float currentWaitTime = 0f;
     private float targetZ;
     public enum PatrolState { Idle, GoingToTarget, Rotating };
 

@@ -38,11 +38,17 @@ public class SceneLoader:MonoBehaviour
 
     }
 
-    public  void loadNextLevel()
+    public void loadNextLevel()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        StartCoroutine(loadScene(currentSceneIndex + 1));
+        loadSceneCall(currentSceneIndex + 1);
     }
 
+    public void restartLevel()
+    {
+        GameController.instance.deathScreen.SetActive(false);
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        loadSceneCall(currentSceneIndex);
+    }
    
 }

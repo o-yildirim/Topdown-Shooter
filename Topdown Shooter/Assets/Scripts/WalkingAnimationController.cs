@@ -17,17 +17,19 @@ public class WalkingAnimationController : MonoBehaviour
     {
         resetAnimatorParameters();
 
+        float angle = Vector3.Angle(playerRb.velocity, transform.up);
+
         if(playerRb.velocity == Vector2.zero)
         {
             animator.SetBool("Idle", true);
         }
  
-        else if (playerRb.velocity.normalized.y > 0f)
+        else if (angle < 90f)
         {
             animator.SetBool("walkingForward", true);
          
         }
-        else if (playerRb.velocity.normalized.y < 0f)
+        else
         {
             animator.SetBool("walkingBackwards", true);
         }

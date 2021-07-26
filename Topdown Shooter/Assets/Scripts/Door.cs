@@ -2,19 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Door : MouseInteractableObject
 {
     public GameObject infoCanvas;
     public Animator doorAnimator;
+    public int doorId;
     private bool isOpen = false;
     private Transform player;
-
+   
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        //Kendisine ID alacak
+        checkDatabase();
     }
+
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            PlayerPrefs.DeleteKey("door0");
+        }
+    }
+
 
     public override void onRightClick()
     {
@@ -57,10 +69,41 @@ public class Door : MouseInteractableObject
         isOpen = true;
         doorAnimator.SetTrigger("openDoor");
         Destroy(infoCanvas);
+
+
+        float animationDuration = doorAnimator.GetCurrentAnimatorStateInfo(0).length;
+        StartCoroutine(astarScan(animationDuration));
+
+        string doorKey = "door" + doorId;
+        PlayerPrefs.SetInt(doorKey, 1);
+
+        
     }
 
-    private void OnDestroy()
+    public void checkDatabase()
     {
-        //Kendisine ait olan id yi playerprefsden silecek
+        string doorKey = "door" + doorId;
+        if (PlayerPrefs.HasKey(doorKey)) 
+        {
+            int doorOpen = PlayerPrefs.GetInt(doorKey);
+            if (doorOpen == 1)
+            {
+                Destroy(transform.parent.GetComponent<Animator>());
+                transform.parent.rotation = Quaternion.Euler(transform.parent.eulerAngles.x, transform.parent.eulerAngles.y, 90f);           
+                isOpen = true;
+                Destroy(infoCanvas);
+                StartCoroutine(astarScan(0.1f));
+            } 
+        }
+        else
+        {
+            PlayerPrefs.SetInt(doorKey, 0);
+        }
+    }
+
+    public IEnumerator astarScan(float waitDuration)
+    {
+        yield return new WaitForSeconds(waitDuration);
+        AstarPath.active.Scan();
     }
 }
