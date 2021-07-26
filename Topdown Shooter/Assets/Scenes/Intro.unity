@@ -5852,6 +5852,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76711027543133942a8adbd6e3ca2ff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lyingOnBackSprite: {fileID: 21300000, guid: 85c6c639baec622449a7dba490ace5c6, type: 3}
+  facedownSprite: {fileID: 0}
 --- !u!114 &626451756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6983,6 +6985,7 @@ MonoBehaviour:
   gunImageUI: {fileID: 2093667809}
   bulletTextUI: {fileID: 722502582}
   gunInfoCanvas: {fileID: 1129680816}
+  unarmedSprite: {fileID: 21300000, guid: 7cfc8cc17343f4b4bb99505a630c7c32, type: 3}
 --- !u!4 &782935540
 Transform:
   m_ObjectHideFlags: 0

@@ -40,7 +40,7 @@ public class EnemyCombat : MonoBehaviour
         }
 
 
-        targetPlayer = GameObject.FindGameObjectWithTag("Player").transform;
+        targetPlayer = Player.instance.transform;
 
         currentState = GetComponent<EnemyStates>();
         enemyRb = GetComponent<Rigidbody2D>();

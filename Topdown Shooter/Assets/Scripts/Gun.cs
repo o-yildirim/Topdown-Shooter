@@ -91,7 +91,7 @@ public class Gun : MonoBehaviour
         
         }
         bullets--;
-        GunManagement.instance.bulletTextUI.text = bullets.ToString();
+       
 
         GameObject effect = Instantiate(bullletFireEffectPrefab,firePoint.position, firePoint.rotation);      
         effect.transform.SetParent(gameObject.transform);

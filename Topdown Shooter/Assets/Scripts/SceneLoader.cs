@@ -30,7 +30,7 @@ public class SceneLoader:MonoBehaviour
         {
             yield return null;
         }
-        LevelController levelController = GameController.instance.currentLevelController = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelController>();
+        LevelController levelController = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelController>();
         if (levelController != null)
         {
             levelController.onLevelLoad();
@@ -47,6 +47,8 @@ public class SceneLoader:MonoBehaviour
     public void restartLevel()
     {
         GameController.instance.deathScreen.SetActive(false);
+        Player.instance.assignStoredInfo();
+
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         loadSceneCall(currentSceneIndex);
     }

@@ -30,6 +30,7 @@ public class PlayerShooting : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             currentActiveGun.fire();
+            GunManagement.instance.bulletTextUI.text = currentActiveGun.bullets.ToString();
         }
         else if (Input.GetMouseButtonUp(0))
         {

@@ -52,7 +52,7 @@ public class Enemy : MonoBehaviour
         Vector3 direction = hitPoint - transform.position;
         float angle = Vector3.Angle(direction, transform.up) -45f;
  
-        Debug.Log("Vector angle: " + angle);
+        //Debug.Log("Vector angle: " + angle);
 
         if (Mathf.Abs(angle)  <= 90f)
         {

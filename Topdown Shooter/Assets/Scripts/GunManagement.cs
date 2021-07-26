@@ -20,6 +20,7 @@ public class GunManagement : MonoBehaviour
     public Image gunImageUI;
     public Text bulletTextUI;
     public GameObject gunInfoCanvas;
+    public Sprite unarmedSprite;
 
     public static GunManagement instance;
 
@@ -122,5 +123,21 @@ public class GunManagement : MonoBehaviour
 
             activeGun.drop(dropPosition, gunRotation);
         }
+    }
+
+    public void switchToUnarmed()
+    {
+        Gun currentActive = UtilityClass.FindGunWithId<Gun>(holster, currentActiveGunId);
+        if (currentActive)
+        {
+            currentActive.gameObject.SetActive(false);
+        }
+
+        playerShootingScript.currentActiveGun = null; 
+
+        currentActiveGunId = -1;
+        playerRenderer.sprite = unarmedSprite;
+        gunInfoCanvas.SetActive(false);
+
     }
 }
