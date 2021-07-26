@@ -19,15 +19,6 @@ public class Door : MouseInteractableObject
     }
 
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            PlayerPrefs.DeleteKey("door0");
-        }
-    }
-
-
     public override void onRightClick()
     {
         if (isOpen) return;

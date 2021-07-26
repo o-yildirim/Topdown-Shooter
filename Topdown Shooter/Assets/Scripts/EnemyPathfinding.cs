@@ -16,7 +16,6 @@ public class EnemyPathfinding : MonoBehaviour
 
     private Path path;
     private int currentWaypoint = 0;
-    private bool reachedEndOfPath = false;
 
     public bool isStopped = false;
 
@@ -44,13 +43,9 @@ public class EnemyPathfinding : MonoBehaviour
 
         if (currentWaypoint >= path.vectorPath.Count)
         {
-            reachedEndOfPath = true;
             return;
         }
-        else
-        {
-            reachedEndOfPath = false;
-        }
+  
 
         Vector3 nextLookDirection = transform.up;
         if (states.state != EnemyStates.EnemyState.Agressive)

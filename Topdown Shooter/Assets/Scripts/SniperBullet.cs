@@ -46,7 +46,7 @@ public class SniperBullet : MonoBehaviour
             else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
             {
                 Player hitPlayer = hit.collider.GetComponent<Player>();
-                hitPlayer.die();
+                hitPlayer.die(hit.point);
 
                 GameObject bloodEffect = Instantiate(bloodEffectPrefab, hit.transform.position, Quaternion.LookRotation(transform.up));
                 Destroy(bloodEffect, 0.8f);

@@ -30,10 +30,10 @@ public class SceneLoader:MonoBehaviour
         {
             yield return null;
         }
-        LevelController currentLevelController = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelController>();
-        if (currentLevelController != null)
+        LevelController levelController = GameController.instance.currentLevelController = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelController>();
+        if (levelController != null)
         {
-            currentLevelController.onLevelLoad();
+            levelController.onLevelLoad();
         }
 
     }
