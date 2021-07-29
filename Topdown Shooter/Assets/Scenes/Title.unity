@@ -246,8 +246,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentActiveGunId: -1
   holster: {fileID: 0}
-  playerRenderer: {fileID: 0}
-  playerShootingScript: {fileID: 0}
   minRotation: 0
   maxRotation: 360
   minDistanceToBody: 0.5
@@ -6657,7 +6655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lyingOnBackSprite: {fileID: 21300000, guid: 85c6c639baec622449a7dba490ace5c6, type: 3}
-  facedownSprite: {fileID: 0}
+  facedownSprite: {fileID: 21300000, guid: 1f94a76ff633246448a37f88c0e2dc48, type: 3}
 --- !u!114 &562429676
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -20,7 +20,7 @@ public class EnemySight : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = Player.instance.transform;
         spRenderer = GetComponent<SpriteRenderer>();
         state = GetComponent<EnemyStates>();
         //defaultColor = spRenderer.color;

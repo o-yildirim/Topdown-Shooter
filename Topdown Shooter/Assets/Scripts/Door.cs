@@ -14,7 +14,7 @@ public class Door : MouseInteractableObject
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = Player.instance.transform;
         checkDatabase();
     }
 

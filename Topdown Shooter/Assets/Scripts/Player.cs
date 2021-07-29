@@ -12,8 +12,8 @@ public class Player : MonoBehaviour
 
     private SpriteRenderer spRenderer;
 
-    private Sprite currentSprite;
-    private Gun gun;
+    private Sprite storedSprite;
+    private Gun storedGun;
 
     private void Awake()
     {
@@ -50,17 +50,17 @@ public class Player : MonoBehaviour
 
     public void storePlayerInfo()
     {
-        currentSprite = spRenderer.sprite;
-        gun = UtilityClass.FindActiveGun(GunManagement.instance.holster);
+        storedSprite = spRenderer.sprite;
+        storedGun = UtilityClass.FindActiveGun(GunManagement.instance.holster);
     }
 
     public void assignStoredInfo()
     {
-        spRenderer.sprite = currentSprite;
-        if (gun)
+        spRenderer.sprite = storedSprite;
+        if (storedGun)
         {
             Debug.Log("sa");
-            GunManagement.instance.switchGun(gun.gunId,gun.bullets);
+            GunManagement.instance.switchGun(storedGun.gunId,storedGun.bullets);
         }
         else
         {

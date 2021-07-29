@@ -12,8 +12,9 @@ public class CombatLevel1 : MonoBehaviour, LevelController
     public void onLevelLoad()
     {
         Player.instance.transform.position = spawnPoint.position;
+        Player.instance.gameObject.SetActive(true);
         Player.instance.storePlayerInfo();
-        FadeManager.instance.fadeIn();
+        //FadeManager.instance.fadeIn();
         GameController.instance.isGamePaused = false;
         StartCoroutine(startLevel());
     }
