@@ -6,8 +6,12 @@ public class PickableFlashlight : MouseInteractableObject
 {
 
     public GameObject displayCanvas;
-    public GameObject playerFlashlight;
- 
+    private GameObject playerFlashlight;
+
+    private void Start()
+    {
+       playerFlashlight = UtilityClass.FindChildByName(Player.instance.transform, "PlayerFlashlight").gameObject;
+    }
     public override void displayInfo()
     {
         if (displayCanvas)
@@ -26,7 +30,10 @@ public class PickableFlashlight : MouseInteractableObject
 
     public override void onRightClick()
     {
-        playerFlashlight.SetActive(true);
-        Destroy(gameObject);
+        if (playerFlashlight)
+        {
+            playerFlashlight.SetActive(true);
+            Destroy(gameObject);
+        }
     }
 }

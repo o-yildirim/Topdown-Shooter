@@ -12,7 +12,7 @@ public class CameraMovement : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = Player.instance.transform;
         offset = transform.position - player.position;
     }
 

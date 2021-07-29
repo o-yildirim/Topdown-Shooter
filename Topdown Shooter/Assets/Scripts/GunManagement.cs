@@ -8,8 +8,8 @@ public class GunManagement : MonoBehaviour
     
     public int currentActiveGunId = -1; //UNARMED
     public GameObject holster;
-    public SpriteRenderer playerRenderer;
-    public PlayerShooting playerShootingScript;
+    private SpriteRenderer playerRenderer;
+    private PlayerShooting playerShootingScript;
 
     public float minRotation = 0f;
     public float maxRotation = 360f;
@@ -36,9 +36,10 @@ public class GunManagement : MonoBehaviour
         }
     }
 
-    /*
+    
     private void Start()
     {
+        /*
         Gun currentActiveGun = UtilityClass.FindActiveGun(holster);
 
 
@@ -49,9 +50,13 @@ public class GunManagement : MonoBehaviour
             playerShootingScript.gameObject.GetComponent<SpriteRenderer>().sprite = currentActiveGun.weaponSprite;
             gunImageUI.sprite = currentActiveGun.droppedOnFloorGun.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite;
             bulletTextUI.text = currentActiveGun.bullets.ToString();
-        }
+        }*/
+
+        holster = UtilityClass.FindChildByName(Player.instance.transform, "GunHolster").gameObject;
+        playerRenderer = Player.instance.GetComponent<SpriteRenderer>();
+        playerShootingScript = Player.instance.GetComponent<PlayerShooting>();
     }
-    */
+    
 
     public void switchGun(PickableGun gunToActivate)
     {

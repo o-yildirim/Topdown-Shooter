@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         spRenderer = GetComponent<SpriteRenderer>();
+        gameObject.SetActive(false);
     }
 
     public void die(Vector3 hitPoint)

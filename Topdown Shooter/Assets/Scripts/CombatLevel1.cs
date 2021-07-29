@@ -24,9 +24,11 @@ public class CombatLevel1 : MonoBehaviour, LevelController
     }
     public IEnumerator startLevel()
     {
-        yield return new WaitForSeconds(FadeManager.instance.getAnimationLength());
+        //   yield return new WaitForSeconds(FadeManager.instance.getAnimationLength());
+       
         elevatorDoor.open();
         elevatorDoor.transform.root.GetComponentInChildren<Light2D>().enabled = false;
         globalLight.enabled = true;
+        yield return null;
     }
 }

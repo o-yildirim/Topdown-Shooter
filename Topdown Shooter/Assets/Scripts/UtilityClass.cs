@@ -84,4 +84,18 @@ public class UtilityClass
         return null;
     }
 
+    public static Transform FindChildByName(Transform parent,string nameToFind)
+    {
+        for (int i = 0; i < parent.childCount; i++)
+        {
+            Transform currentChild = parent.GetChild(i);
+            if(currentChild.name == nameToFind)
+            {
+                return currentChild;
+            }
+        }
+
+        return null;
+    }
+
 }

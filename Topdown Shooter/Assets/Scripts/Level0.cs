@@ -11,8 +11,9 @@ public class Level0 : MonoBehaviour, LevelController
     public Transform scientist;
     private Dialogue scientistDialogue;
 
-    public Transform player;
+    private Transform player;
 
+    public Transform spawnPoint;
     public Transform elevatorDoor;
     public KeycardReader elevatorDoorKeycardReader;
     public Animator elevatorDoorAnimator;
@@ -27,7 +28,11 @@ public class Level0 : MonoBehaviour, LevelController
     }
 
     public void onLevelLoad()
-    {
+    {      
+        player = Player.instance.transform;
+        player.transform.position = spawnPoint.position;
+        player.gameObject.SetActive(true);
+        FadeManager.instance.fadeIn();
         StartCoroutine(startLevel());
     }
     public IEnumerator startLevel()
@@ -76,9 +81,11 @@ public class Level0 : MonoBehaviour, LevelController
         labLight.SetActive(false);
         elevatorDoorKeycardReader.gameObject.SetActive(false);
 
+        /*
         FadeManager.instance.fadeOut();
         float fadeDuration = FadeManager.instance.getAnimationLength();
         yield return new WaitForSeconds(fadeDuration);
+        */
 
         endLevel();
     }

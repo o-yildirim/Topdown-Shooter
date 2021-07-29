@@ -25,6 +25,10 @@ public class SceneLoader:MonoBehaviour
     }
     public IEnumerator loadScene(int buildIndex)
     {
+        FadeManager.instance.fadeOut();
+        float fadeDuration = FadeManager.instance.getAnimationLength();
+        yield return new WaitForSeconds(fadeDuration);
+
         AsyncOperation sceneLoad = SceneManager.LoadSceneAsync(buildIndex);
         while (!sceneLoad.isDone)
         {
@@ -36,12 +40,18 @@ public class SceneLoader:MonoBehaviour
             levelController.onLevelLoad();
         }
 
+        FadeManager.instance.fadeIn();
+        fadeDuration = FadeManager.instance.getAnimationLength();
+        yield return new WaitForSeconds(fadeDuration);
+
     }
 
     public void loadNextLevel()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        loadSceneCall(currentSceneIndex + 1);
+        int sceneToLoad = currentSceneIndex + 1;
+        PlayerPrefs.SetInt("SavedGameScene", sceneToLoad);
+        loadSceneCall(sceneToLoad);
     }
 
     public void restartLevel()
