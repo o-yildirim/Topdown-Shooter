@@ -64,7 +64,6 @@ public class Player : MonoBehaviour
         }
         else
         {
-            Debug.Log("as");
             GunManagement.instance.switchToUnarmed();
         }
     }

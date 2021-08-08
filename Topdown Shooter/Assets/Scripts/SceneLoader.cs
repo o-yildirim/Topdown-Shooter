@@ -19,11 +19,11 @@ public class SceneLoader:MonoBehaviour
         }
     }
 
-    public void loadSceneCall(int buildIndex)
+    public void loadSceneFadeCall(int buildIndex)
     {
-        StartCoroutine(loadScene(buildIndex));
+        StartCoroutine(loadSceneWithFadeEffects(buildIndex));
     }
-    public IEnumerator loadScene(int buildIndex)
+    public IEnumerator loadSceneWithFadeEffects(int buildIndex)
     {
         FadeManager.instance.fadeOut();
         float fadeDuration = FadeManager.instance.getAnimationLength();
@@ -45,22 +45,57 @@ public class SceneLoader:MonoBehaviour
         yield return new WaitForSeconds(fadeDuration);
 
     }
+    
+    public void loadSceneDirectlyCall(int sceneIndex)
+    {
+        StartCoroutine(loadSceneDirectly(sceneIndex));
+        
+    }
+
+    public IEnumerator loadSceneDirectly(int buildIndex)
+    {
+        AsyncOperation sceneLoad = SceneManager.LoadSceneAsync(buildIndex);
+        while (!sceneLoad.isDone)
+        {
+            yield return null;
+        }
+        LevelController levelController = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelController>();
+        if (levelController != null)
+        {
+            levelController.onLevelLoad();
+        }
+
+    }
+
+    public void loadSceneSync(int currentSceneIndex)
+    {
+        SceneManager.LoadScene(currentSceneIndex);
+        LevelController levelController = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelController>();
+        if (levelController != null)
+        {
+            levelController.onLevelLoad();
+        }
+    }
 
     public void loadNextLevel()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int sceneToLoad = currentSceneIndex + 1;
         PlayerPrefs.SetInt("SavedGameScene", sceneToLoad);
-        loadSceneCall(sceneToLoad);
+        loadSceneFadeCall(sceneToLoad);
     }
 
     public void restartLevel()
     {
-        GameController.instance.deathScreen.SetActive(false);
-        Player.instance.assignStoredInfo();
 
+
+        GameController.instance.deathScreen.SetActive(false);
+
+       
+        Player.instance.assignStoredInfo();
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        loadSceneCall(currentSceneIndex);
+        loadSceneSync(currentSceneIndex);
+        
     }
    
 }

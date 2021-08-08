@@ -42,8 +42,8 @@ GameObject:
   - component: {fileID: 6059744129077887724}
   - component: {fileID: 6059744129077887723}
   - component: {fileID: 6059744129077887722}
-  - component: {fileID: 6059744129077887725}
   - component: {fileID: 6059744129077887726}
+  - component: {fileID: 4102077091139044410}
   m_Layer: 8
   m_Name: Door
   m_TagString: Untagged
@@ -142,19 +142,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &6059744129077887725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6059744129077887721}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02b972226c8e08c4398cf9cd40c3f92d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doorAnimator: {fileID: 6059744129077887726}
 --- !u!95 &6059744129077887726
 Animator:
   serializedVersion: 3
@@ -174,6 +161,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4102077091139044410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6059744129077887721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1144886b709fccd439851e561ffaba69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8082112055885115069
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,7 +293,7 @@ GameObject:
   - component: {fileID: 8082112055930770560}
   m_Layer: 8
   m_Name: Elevator
-  m_TagString: Untagged
+  m_TagString: Elevator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

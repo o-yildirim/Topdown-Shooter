@@ -13,6 +13,7 @@ TagManager:
   - LevelManager
   - PauseCanvas
   - GunInfoCanvas
+  - Elevator
   layers:
   - Default
   - TransparentFX

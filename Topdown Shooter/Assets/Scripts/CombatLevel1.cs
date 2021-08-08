@@ -6,30 +6,34 @@ using UnityEngine.Experimental.Rendering.Universal;
 public class CombatLevel1 : MonoBehaviour, LevelController
 {
     public Transform spawnPoint;
-    public KeycardDoor elevatorDoor;
+    private KeycardDoor elevatorDoor;
     public Light2D globalLight;
 
     public void onLevelLoad()
     {
+        Debug.Log("dfsdfskl");
+
         Player.instance.transform.position = spawnPoint.position;
         Player.instance.gameObject.SetActive(true);
         Player.instance.storePlayerInfo();
-        //FadeManager.instance.fadeIn();
+
+
+        elevatorDoor = GameObject.FindGameObjectWithTag("Elevator").GetComponentInChildren<KeycardDoor>();
+
+        globalLight.enabled = true;
+
+
         GameController.instance.isGamePaused = false;
-        StartCoroutine(startLevel());
+      
+        //StartCoroutine(startLevel());
     }
 
-    public void endLevel()
-    {
+    public void endLevel() { }
+    
 
-    }
+    
     public IEnumerator startLevel()
     {
-        //   yield return new WaitForSeconds(FadeManager.instance.getAnimationLength());
-       
-        elevatorDoor.open();
-        elevatorDoor.transform.root.GetComponentInChildren<Light2D>().enabled = false;
-        globalLight.enabled = true;
         yield return null;
     }
 }

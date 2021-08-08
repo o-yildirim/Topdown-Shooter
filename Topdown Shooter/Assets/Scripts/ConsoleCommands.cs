@@ -40,7 +40,7 @@ public class ConsoleCommands : MonoBehaviour
         int levelIndex;
         if(int.TryParse(parts[1], out levelIndex))
         {
-            SceneLoader.instance.loadSceneCall(levelIndex);
+            SceneLoader.instance.loadSceneFadeCall(levelIndex);
         }
         else
         {

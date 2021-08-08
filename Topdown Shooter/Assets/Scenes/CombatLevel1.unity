@@ -569,7 +569,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 1640568103}
-  elevatorDoor: {fileID: 7823649792933168376}
   globalLight: {fileID: 1421251856}
 --- !u!114 &243882899
 MonoBehaviour:
@@ -4263,14 +4262,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8082112055930770560, guid: 4124979a6657e954e994e8693b8a2a31, type: 3}
   m_PrefabInstance: {fileID: 4074553856210847253}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7823649792933168376 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6059744129077887725, guid: 4124979a6657e954e994e8693b8a2a31, type: 3}
-  m_PrefabInstance: {fileID: 4074553856210847253}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02b972226c8e08c4398cf9cd40c3f92d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

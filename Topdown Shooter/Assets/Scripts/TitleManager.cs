@@ -18,7 +18,7 @@ public class TitleManager : MonoBehaviour
     public void continueGame()
     {
         FadeManager.instance.fadeOut();
-        SceneLoader.instance.loadSceneCall(lastSavedScene);
+        SceneLoader.instance.loadSceneFadeCall(lastSavedScene);
    
     }
     public void startNewGame()
