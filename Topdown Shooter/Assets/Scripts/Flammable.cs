@@ -82,7 +82,6 @@ public class Flammable : MonoBehaviour
         Vector2 defaultFireScale = shape.scale;
 
 
-        // Debug.Log("SA");
 
         bool fullyPropagated = false;
         bool fullyPositioned = false;
@@ -130,7 +129,6 @@ public class Flammable : MonoBehaviour
 
         states = BurningStates.Optimizing;
 
-        Debug.Log("Optimizasyon top isidir");
 
         ParticleSystem fullyBurningParticle = fullyBurningFireEffect.GetComponentInChildren<ParticleSystem>();
 
@@ -164,8 +162,6 @@ public class Flammable : MonoBehaviour
             yield return new WaitForSeconds(destroyChildSeconds);
         }
 
-
-        Debug.Log(oneFullyBurningFireEmission);
 
         for (int i = 0; i < particleEmissions.Length; i++)
         {

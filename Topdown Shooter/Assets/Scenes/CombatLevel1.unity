@@ -555,11 +555,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.078811646
+      value: 0.08327531
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.23818989
+      value: 0.29642832
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.z
@@ -583,7 +583,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -599,15 +599,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.13190226
+      value: 0.13937283
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.3826347
+      value: 0.47619048
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507355, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_Name
       value: WeaponCrate (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931690646530507355, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507358, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: circleCastRadius
@@ -841,11 +845,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.08144963
+      value: -0.0860627
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.23818989
+      value: 0.29642832
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.z
@@ -885,15 +889,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.13190226
+      value: 0.13937283
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.3826347
+      value: 0.47619048
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507355, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_Name
       value: WeaponCrate (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931690646530507355, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507358, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: circleCastRadius
@@ -1084,11 +1092,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.41780043
+      value: 0.44146344
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.2496692
+      value: -0.31071436
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1128,15 +1136,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.13190226
+      value: 0.13937283
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.3826347
+      value: 0.47619048
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507355, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_Name
       value: WeaponCrate (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931690646530507355, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507358, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: circleCastRadius
@@ -1351,11 +1363,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.42043847
+      value: -0.44425088
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.2496692
+      value: -0.31071436
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1395,15 +1407,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.13190226
+      value: 0.13937283
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.3826347
+      value: 0.47619048
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507355, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_Name
       value: WeaponCrate (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931690646530507355, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507358, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: circleCastRadius
@@ -1427,11 +1443,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.42043847
+      value: -0.44425088
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.23818989
+      value: 0.29642832
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1471,15 +1487,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.13190226
+      value: 0.13937283
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.3826347
+      value: 0.47619048
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507355, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_Name
       value: WeaponCrate (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931690646530507355, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507358, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: circleCastRadius
@@ -1503,11 +1523,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.24830604
+      value: 0.26236936
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.2496692
+      value: -0.31071436
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1547,15 +1567,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.13190226
+      value: 0.13937283
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.3826347
+      value: 0.47619048
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507355, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_Name
       value: WeaponCrate (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931690646530507355, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507358, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: circleCastRadius
@@ -1688,11 +1712,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.24830604
+      value: 0.26236936
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.23818989
+      value: 0.29642832
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1716,7 +1740,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1732,15 +1756,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.13190226
+      value: 0.13937283
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.3826347
+      value: 0.47619048
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507355, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_Name
       value: WeaponCrate (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931690646530507355, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507358, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: circleCastRadius
@@ -1846,11 +1874,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.41780043
+      value: 0.44146344
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.23818989
+      value: 0.29642832
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1874,7 +1902,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1890,15 +1918,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.13190226
+      value: 0.13937283
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.3826347
+      value: 0.47619048
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507355, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_Name
       value: WeaponCrate (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931690646530507355, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507358, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: circleCastRadius
@@ -2745,11 +2777,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.25094405
+      value: -0.26515678
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.23818989
+      value: 0.29642832
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2789,15 +2821,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.13190226
+      value: 0.13937283
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.3826347
+      value: 0.47619048
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507355, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_Name
       value: WeaponCrate (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931690646530507355, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507358, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: circleCastRadius
@@ -3815,11 +3851,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.078811646
+      value: 0.08327531
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.2496692
+      value: -0.31071436
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3859,15 +3895,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.13190226
+      value: 0.13937283
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.3826347
+      value: 0.47619048
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507355, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_Name
       value: WeaponCrate (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931690646530507355, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507358, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: circleCastRadius
@@ -4028,11 +4068,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.08144963
+      value: -0.0860627
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.2496692
+      value: -0.31071436
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4072,15 +4112,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.13190226
+      value: 0.13937283
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.3826347
+      value: 0.47619048
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507355, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_Name
       value: WeaponCrate (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931690646530507355, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507358, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: circleCastRadius
@@ -4382,7 +4426,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426306146}
   serializedVersion: 6
-  lengthInSec: 500
+  lengthInSec: 5
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -5207,7 +5251,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 120
+      scalar: 200
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -9545,11 +9589,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.25094405
+      value: -0.26515678
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.2496692
+      value: -0.31071436
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9589,15 +9633,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.13190226
+      value: 0.13937283
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.3826347
+      value: 0.47619048
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507355, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_Name
       value: WeaponCrate (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931690646530507355, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507358, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: circleCastRadius
@@ -9969,6 +10017,7 @@ GameObject:
   - component: {fileID: 1616466971}
   - component: {fileID: 1616466973}
   - component: {fileID: 1616466972}
+  - component: {fileID: 1616466974}
   m_Layer: 8
   m_Name: WeaponCrateCollection
   m_TagString: Untagged
@@ -9985,7 +10034,7 @@ Transform:
   m_GameObject: {fileID: 1616466970}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.585, y: -51.985, z: 0}
-  m_LocalScale: {x: 15.162742, y: 5.2269173, z: 1}
+  m_LocalScale: {x: 14.35, y: 4.2, z: 1}
   m_Children:
   - {fileID: 462804489}
   - {fileID: 1563576963}
@@ -9996,9 +10045,9 @@ Transform:
   - {fileID: 1162282893}
   - {fileID: 563753483}
   - {fileID: 332996585}
-  - {fileID: 714790917}
   - {fileID: 625632206}
   - {fileID: 148488244}
+  - {fileID: 714790917}
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10016,12 +10065,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionRequiredToIgnite: 5
   firePropagationRate: 0.5
-  circleCastRadius: 0.82
+  circleCastRadius: 0.8
   fireMask:
     serializedVersion: 2
     m_Bits: 8192
-  reduceParticleRatio: 2
-  destroyChildSeconds: 0.25
+  reduceParticleRatio: 3
+  destroyChildSeconds: 0.5
 --- !u!61 &1616466973
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10035,7 +10084,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.013445407}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -10046,8 +10095,59 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.0598171, y: 1.2097521}
   m_EdgeRadius: 0
+--- !u!212 &1616466974
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616466970}
+  m_Enabled: 0
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
+  m_Sprite: {fileID: 21300000, guid: 2627eff0edd884946997e5c8e3d1ca83, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1621504501
 GameObject:
   m_ObjectHideFlags: 0
@@ -11362,7 +11462,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 30.77
+      value: 30.770004
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11374,15 +11474,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_LocalRotation.w
@@ -11404,13 +11504,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931690646530507353, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507355, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: m_Name
       value: WeaponCrate
       objectReference: {fileID: 0}
     - target: {fileID: 3931690646530507358, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
       propertyPath: circleCastRadius
-      value: 2
+      value: 1.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b59a5e36596fd543b45e0c9ab429490, type: 3}
