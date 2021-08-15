@@ -34,11 +34,18 @@ public class SceneLoader:MonoBehaviour
         {
             yield return null;
         }
-        LevelController levelController = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelController>();
-        if (levelController != null)
+
+        GameObject levelManager = GameObject.FindGameObjectWithTag("LevelManager");
+        if (levelManager)
         {
-            levelController.onLevelLoad();
+            LevelController levelController = levelManager.GetComponent<LevelController>();
+            if (levelController != null)
+            {
+                levelController.onLevelLoad();
+            }
         }
+
+        
 
         FadeManager.instance.fadeIn();
         fadeDuration = FadeManager.instance.getAnimationLength();
@@ -97,5 +104,30 @@ public class SceneLoader:MonoBehaviour
         loadSceneSync(currentSceneIndex);
         
     }
-   
+
+    public IEnumerator loadMainMenu()
+    {
+        FadeManager.instance.fadeOut();
+        float fadeDuration = FadeManager.instance.getAnimationLength();
+        yield return new WaitForSeconds(fadeDuration);
+
+
+        Player.instance.gameObject.SetActive(false);
+        GunManagement.instance.gunInfoCanvas.SetActive(false);
+
+        AsyncOperation sceneLoad = SceneManager.LoadSceneAsync(0);
+        while (!sceneLoad.isDone)
+        {
+            yield return null;
+        }
+
+ 
+        FadeManager.instance.fadeIn();
+        fadeDuration = FadeManager.instance.getAnimationLength();
+        yield return new WaitForSeconds(fadeDuration);
+
+        GameController.instance.resume();
+
+    }
+
 }

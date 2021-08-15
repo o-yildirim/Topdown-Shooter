@@ -10,6 +10,19 @@ public class CameraMovement : MonoBehaviour
     public float maxCamDistanceToPlayer = 4f;
     private Vector3 speedVector = Vector3.zero;
 
+    public static CameraMovement cameraMovementScript;
+
+    private void Awake()
+    {
+        if (cameraMovementScript == null)
+        {
+            cameraMovementScript = this;
+        }
+        else if(cameraMovementScript != this)
+        {
+            Destroy(gameObject);
+        }
+    }
     void Start()
     {
         player = Player.instance.transform;

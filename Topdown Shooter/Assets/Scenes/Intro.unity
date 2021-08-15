@@ -6237,8 +6237,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentActiveGunId: -1
   holster: {fileID: 0}
-  playerRenderer: {fileID: 0}
-  playerShootingScript: {fileID: 0}
   minRotation: 0
   maxRotation: 360
   minDistanceToBody: 0.5
@@ -6866,17 +6864,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &846403133 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6059744129077887725, guid: 4124979a6657e954e994e8693b8a2a31, type: 3}
-  m_PrefabInstance: {fileID: 1869848379}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02b972226c8e08c4398cf9cd40c3f92d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &849720672
 GameObject:
   m_ObjectHideFlags: 0
@@ -13394,7 +13381,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4102077091139044410, guid: 4124979a6657e954e994e8693b8a2a31, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4124979a6657e954e994e8693b8a2a31, type: 3}
 --- !u!1 &1869848380 stripped
 GameObject:
@@ -13416,6 +13404,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8082112055930770560, guid: 4124979a6657e954e994e8693b8a2a31, type: 3}
   m_PrefabInstance: {fileID: 1869848379}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1869848384 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6059744129077887721, guid: 4124979a6657e954e994e8693b8a2a31, type: 3}
+  m_PrefabInstance: {fileID: 1869848379}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1869848385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869848384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02b972226c8e08c4398cf9cd40c3f92d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1874205685
 GameObject:
   m_ObjectHideFlags: 0
@@ -15586,7 +15591,7 @@ MonoBehaviour:
   lockedSprite: {fileID: 21300000, guid: 49b83b1afe747c24a8b1cc16cca361e4, type: 3}
   unlockedSprite: {fileID: 21300000, guid: d7c637946c1434243ae6c2b827e9ef78, type: 3}
   lockInfoLight: {fileID: 4444331205807871152}
-  doorToOpen: {fileID: 846403133}
+  doorToOpen: {fileID: 1869848385}
   infoCanvas: {fileID: 0}
 --- !u!1001 &7267491157839178270
 PrefabInstance:

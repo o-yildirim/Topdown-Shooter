@@ -69,8 +69,8 @@ public class GameController : MonoBehaviour
 
     public void returnToMenu()
     {
-        //Load scene 0
-        Debug.Log("Returning to menu");
+        resume();
+        StartCoroutine(SceneLoader.instance.loadMainMenu());
     }
 
    public void displayDeathScreen()
