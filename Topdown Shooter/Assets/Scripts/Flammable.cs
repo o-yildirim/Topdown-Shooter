@@ -19,9 +19,9 @@ public class Flammable : MonoBehaviour
     public float reduceParticleRatio = 2f;
     public float destroyChildSeconds = 0.25f;
 
-    public enum BurningStates {NotBurning,FullyBurning,Optimizing,Optimized };
+    public enum BurningStates { NotBurning, FullyBurning, Optimizing, Optimized };
     private BurningStates states;
-    
+
     void Start()
     {
         states = BurningStates.NotBurning;
@@ -35,9 +35,14 @@ public class Flammable : MonoBehaviour
         if (collisionRequiredToIgnite <= 0)
         {
             Enemy enemy = GetComponent<Enemy>();
+            Player player = GetComponent<Player>();
             if (enemy)
             {
                 enemy.die(enemy.transform.position); //Enemy will be in burning state
+            }
+            else if (player)
+            {
+                player.die(player.transform.position);
             }
             else
             {
@@ -61,7 +66,7 @@ public class Flammable : MonoBehaviour
 
     public IEnumerator burn(GameObject fireEffect, Vector3 position)
     {
-        if(states == BurningStates.FullyBurning) yield break;
+        if (states == BurningStates.FullyBurning) yield break;
 
         position.z = 0f;
         GameObject createdFirePrefab = Instantiate(fireEffect, position, fireEffect.transform.rotation);
@@ -77,7 +82,7 @@ public class Flammable : MonoBehaviour
         Vector2 defaultFireScale = shape.scale;
 
 
-       // Debug.Log("SA");
+        // Debug.Log("SA");
 
         bool fullyPropagated = false;
         bool fullyPositioned = false;
@@ -142,12 +147,18 @@ public class Flammable : MonoBehaviour
             GameObject currentChild = transform.GetChild(i).gameObject;
             if (currentChild != fullyBurningFireEffect)
             {
-                float emissionOfCurrentChild = currentChild.GetComponentInChildren<ParticleSystem>().emission.rateOverTime.constant;
-                particleEmissions[i] = emissionOfCurrentChild;
+                ParticleSystem psChild = currentChild.GetComponentInChildren<ParticleSystem>();
+                if (psChild)
+                {
+                    float emissionOfCurrentChild = psChild.emission.rateOverTime.constant;
+                    particleEmissions[i] = emissionOfCurrentChild;
 
-                fullyBurningParticle.maxParticles += (int)(emissionOfCurrentChild * fullyBurningParticle.duration);
-                fullyBurningParticle.emissionRate += emissionOfCurrentChild;
+                    fullyBurningParticle.maxParticles += (int)(emissionOfCurrentChild * fullyBurningParticle.duration);
+                    fullyBurningParticle.emissionRate += emissionOfCurrentChild;
+
+                }
                 Destroy(currentChild);
+
             }
 
             yield return new WaitForSeconds(destroyChildSeconds);
@@ -156,7 +167,7 @@ public class Flammable : MonoBehaviour
 
         Debug.Log(oneFullyBurningFireEmission);
 
-        for(int i = 0; i < particleEmissions.Length; i++)
+        for (int i = 0; i < particleEmissions.Length; i++)
         {
             //fullyBurningParticle.emissionRate -= particleReductionPerIteration;
             //fullyBurningParticle.maxParticles -= (int)(particleReductionPerIteration * fullyBurningParticle.duration);
@@ -168,7 +179,6 @@ public class Flammable : MonoBehaviour
         }
 
         fullyBurningParticle.emissionRate = oneFullyBurningFireEmission;
-
         states = BurningStates.Optimized;
         //
 
