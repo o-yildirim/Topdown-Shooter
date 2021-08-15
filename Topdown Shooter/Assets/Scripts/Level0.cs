@@ -14,6 +14,7 @@ public class Level0 : MonoBehaviour, LevelController
     private Transform player;
 
     public Transform spawnPoint;
+    public Transform computerInteractionPoint;
     public Transform elevatorDoor;
     public KeycardReader elevatorDoorKeycardReader;
     public Animator elevatorDoorAnimator;
@@ -69,6 +70,9 @@ public class Level0 : MonoBehaviour, LevelController
         scientistDialogue.setDialogues(nextSentence);
         scientistDialogue.setRepeatingEndDialogue(nextRepeating);
         DialogueManager.instance.startDialogue(scientistDialogue);
+        scientist.transform.position = computerInteractionPoint.position;
+        scientist.transform.up = computerInteractionPoint.right;
+        scientist.GetChild(0).transform.up = Vector3.up;
         while (DialogueManager.instance.isAnyDialogueActive()) yield return null;
         yield return new WaitForSeconds(0.8f);
         elevatorDoorKeycardReader.openDoor();
