@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -8,6 +9,11 @@ public class GameController : MonoBehaviour
     public bool isGamePaused = false;
     public GameObject pauseMenu;
     public GameObject deathScreen;
+    public GameObject messageBoxParent;
+
+    private Text messageBoxText;
+    private Animator messageBoxAnimator;
+
     private void Awake()
     {
         if (instance == null)
@@ -18,6 +24,12 @@ public class GameController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        messageBoxAnimator = messageBoxParent.GetComponent<Animator>();
+        messageBoxText = messageBoxParent.GetComponentInChildren<Text>();
     }
 
     private void Update()
@@ -41,7 +53,7 @@ public class GameController : MonoBehaviour
                 resume();
             }
             
-        }   
+        }
     }
 
     public void pause()
@@ -79,5 +91,24 @@ public class GameController : MonoBehaviour
         deathScreen.SetActive(true);
     }
 
+    public void displayTextToPlayer(string message)
+    {
+        messageBoxText.text = "";
+
+        messageBoxText.text = message;
+        if (messageBoxAnimator)
+        {
+            messageBoxAnimator.SetBool("displayingMessage", true);
+        }
+    }
+
+    public void hideMessageBox()
+    {
+        if (messageBoxAnimator)
+        {
+            messageBoxAnimator.SetBool("displayingMessage", false);
+        }
+       
+    }
 
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class CombatController : MonoBehaviour
 {
     private float enemyCount;
+    public CombatLevel1 levelManager;
     public void increaseEnemy()
     {
         enemyCount++;
@@ -15,12 +16,8 @@ public class CombatController : MonoBehaviour
         enemyCount--;
         if(enemyCount == 0)
         {
-            Debug.Log("Stage clear");
+            levelManager.levelCleared();
         }
     }
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+ 
 }

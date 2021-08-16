@@ -7,6 +7,7 @@ public class CombatLevel1 : MonoBehaviour, LevelController
 {
     public Transform spawnPoint;
     public Light2D globalLight;
+    public bool isLevelClear = false;
 
     public void onLevelLoad()
     {
@@ -25,9 +26,17 @@ public class CombatLevel1 : MonoBehaviour, LevelController
         //StartCoroutine(startLevel());
     }
 
-    public void endLevel() { }
+    public void endLevel()
+    {
+        GameController.instance.hideMessageBox();
+        //Elevator falan kapanacak
+    }
     
-
+    public void levelCleared()
+    {
+        isLevelClear = true;
+        GameController.instance.displayTextToPlayer("Level cleared!\n Get back to the elevator.");
+    }
     
     public IEnumerator startLevel()
     {
