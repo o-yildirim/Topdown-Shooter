@@ -51,7 +51,7 @@ public class CombatLevel1 : MonoBehaviour, LevelController
         elevator.close();
         float animationLength = elevatorAnimator.GetCurrentAnimatorStateInfo(0).length;
         yield return new WaitForSeconds(animationLength + 0.5f);
-        GameController.instance.returnToMenu();
+        SceneLoader.instance.loadNextLevel();
     }
 
    
