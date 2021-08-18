@@ -82,6 +82,7 @@ public class GameController : MonoBehaviour
     public void returnToMenu()
     {
         resume();
+        hideMessageBox();
         StartCoroutine(SceneLoader.instance.loadMainMenu());
     }
 

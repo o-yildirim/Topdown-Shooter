@@ -8,6 +8,7 @@ public class CombatLevel1 : MonoBehaviour, LevelController
     public Transform spawnPoint;
     public Light2D globalLight;
     public bool isLevelClear = false;
+    public ElevatorDoor elevator;
 
     public void onLevelLoad()
     {
@@ -18,9 +19,6 @@ public class CombatLevel1 : MonoBehaviour, LevelController
         Player.instance.storePlayerInfo();
 
 
-        globalLight.enabled = true;
-
-
         GameController.instance.isGamePaused = false;
       
         //StartCoroutine(startLevel());
@@ -28,8 +26,12 @@ public class CombatLevel1 : MonoBehaviour, LevelController
 
     public void endLevel()
     {
-        GameController.instance.hideMessageBox();
-        //Elevator falan kapanacak
+        if (isLevelClear)
+        {
+            GameController.instance.hideMessageBox();
+            GameController.instance.isGamePaused = true;
+            StartCoroutine(endGameCoroutine());
+        }
     }
     
     public void levelCleared()
@@ -42,4 +44,15 @@ public class CombatLevel1 : MonoBehaviour, LevelController
     {
         yield return null;
     }
+
+    public IEnumerator endGameCoroutine()
+    {
+        Animator elevatorAnimator = elevator.GetComponent<Animator>();
+        elevator.close();
+        float animationLength = elevatorAnimator.GetCurrentAnimatorStateInfo(0).length;
+        yield return new WaitForSeconds(animationLength + 0.5f);
+        GameController.instance.returnToMenu();
+    }
+
+   
 }

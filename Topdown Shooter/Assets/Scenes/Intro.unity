@@ -6456,6 +6456,7 @@ MonoBehaviour:
   isGamePaused: 0
   pauseMenu: {fileID: 1929920202}
   deathScreen: {fileID: 849720672}
+  messageBoxParent: {fileID: 0}
 --- !u!114 &782935544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13501,6 +13502,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6059744129077887721, guid: 4124979a6657e954e994e8693b8a2a31, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6059744129077887724, guid: 4124979a6657e954e994e8693b8a2a31, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -13565,9 +13570,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Elevator
       objectReference: {fileID: 0}
+    - target: {fileID: 8082112055930770561, guid: 4124979a6657e954e994e8693b8a2a31, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8082112056708828648, guid: 4124979a6657e954e994e8693b8a2a31, type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8082112056708828648, guid: 4124979a6657e954e994e8693b8a2a31, type: 3}
+      propertyPath: m_ShapePath.Array.size
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8082112056708828648, guid: 4124979a6657e954e994e8693b8a2a31, type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.data[0]
@@ -13591,11 +13604,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8082112056708828648, guid: 4124979a6657e954e994e8693b8a2a31, type: 3}
       propertyPath: m_ShapePath.Array.data[5].x
-      value: -0.28073364
+      value: -0.28598273
       objectReference: {fileID: 0}
     - target: {fileID: 8082112056708828648, guid: 4124979a6657e954e994e8693b8a2a31, type: 3}
       propertyPath: m_ShapePath.Array.data[5].y
-      value: 2.7134356
+      value: 2.6757476
+      objectReference: {fileID: 0}
+    - target: {fileID: 8082112056708828648, guid: 4124979a6657e954e994e8693b8a2a31, type: 3}
+      propertyPath: m_ShapePath.Array.data[6].x
+      value: -0.28018466
+      objectReference: {fileID: 0}
+    - target: {fileID: 8082112056708828648, guid: 4124979a6657e954e994e8693b8a2a31, type: 3}
+      propertyPath: m_ShapePath.Array.data[6].y
+      value: -2.6023424
+      objectReference: {fileID: 0}
+    - target: {fileID: 8082112056708828648, guid: 4124979a6657e954e994e8693b8a2a31, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8082112056708828650, guid: 4124979a6657e954e994e8693b8a2a31, type: 3}
       propertyPath: m_Name
