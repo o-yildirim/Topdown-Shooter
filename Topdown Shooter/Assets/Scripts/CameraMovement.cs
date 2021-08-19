@@ -9,7 +9,8 @@ public class CameraMovement : MonoBehaviour
     public float smoothTime = 0.3f;
     public float maxCamDistanceToPlayer = 4f;
     private Vector3 speedVector = Vector3.zero;
-    public float originalCamSize;
+    private float originalCamSize;
+    private float originalSmoothTime;
     private Camera cam;
 
     public static CameraMovement instance;
@@ -31,6 +32,7 @@ public class CameraMovement : MonoBehaviour
         offset = transform.position - target.position;
         cam = GetComponent<Camera>();
         originalCamSize = cam.orthographicSize;
+        originalSmoothTime = smoothTime;
     }
 
     void Update()
@@ -58,7 +60,7 @@ public class CameraMovement : MonoBehaviour
     public void switchTarget(Transform newFocus)
     {
         target = newFocus;
-        offset = Vector3.zero;
+        offset = new Vector3(0f,0f,cam.transform.position.z);
     }
 
 
