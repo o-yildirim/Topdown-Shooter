@@ -1,20 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class Door : MouseInteractableObject
 {
     public GameObject infoCanvas;
+    public Text infoText;
     public Animator doorAnimator;
     public int doorId;
     private bool isOpen = false;
     private Transform player;
+    private string originalText;
    
 
     private void Start()
     {
         player = Player.instance.transform;
+        originalText = infoText.text;
         checkDatabase();
     }
 
@@ -35,7 +39,7 @@ public class Door : MouseInteractableObject
         }
         else
         {
-            //Locked from the other side
+            infoText.text = "Locked from the other side.";
         }
     }
 
@@ -52,6 +56,7 @@ public class Door : MouseInteractableObject
         if (infoCanvas)
         {
             infoCanvas.SetActive(false);
+            infoText.text = originalText;
         }
     }
 

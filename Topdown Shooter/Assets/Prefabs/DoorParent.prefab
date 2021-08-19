@@ -440,6 +440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoCanvas: {fileID: 3075815474983896270}
+  infoText: {fileID: 8459624121243772706}
   doorAnimator: {fileID: 1476027923367141694}
   doorId: 0
 --- !u!65 &1012594299140821248
