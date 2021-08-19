@@ -13,7 +13,7 @@ public class PlayerRotation : MonoBehaviour
     }
     void Update()
     {
-        if (GameController.instance.isGamePaused) return;
+        //if (GameController.instance.isGamePaused) return;
 
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         /*Vector3 direction = (Vector2)mousePos - playerRb.position;
@@ -25,6 +25,8 @@ public class PlayerRotation : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (GameController.instance.isGamePaused) return;
+
         Vector3 direction = (Vector2)mousePos - playerRb.position;
         float zAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         playerRb.MoveRotation(zAngle - 90f);

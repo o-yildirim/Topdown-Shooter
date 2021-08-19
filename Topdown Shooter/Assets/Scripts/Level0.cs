@@ -55,6 +55,7 @@ public class Level0 : MonoBehaviour, LevelController
             }
         }
 
+
         //Getting closer to the scientist
         while (Vector3.Distance(scientist.position, player.position) >= 5f) yield return null;
         scientistDialogue = scientist.GetComponent<Dialogue>();

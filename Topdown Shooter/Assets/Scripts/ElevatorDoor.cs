@@ -34,15 +34,16 @@ public class ElevatorDoor : MonoBehaviour
     public IEnumerator manageElevatorLight(bool isOpening)
     {
         float animationLength = doorAnimator.GetCurrentAnimatorStateInfo(0).length;
-        yield return new WaitForSeconds(animationLength);
+        yield return new WaitForSeconds(animationLength + 0.75f);
         if (isOpening)
         {
             globalLight.enabled =true;
+            //elevatorLight.enabled = false;
            
         }
         else
         {
-            elevatorLight.enabled = true;
+            //elevatorLight.enabled = true;
             yield return new WaitForSeconds(0.25f);
             globalLight.enabled = false;
             
