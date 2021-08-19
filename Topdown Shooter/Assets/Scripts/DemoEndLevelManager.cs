@@ -31,12 +31,34 @@ public class DemoEndLevelManager : MonoBehaviour, LevelController
         yield return new WaitForSeconds(3f);
         CameraMovement.instance.switchTarget(villain);
         CameraMovement.instance.smoothTime = 1f;
-        // Coroutine zoomOut = StartCoroutine(CameraMovement.instance.zoomOut(10f, 0.75f));
-        //yield return zoomOut;
         CameraMovement.instance.zoomOutCall(9.2f, 0.75f);
      
         confrontAnimator.SetTrigger("TriggerConfront");
-      
+
+
+        float animationLength = 0f;
+        AnimationClip[] clips = confrontAnimator.runtimeAnimatorController.animationClips;
+        foreach (AnimationClip clip in clips)
+        {
+            if(clip.name == "ConfrontingPlayerAnimation")
+            {
+                animationLength = clip.length;
+                break;
+            }
+        }
+       
+
+        yield return new WaitForSeconds(animationLength + 1f);
+
+        Dialogue villainDialogue = villain.GetComponent<Dialogue>();
+        DialogueManager.instance.startDialogue(villainDialogue);
+
+        while (DialogueManager.instance.isAnyDialogueActive())
+        {
+            yield return null;
+        }
+        GameController.instance.isGamePaused = true;
+
 
 
     }
