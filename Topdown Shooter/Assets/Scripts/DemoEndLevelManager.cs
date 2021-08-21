@@ -8,7 +8,8 @@ public class DemoEndLevelManager : MonoBehaviour, LevelController
     public Transform spawnPoint;
     public Animator confrontAnimator;
     public Transform villain;
-
+    public GameObject creditsCanvas;
+    public Animator creditsAnimator;
 
 
 
@@ -25,7 +26,7 @@ public class DemoEndLevelManager : MonoBehaviour, LevelController
        
     
     }
-    public void endLevel() { }
+   
     public IEnumerator startLevel()
     {
         yield return new WaitForSeconds(3f);
@@ -59,7 +60,18 @@ public class DemoEndLevelManager : MonoBehaviour, LevelController
         }
         GameController.instance.isGamePaused = true;
 
+        //Change sprite, shoot player
 
+        creditsCanvas.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        creditsAnimator.SetTrigger("PlayCredits");
+
+
+        //endLevel();
 
     }
+
+    public void endLevel() { }
+
+
 }
