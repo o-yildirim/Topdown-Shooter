@@ -34,7 +34,7 @@ public class SceneLoader:MonoBehaviour
         {
             yield return null;
         }
-
+        //GameController.instance.resume();
         GameObject levelManager = GameObject.FindGameObjectWithTag("LevelManager");
         if (levelManager)
         {
