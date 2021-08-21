@@ -67,11 +67,27 @@ public class DemoEndLevelManager : MonoBehaviour, LevelController
         creditsAnimator.SetTrigger("PlayCredits");
 
 
-        //endLevel();
+        animationLength = 0f;
+        clips = creditsAnimator.runtimeAnimatorController.animationClips;
+        foreach (AnimationClip clip in clips)
+        {
+            if (clip.name == "Credits")
+            {
+                animationLength = clip.length;
+                break;
+            }
+        }
+
+        yield return new WaitForSeconds(animationLength + 1.5f);
+        endLevel();
 
     }
 
-    public void endLevel() { }
+    public void endLevel()
+    {
+        PlayerPrefs.SetInt("SavedGameScene", 2); //Directing user's save file to the combat level after endgame
+        GameController.instance.returnToMenu();
+    }
 
 
 }
