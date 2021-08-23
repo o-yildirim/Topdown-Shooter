@@ -93,4 +93,11 @@ public class CameraMovement : MonoBehaviour
     {
         StartCoroutine(zoomOut(targetSize, zoomRatio));
     }
+
+    public void resetAllAttributes()
+    {
+        cam.orthographicSize = originalCamSize;
+        smoothTime = originalSmoothTime;
+    }
+
 }

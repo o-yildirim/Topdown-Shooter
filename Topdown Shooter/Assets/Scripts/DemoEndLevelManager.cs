@@ -20,8 +20,9 @@ public class DemoEndLevelManager : MonoBehaviour, LevelController
         GameController.instance.isGamePaused = true;
         Player.instance.gameObject.SetActive(true);
         Player.instance.transform.position = spawnPoint.position;
-        Player.instance.transform.up = Vector2.down;
-
+        Player.instance.GetComponent<Rigidbody2D>().rotation = -180f;
+        // Player.instance.transform.up = Vector2.down; //FIZIKLE DENE
+       // CameraMovement.instance.repositionImmidately();
         StartCoroutine(startLevel());
        
     
@@ -86,6 +87,9 @@ public class DemoEndLevelManager : MonoBehaviour, LevelController
     public void endLevel()
     {
         PlayerPrefs.SetInt("SavedGameScene", 2); //Directing user's save file to the combat level after endgame
+
+       // CameraMovement.instance.transform.position = Player.instance.transform.position - new Vector3(0f,0f,10f);
+        
         GameController.instance.returnToMenu();
     }
 

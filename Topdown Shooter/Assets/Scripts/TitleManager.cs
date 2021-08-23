@@ -8,7 +8,12 @@ public class TitleManager : MonoBehaviour
     private int lastSavedScene;
     void Start()
     {
-        gameObject.SetActive(false);
+        Player.instance.gameObject.SetActive(false);
+        CameraMovement.instance.switchTarget(Player.instance.transform);
+        CameraMovement.instance.resetAllAttributes();
+        GunManagement.instance.switchToUnarmed();
+
+        GameController.instance.isGamePaused = true;
         if (PlayerPrefs.HasKey("SavedGameScene"))
         {
             continueButton.SetActive(true);

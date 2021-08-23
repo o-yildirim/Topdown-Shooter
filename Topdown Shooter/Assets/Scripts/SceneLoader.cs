@@ -126,7 +126,7 @@ public class SceneLoader:MonoBehaviour
         fadeDuration = FadeManager.instance.getAnimationLength();
         yield return new WaitForSeconds(fadeDuration);
 
-        GameController.instance.resume();
+        //GameController.instance.resume();
 
     }
 

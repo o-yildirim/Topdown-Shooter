@@ -17,6 +17,7 @@ public class CombatLevel1 : MonoBehaviour, LevelController
         Player.instance.transform.position = spawnPoint.position;
         Player.instance.gameObject.SetActive(true);
         Player.instance.storePlayerInfo();
+        //CameraMovement.instance.repositionImmidately();
 
 
         GameController.instance.isGamePaused = false;

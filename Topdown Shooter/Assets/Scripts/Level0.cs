@@ -33,7 +33,10 @@ public class Level0 : MonoBehaviour, LevelController
         player = Player.instance.transform;
         player.transform.position = spawnPoint.position;
         player.gameObject.SetActive(true);
+        //CameraMovement.instance.repositionImmidately();
+
         FadeManager.instance.fadeIn();
+        GameController.instance.isGamePaused = false;
         StartCoroutine(startLevel());
     }
     public IEnumerator startLevel()
