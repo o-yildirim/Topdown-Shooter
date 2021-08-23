@@ -2702,8 +2702,13 @@ MonoBehaviour:
   isMainDialogueDone: 0
   npcName: B
   sentences:
-  - /D0 sa
-  - /D1 as
+  - /D0 I would'nt pull that trigger if I were you.
+  - /D1 I was too suprised to see another subject when I heard you killed a few of
+    my men.
+  - /D2 I am too close to capture the other one.
+  - /D3 Which means... I don't need you anymore.
+  - /D4 Sorry you got twisted in this scene.
+  - /D5 The game was rigged from the start.
   npcSprite: {fileID: 0}
   repeatingEndDialogue: []
 --- !u!1 &1749779331
