@@ -343,8 +343,12 @@ MonoBehaviour:
   m_ShapePath:
   - {x: -44.12019, y: -27.355717, z: 0}
   - {x: 40.05114, y: -29.471617, z: 0}
-  - {x: 39.888382, y: 39.562855, z: 0}
-  - {x: -44.771236, y: 38.58629, z: 0}
+  - {x: 23.356064, y: 13.296632, z: 0}
+  - {x: 2.499072, y: 12.173158, z: 0}
+  - {x: 2.4883795, y: 11.8172655, z: 0}
+  - {x: -2.2068708, y: 11.827536, z: 0}
+  - {x: -2.240182, y: 12.251979, z: 0}
+  - {x: -25.072086, y: 13.895718, z: 0}
 --- !u!4 &193027624
 Transform:
   m_ObjectHideFlags: 0
@@ -1586,6 +1590,10 @@ PrefabInstance:
       propertyPath: globalLight
       value: 
       objectReference: {fileID: 193027623}
+    - target: {fileID: 8082112055885115042, guid: 4124979a6657e954e994e8693b8a2a31, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8082112055930770560, guid: 4124979a6657e954e994e8693b8a2a31, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
