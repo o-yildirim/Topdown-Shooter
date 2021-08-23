@@ -37,7 +37,7 @@ public class CombatLevel1 : MonoBehaviour, LevelController
     public void levelCleared()
     {
         isLevelClear = true;
-        GameController.instance.displayTextToPlayer("Level cleared!\n Get back to the elevator.");
+        GameController.instance.displayTextToPlayer("Level cleared!\nGet back to the elevator.");
     }
     
     public IEnumerator startLevel()

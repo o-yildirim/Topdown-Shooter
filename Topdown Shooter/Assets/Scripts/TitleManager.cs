@@ -8,6 +8,7 @@ public class TitleManager : MonoBehaviour
     private int lastSavedScene;
     void Start()
     {
+        gameObject.SetActive(false);
         if (PlayerPrefs.HasKey("SavedGameScene"))
         {
             continueButton.SetActive(true);
