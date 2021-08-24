@@ -751,7 +751,7 @@ MonoBehaviour:
     for a bit. After everything went silent I checked outside and saw what you have
     just seen.
   - /D3 Why don't you check other part of the laboratory. There might be other survivors.
-  npcSprite: {fileID: 21300000, guid: 2d9f405db5de73941b5c58a78a80f246, type: 3}
+  npcSprite: {fileID: 21300000, guid: 518e1419b59df3044a4e7a2e6fcdc3f0, type: 3}
   repeatingEndDialogue:
   - /D0 There might be other survivors somewhere.
   - /D1 I am not brave enough to check it out.

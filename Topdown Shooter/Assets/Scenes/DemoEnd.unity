@@ -2662,7 +2662,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2627eff0edd884946997e5c8e3d1ca83, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9621680a96403a24bb4b7ae9537a363d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2702,14 +2702,14 @@ MonoBehaviour:
   isMainDialogueDone: 0
   npcName: B
   sentences:
-  - /D0 I would'nt pull that trigger if I were you.
+  - /D0 I wouldn't pull that trigger if I were you.
   - /D1 I was too suprised to see another subject when I heard you killed a few of
     my men.
   - /D2 I am too close to capture the other one.
   - /D3 Which means... I don't need you anymore.
   - /D4 Sorry you got twisted in this scene.
   - /D5 The game was rigged from the start.
-  npcSprite: {fileID: 0}
+  npcSprite: {fileID: 21300000, guid: 60c1674b9157b9f41be912e7947a81f0, type: 3}
   repeatingEndDialogue: []
 --- !u!1 &1749779331
 GameObject:
