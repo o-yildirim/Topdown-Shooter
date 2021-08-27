@@ -1382,7 +1382,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 449761376}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.48, z: 0}
+  m_LocalPosition: {x: -0.01, y: 0.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1590273021}
@@ -4313,14 +4313,14 @@ MonoBehaviour:
   cooldownRate: 0
   recoilLimit: 0
   bullets: 0
-  bulletsToFire: 7
+  bulletsToFire: 6
   angleBetweenBullets: 1.5
   fireRate: 2
   bulletSpeed: 60
   bulletPrefab: {fileID: 1383763515053879952, guid: a004ec242466ec34888a21c6ed867b67, type: 3}
   bullletFireEffectPrefab: {fileID: 3530131015262698056, guid: 5cbfbf724f47a404da18c1fd20d402b8, type: 3}
-  weaponSprite: {fileID: 0}
-  droppedOnFloorGun: {fileID: 0}
+  weaponSprite: {fileID: 21300000, guid: 7a1087bb5f2834244909ec9291faa9a5, type: 3}
+  droppedOnFloorGun: {fileID: 6250134478129277936, guid: 85000b83d85d09d46a9e919484389b3e, type: 3}
   firePoint: {fileID: 449761377}
 --- !u!212 &1590273023
 SpriteRenderer:

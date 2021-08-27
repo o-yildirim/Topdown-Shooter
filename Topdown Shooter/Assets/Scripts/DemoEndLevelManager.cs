@@ -34,7 +34,10 @@ public class DemoEndLevelManager : MonoBehaviour, LevelController
         CameraMovement.instance.switchTarget(villain);
         CameraMovement.instance.smoothTime = 1f;
         CameraMovement.instance.zoomOutCall(9.2f, 0.75f);
-     
+
+        Animator villainAnimator = villain.GetComponentInChildren<Animator>();
+        villainAnimator.SetBool("walkingForward", true);
+
         confrontAnimator.SetTrigger("TriggerConfront");
 
 
@@ -50,7 +53,11 @@ public class DemoEndLevelManager : MonoBehaviour, LevelController
         }
        
 
-        yield return new WaitForSeconds(animationLength + 1f);
+        yield return new WaitForSeconds(animationLength-0.25f);
+        villainAnimator.SetBool("walkingForward", false);
+        villainAnimator.SetBool("Idle", true);
+
+        yield return new WaitForSeconds(1f);
 
         Dialogue villainDialogue = villain.GetComponent<Dialogue>();
         DialogueManager.instance.startDialogue(villainDialogue);
