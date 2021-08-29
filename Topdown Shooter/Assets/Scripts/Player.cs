@@ -45,6 +45,7 @@ public class Player : MonoBehaviour
         {
             spRenderer.sprite = facedownSprite;
         }
+        GameController.instance.hideMessageBox();
         GameController.instance.displayDeathScreen();
     }
 

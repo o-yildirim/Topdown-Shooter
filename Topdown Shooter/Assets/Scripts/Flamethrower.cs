@@ -14,7 +14,7 @@ public class Flamethrower : Gun
 
     public override void fire()
     {
-        if (Time.time < nextFire) return;
+        if (Time.time < nextFire || bullets <= 0) return;
 
         nextFire = Time.time + fireRate;
         ps.Play();
